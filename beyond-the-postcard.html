@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Beyond the Postcard | 明信片之外的希腊 — Philhellene 希友</title>
+<!-- No external font requests: Google Fonts is blocked in mainland China,
+     so every font-family below falls through to fonts already installed
+     on the device (PingFang SC / Microsoft YaHei / Noto Sans CJK for
+     Chinese, system serif/sans-serif for English). Nothing is fetched
+     over the network. -->
+<style>
+  :root{
+    color-scheme: light;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --navy:#14335C;
+    --navy-soft:#5D7391;
+    --blue:#0071CE;
+    --blue-bright:#00AEE0;
+    --blue-pale:#E9F4FC;
+    --blue-line:#CFE4F3;
+    --white:#FFFFFF;
+    --paper:#F8FBFE;
+    --sand:#FBF2DE;
+    --sand-line:#EBDCB9;
+    --gold:#B8862B;
+    --olive:#5F7A4C;
+    --terra:#C05C3E;
+    --shadow-sm:0 1px 3px rgba(20,51,92,.07);
+    --shadow-md:0 8px 28px rgba(20,51,92,.10);
+  }
+  html{ scroll-padding-top:env(safe-area-inset-top,0px); background:var(--paper); }
+  *,*::before,*::after{ box-sizing:inherit; }
+  body{ margin:0; min-height:100%; background:var(--paper); color:var(--navy);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  body.zh{ font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei','Heiti SC',sans-serif; line-height:1.75; }
+  h1,h2,h3{ font-family:Georgia,'Times New Roman',serif; font-weight:600; line-height:1.15; margin:0; color:var(--navy); }
+  body.zh h1, body.zh h2, body.zh h3{ font-family:'Songti SC','STSong','SimSun','Noto Serif CJK SC',serif; line-height:1.4; }
+  p{ margin:0; }
+  button{ font-family:inherit; }
+
+  .app{ max-width:800px; margin:0 auto; min-height:100vh; display:flex; flex-direction:column; background:var(--white); box-shadow:var(--shadow-md); }
+
+  /* ---------- language gate ---------- */
+  .gate{ min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:40px 28px;
+    background:linear-gradient(180deg,#D7EDFA 0%,#F3FAFE 46%,#FFFFFF 100%); }
+  .gate-inner{ max-width:520px; margin:0 auto; width:100%; text-align:center; }
+  .gate-mark{ font-size:.76rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); margin-bottom:26px; font-weight:700; }
+  .gate-art{ width:100%; max-width:340px; margin:0 auto 28px; display:block; }
+  .gate h1{ font-size:clamp(1.7rem,5.4vw,2.35rem); margin-bottom:6px; }
+  .gate .h1zh{ font-family:'Songti SC','STSong','SimSun','Noto Serif CJK SC',serif; font-weight:600; font-size:clamp(1.35rem,4.4vw,1.75rem); color:var(--navy); margin-bottom:22px; line-height:1.45; }
+  .gate .sub{ color:var(--navy-soft); font-size:1rem; line-height:1.65; margin-bottom:6px; }
+  .gate .subzh{ color:var(--navy-soft); font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif; font-size:.95rem; line-height:1.85; margin-bottom:32px; }
+  .lang-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+  .lang-btn{ flex:1 1 180px; max-width:230px; border:2px solid var(--blue-line); background:#fff; border-radius:16px;
+    padding:20px 18px; cursor:pointer; transition:border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease; }
+  .lang-btn:hover{ border-color:var(--blue); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+  .lang-btn .big{ display:block; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:3px; }
+  .lang-btn .small{ display:block; font-size:.84rem; color:var(--navy-soft); }
+  .lang-btn.zh .big{ font-family:'Songti SC','STSong','SimSun',serif; }
+  .privacy{ border:1px solid var(--blue-line); background:var(--blue-pale); border-radius:14px; padding:16px 20px; text-align:left; }
+  .privacy .row{ display:flex; gap:11px; align-items:flex-start; font-size:.86rem; color:var(--navy-soft); line-height:1.65; }
+  .privacy .row + .row{ margin-top:9px; padding-top:9px; border-top:1px solid var(--blue-line); font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif; line-height:1.8; }
+  .privacy svg{ width:17px; height:17px; flex:none; margin-top:3px; stroke:var(--blue); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .gate-foot{ margin-top:26px; font-size:.76rem; color:var(--navy-soft); opacity:.8; }
+
+  /* ---------- hero ---------- */
+  .sky{ position:relative; overflow:hidden; height:min(26vh,196px); min-height:146px;
+    background:linear-gradient(180deg,var(--sky-top,#CFEAFA) 0%,var(--sky-bottom,#F4FBFF) 100%); transition:background 600ms ease; }
+  .sky .sun{ position:absolute; width:36px; height:36px; border-radius:50%; background:var(--sun-color,#fff);
+    transform:translateX(-50%); transition:left 600ms ease, background 600ms ease, box-shadow 600ms ease, bottom 600ms ease; }
+  .cloud{ position:absolute; fill:#fff; opacity:.82; }
+  .sky svg.skyline{ position:absolute; left:0; right:0; bottom:0; width:100%; height:54%; display:block; }
+  .brandmark{ position:absolute; top:16px; left:26px; z-index:3; }
+  .brandmark .org{ display:block; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); font-weight:700; }
+  .brandmark .word{ display:block; font-family:Georgia,'Times New Roman',serif; font-weight:600; font-size:1.12rem; color:var(--navy); }
+  body.zh .brandmark .word{ font-family:'Songti SC','STSong','SimSun',serif; font-weight:700; }
+  .langswap{ position:absolute; top:16px; right:22px; z-index:3; background:rgba(255,255,255,.75); border:1px solid var(--blue-line);
+    border-radius:999px; padding:5px 13px; font-size:.78rem; color:var(--navy); cursor:pointer; font-weight:600; }
+
+  .track{ height:3px; background:var(--blue-line); }
+  .track > div{ height:100%; background:var(--blue-bright); transition:width 360ms ease; }
+
+  .panel{ flex:1; background:var(--white); padding:30px 30px 58px; }
+  .panel-inner{ max-width:580px; margin:0 auto; animation:rise 360ms ease both; }
+  @keyframes rise{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  @media (prefers-reduced-motion:reduce){ .panel-inner{animation:none} }
+
+  .step-count{ font-size:.82rem; color:var(--navy-soft); margin-bottom:9px; }
+  .q-title{ font-size:clamp(1.42rem,4vw,1.92rem); margin-bottom:8px; }
+  body.zh .q-title{ font-size:clamp(1.3rem,3.7vw,1.66rem); }
+  .q-note{ font-size:.9rem; color:var(--navy-soft); line-height:1.7; margin-bottom:22px; }
+  body.zh .q-note{ line-height:1.85; }
+
+  .options{ display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+  .option{ display:flex; align-items:center; gap:14px; text-align:left; width:100%;
+    border:1.5px solid var(--blue-line); background:#fff; color:var(--navy); border-radius:12px; padding:14px 17px; cursor:pointer;
+    transition:border-color 140ms ease, background-color 140ms ease; }
+  .option:hover{ border-color:var(--blue-bright); background:var(--paper); }
+  .option.selected{ border-color:var(--blue); background:var(--blue-pale); }
+  .option svg{ width:23px; height:23px; flex:none; stroke:var(--blue); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .option .label{ font-size:1rem; font-weight:500; }
+  .option .sub{ display:block; font-size:.8rem; color:var(--navy-soft); font-weight:400; margin-top:2px; line-height:1.5; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px; }
+  .chip{ display:flex; align-items:center; gap:8px; border:1.5px solid var(--blue-line); background:#fff; color:var(--navy);
+    border-radius:999px; padding:9px 16px; cursor:pointer; font-size:.93rem; font-weight:500;
+    transition:border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+  .chip svg{ width:17px; height:17px; stroke:var(--blue); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .chip:hover{ border-color:var(--blue-bright); }
+  .chip.selected{ border-color:var(--blue); background:var(--blue); color:#fff; }
+  .chip.selected svg{ stroke:#fff; }
+
+  .slider-wrap{ margin-bottom:28px; }
+  input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:5px; border-radius:3px; background:var(--blue-line); margin:24px 0 14px; }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:26px; height:26px; border-radius:50%; background:var(--blue); border:4px solid #fff; box-shadow:var(--shadow-sm); cursor:pointer; }
+  input[type=range]::-moz-range-thumb{ width:26px; height:26px; border-radius:50%; background:var(--blue); border:4px solid #fff; cursor:pointer; }
+  .slider-labels{ display:flex; justify-content:space-between; gap:18px; }
+  .slider-labels span{ font-size:.85rem; color:var(--navy-soft); max-width:16em; line-height:1.55; }
+  .slider-labels span:last-child{ text-align:right; }
+  .slider-labels span.active{ color:var(--navy); font-weight:700; }
+
+  .nav-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .btn{ border:none; border-radius:999px; padding:13px 28px; font-size:1rem; font-weight:700; cursor:pointer; transition:transform 130ms ease, background-color 130ms ease; }
+  .btn:active{ transform:scale(.98); }
+  .btn:disabled{ opacity:.36; cursor:not-allowed; }
+  .btn-primary{ background:var(--blue); color:#fff; }
+  .btn-primary:hover:not(:disabled){ background:#005CAB; }
+  .btn-ghost{ background:transparent; color:var(--navy-soft); padding:13px 8px; font-weight:600; }
+  .btn-outline{ background:#fff; color:var(--blue); border:1.5px solid var(--blue); border-radius:999px; padding:12px 24px; font-weight:700; cursor:pointer; font-size:.95rem; }
+
+  .hero-copy h1{ font-size:clamp(1.9rem,5.6vw,2.7rem); margin-bottom:16px; }
+  .hero-copy p{ font-size:1.02rem; color:var(--navy-soft); margin-bottom:26px; line-height:1.72; }
+  body.zh .hero-copy p{ line-height:1.9; }
+  .hero-meta{ font-size:.85rem; color:var(--navy-soft); margin-top:14px; line-height:1.6; }
+
+  /* ---------- result ---------- */
+  .badge-row{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+  .badge{ font-size:.74rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:4px 11px; border-radius:999px; }
+  body.zh .badge{ text-transform:none; letter-spacing:.02em; }
+  .badge.type{ background:var(--blue-pale); color:var(--blue); }
+  .badge.region{ background:var(--sand); color:var(--gold); }
+  .badge.quiet{ background:#E8F1E4; color:var(--olive); }
+
+  .place-name{ font-size:clamp(1.8rem,5.6vw,2.4rem); margin-bottom:2px; }
+  .place-alt{ font-size:.98rem; color:var(--navy-soft); margin-bottom:18px; }
+  body.zh .place-alt{ font-family:Georgia,'Times New Roman',serif; }
+
+  .mapbox{ border:1.5px solid var(--blue-line); border-radius:16px; overflow:hidden; margin-bottom:16px; background:#F2F9FE; }
+  .mapbox svg{ display:block; width:100%; height:auto; }
+  .dist-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .dist{ display:flex; align-items:center; gap:7px; background:var(--paper); border:1px solid var(--blue-line);
+    border-radius:10px; padding:8px 13px; font-size:.86rem; color:var(--navy); }
+  .dist svg{ width:16px; height:16px; stroke:var(--blue); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .dist b{ font-weight:700; }
+
+  .usp{ background:linear-gradient(135deg,#FDF6E6 0%,#FBF2DE 100%); border:1.5px solid var(--sand-line);
+    border-radius:16px; padding:20px 22px; margin-bottom:24px; }
+  .usp .ttl{ display:block; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:7px; }
+  body.zh .usp .ttl{ letter-spacing:.04em; text-transform:none; }
+  .usp p{ font-size:1.06rem; line-height:1.6; color:var(--navy); font-weight:500; }
+  body.zh .usp p{ line-height:1.8; }
+
+  .sect{ margin-bottom:24px; }
+  .sect h3{ font-size:1.06rem; margin-bottom:9px; display:flex; align-items:center; gap:9px; }
+  .sect h3 svg{ width:19px; height:19px; stroke:var(--blue); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .sect p{ font-size:.96rem; line-height:1.78; color:var(--navy); }
+  body.zh .sect p{ line-height:1.9; }
+  .sect ul{ margin:0; padding-left:20px; }
+  .sect li{ font-size:.95rem; line-height:1.78; margin-bottom:6px; }
+  body.zh .sect li{ line-height:1.9; }
+
+  .film{ background:#F1F4F8; border-left:3px solid var(--navy); border-radius:0 12px 12px 0; padding:14px 18px; margin-bottom:24px; }
+  .film .ttl{ font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--navy-soft); font-weight:700; margin-bottom:5px; }
+  body.zh .film .ttl{ letter-spacing:.03em; text-transform:none; }
+  .film p{ font-size:.94rem; line-height:1.72; }
+  body.zh .film p{ line-height:1.88; }
+
+  .food{ background:#F5F8F2; border:1px solid #DFE9D7; border-radius:14px; padding:16px 20px; margin-bottom:24px; }
+  .food .ttl{ display:flex; align-items:center; gap:8px; font-weight:700; color:var(--olive); font-size:.95rem; margin-bottom:6px; }
+  .food .ttl svg{ width:18px; height:18px; stroke:var(--olive); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .food p{ font-size:.94rem; line-height:1.75; }
+  body.zh .food p{ line-height:1.9; }
+
+  .swap{ border:1.5px dashed var(--blue-line); border-radius:14px; padding:16px 20px; margin-bottom:26px; background:var(--paper); }
+  .swap .ttl{ font-size:.86rem; font-weight:700; color:var(--blue); margin-bottom:6px; }
+  .swap p{ font-size:.92rem; line-height:1.72; color:var(--navy-soft); }
+  body.zh .swap p{ line-height:1.9; }
+  .meter{ display:flex; align-items:center; gap:10px; margin-top:12px; font-size:.8rem; color:var(--navy-soft); }
+  .meter .bar{ flex:1; height:7px; border-radius:4px; background:var(--blue-line); overflow:hidden; }
+  .meter .bar i{ display:block; height:100%; border-radius:4px; }
+
+  .more{ display:flex; flex-direction:column; gap:12px; margin-bottom:8px; }
+  .more-card{ border:1.5px solid var(--blue-line); border-radius:14px; padding:15px 18px; background:#fff; cursor:pointer; text-align:left; width:100%;
+    transition:border-color 140ms ease, background 140ms ease; }
+  .more-card:hover{ border-color:var(--blue-bright); background:var(--paper); }
+  .more-card .nm{ font-family:Georgia,'Times New Roman',serif; font-weight:600; font-size:1.1rem; color:var(--navy); margin-bottom:3px; }
+  body.zh .more-card .nm{ font-family:'Songti SC','STSong','SimSun',serif; }
+  .more-card .ds{ font-size:.87rem; color:var(--navy-soft); line-height:1.6; }
+  body.zh .more-card .ds{ line-height:1.8; }
+
+  .divider{ height:1px; background:var(--blue-line); margin:30px 0; border:none; }
+  .closing{ background:var(--blue-pale); border-radius:16px; padding:22px 24px; margin-bottom:22px; }
+  .closing h3{ font-size:1.1rem; margin-bottom:8px; }
+  .closing p{ font-size:.93rem; color:var(--navy-soft); line-height:1.75; }
+  .closing p sup{ font-size:.62rem; color:var(--blue); font-weight:700; padding:0 1px; }
+  .srcnote{ margin:14px 0 0; padding-left:16px; list-style:decimal; }
+  .srcnote li{ font-size:.69rem; line-height:1.6; color:#8B9AAB; margin-top:4px; }
+  body.zh .srcnote li{ line-height:1.75; }
+  .srcnote i{ font-style:italic; }
+  body.zh .closing p{ line-height:1.92; }
+  .action-row{ display:flex; gap:12px; flex-wrap:wrap; }
+
+
+  .pcard{ margin-bottom:18px; border-radius:14px; overflow:hidden; box-shadow:0 6px 22px rgba(20,51,92,.14); background:#fff; }
+  .pcard svg{ display:block; width:100%; height:auto; }
+  .sharecard .sc-pc{ padding:0 14px 2px; }
+  .sharecard .sc-pc svg{ display:block; width:100%; height:auto; border-radius:10px; box-shadow:0 3px 12px rgba(20,51,92,.16); }
+  .pairbox{ border:2px solid var(--blue); border-radius:16px; padding:20px 22px; margin-bottom:26px; background:var(--blue-pale); }
+  .pairbox .ttl{ font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); font-weight:700; margin-bottom:8px; }
+  body.zh .pairbox .ttl{ letter-spacing:.04em; text-transform:none; }
+  .pairbox p{ font-size:.95rem; line-height:1.72; color:var(--navy); margin-bottom:14px; }
+  body.zh .pairbox p{ line-height:1.9; }
+  .pairlist{ display:flex; flex-direction:column; gap:9px; }
+  .pairbtn{ display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; text-align:left;
+    background:#fff; border:1.5px solid var(--blue-line); border-radius:11px; padding:12px 16px; cursor:pointer;
+    transition:border-color 140ms ease; }
+  .pairbtn:hover{ border-color:var(--blue); }
+  .pairbtn .pn{ font-family:Georgia,'Times New Roman',serif; font-weight:600; font-size:1.02rem; color:var(--navy); }
+  body.zh .pairbtn .pn{ font-family:'Songti SC','STSong','SimSun',serif; }
+  .pairbtn .pw{ font-size:.8rem; color:var(--navy-soft); }
+  .pairbtn .arw{ color:var(--blue); font-weight:700; flex:none; }
+
+  .season{ border:1px solid var(--blue-line); border-radius:14px; padding:16px 18px; margin-bottom:24px; }
+  .season .ttl{ display:flex; align-items:center; gap:8px; font-weight:700; font-size:.95rem; margin-bottom:12px; }
+  .season .ttl svg{ width:18px; height:18px; stroke:var(--blue); fill:none; stroke-width:1.7; stroke-linecap:round; }
+  .strip{ display:grid; grid-template-columns:repeat(12,1fr); gap:3px; margin-bottom:10px; }
+  .strip div{ text-align:center; font-size:.63rem; font-weight:700; padding:7px 0 6px; border-radius:5px; color:#fff; letter-spacing:.02em; }
+  .legend{ display:flex; flex-wrap:wrap; gap:12px; font-size:.76rem; color:var(--navy-soft); }
+  .legend span{ display:flex; align-items:center; gap:5px; }
+  .legend i{ width:10px; height:10px; border-radius:3px; display:block; }
+  .season p{ font-size:.9rem; color:var(--navy-soft); line-height:1.7; margin-top:10px; }
+  body.zh .season p{ line-height:1.88; }
+
+  .bridge{ background:#FBF4F2; border:1px solid #EFD9D2; border-radius:14px; padding:16px 20px; margin-bottom:24px; }
+  .bridge .ttl{ display:flex; align-items:center; gap:8px; font-weight:700; color:var(--terra); font-size:.95rem; margin-bottom:6px; }
+  .bridge .ttl svg{ width:18px; height:18px; stroke:var(--terra); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .bridge p{ font-size:.93rem; line-height:1.9; }
+
+  .overlay{ position:fixed; inset:0; background:rgba(20,51,92,.55); z-index:50; display:flex; align-items:center;
+    justify-content:center; padding:24px 18px; overflow-y:auto; }
+  .sharewrap{ max-width:340px; width:100%; }
+  .sharecard{ background:linear-gradient(170deg,#BEE4F7 0%,#EAF7FE 42%,#FFFFFF 100%); border-radius:20px; overflow:hidden;
+    box-shadow:0 16px 48px rgba(0,0,0,.3); }
+  .sharecard .sc-top{ padding:20px 22px 0; }
+  .sharecard .sc-org{ font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); font-weight:700; margin-bottom:12px; }
+  .sharecard .sc-eye{ font-size:.76rem; color:var(--navy-soft); margin-bottom:2px; }
+  .sharecard .sc-name{ font-family:Georgia,'Times New Roman',serif; font-weight:700; font-size:1.7rem; color:var(--navy); line-height:1.15; margin-bottom:3px; }
+  body.zh .sharecard .sc-name{ font-family:'Songti SC','STSong','SimSun',serif; }
+  .sharecard .sc-alt{ font-size:.78rem; color:var(--navy-soft); margin-bottom:14px; }
+  .sharecard .sc-map{ padding:0 14px; }
+  .sharecard .sc-map svg{ display:block; width:100%; height:auto; border-radius:12px; }
+  .sharecard .sc-body{ background:#fff; padding:16px 22px 20px; }
+  .sharecard .sc-usp{ font-size:.86rem; line-height:1.6; color:var(--navy); font-weight:500; margin-bottom:12px; }
+  body.zh .sharecard .sc-usp{ line-height:1.8; }
+  .sharecard .sc-foot{ display:flex; justify-content:flex-end; align-items:center; font-size:.66rem;
+    border-top:1px solid #EAF1F7; padding-top:9px; }
+  .sharecard .sc-foot b{ color:#A8C6DC; font-weight:500; letter-spacing:.06em; }
+  .share-actions{ display:flex; gap:10px; margin-top:14px; }
+  .share-actions button{ flex:1; border-radius:999px; padding:11px 14px; font-size:.88rem; font-weight:700; cursor:pointer; border:none; }
+  .sa-copy{ background:#fff; color:var(--navy); }
+  .sa-close{ background:rgba(255,255,255,.2); color:#fff; border:1.5px solid rgba(255,255,255,.6) !important; }
+  .share-hint{ color:#fff; font-size:.78rem; text-align:center; margin-top:12px; opacity:.9; line-height:1.55; }
+
+  @media (max-width:480px){ .panel{ padding:24px 20px 46px; } .brandmark{ left:20px; } .gate{ padding:32px 20px; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+var I={
+  temple:'<path d="M4 21h16M6 21V10M10 21V10M14 21V10M18 21V10M3 10l9-5 9 5"/>',
+  castle:'<path d="M4 21V8l3 2 3-4 4 4 3-2v13z"/><path d="M4 8V5h3v3M17 8V5h3v3"/>',
+  fork:'<path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11M18 3c-2 2-3 5-3 8h3v10"/>',
+  mountain:'<path d="M3 20l6-11 4 7 3-4.5 5 8.5H3z"/>',
+  craft:'<path d="M14 6l4 4L8 20H4v-4z"/><path d="M13 3l8 8"/>',
+  art:'<circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.4"/><circle cx="15" cy="9" r="1.4"/><circle cx="9.5" cy="15" r="1.4"/>',
+  wave:'<path d="M2 11c2-3 4-3 6 0s4 3 6 0 4-3 6 0M2 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>',
+  festival:'<path d="M12 3v18M5 9l7-6 7 6M4 21h16"/><path d="M8 14h8"/>',
+  island:'<path d="M3 18h18M7 18c0-5 2-9 5-9s5 4 5 9"/><path d="M12 9V5"/>',
+  town:'<path d="M3 21h18M6 21V11l5-4 5 4v10"/><path d="M9 21v-5h4v5"/>',
+  city:'<path d="M3 21h18M5 21V7h6v14M13 21V11h6v10"/><path d="M7 11h2M7 15h2M15 15h2"/>',
+  dice:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.3"/><circle cx="16" cy="16" r="1.3"/><circle cx="12" cy="12" r="1.3"/>',
+  plane:'<path d="M2 12l20-7-7 20-3-8z"/>',
+  ferry:'<path d="M3 17l2 4h14l2-4M6 17V7l6 3 6-3v10"/>',
+  car:'<path d="M5 17h14M4 17v-4l2-5h12l2 5v4"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
+  train:'<rect x="5" y="4" width="14" height="12" rx="3"/><path d="M5 11h14M8 20l-2 2M16 20l2 2"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/>',
+  scroll:'<path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 10h4M3 15h4M17 10h4M17 15h4"/>',
+  star:'<path d="M12 3l2.7 6 6.3.7-4.7 4.3 1.3 6.2L12 17l-5.6 3.2L7.7 14 3 9.7 9.3 9z"/>',
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
+  compass:'<circle cx="12" cy="12" r="9"/><path d="M14.7 9.3L10.2 14l4.5-1.5.5-3.2z"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  link:'<path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>',
+  share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>'
+};
+function ic(n){ return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(I[n]||'')+'</svg>'; }
+
+/* =========================================================
+   DESTINATIONS
+   type: island | town | city | region
+   pressure: 1 (very quiet) – 5 (heavily visited)
+   dist: distance from Athens, 1 (close) – 5 (far)
+   t: theme weights — ancient, byzantine, food, nature, village, art, sea, living
+   ========================================================= */
+var D=[
+{id:'nafplio',type:'town',lon:22.80,lat:37.57,pressure:2,dist:1,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:4,byzantine:4,food:4,nature:2,village:4,art:4,sea:3,living:3},
+ en:{name:'Nafplio',alt:'Ναύπλιο · Peloponnese',region:'Peloponnese',
+  usp:'The first capital of modern Greece — a whole city of Venetian fortresses, Ottoman fountains and neoclassical balconies, two hours from Athens and skipped by almost everyone racing to Epidaurus.',
+  history:'When Greece became a state, this was its seat of government from 1823 to 1834, before the capital moved to Athens. Ioannis Kapodistrias, the country\u2019s first head of state, was assassinated on the steps of St Spyridon church here in 1831 — the bullet hole is still in the doorframe. Above the town, the Venetian fortress of Palamidi is reached by a staircase of roughly a thousand steps; in the harbour sits Bourtzi, a small island castle that was once the home of the town executioner. Half an hour away, the ancient theatre of Epidaurus still stages Greek tragedy every summer, with acoustics so exact a coin dropped on the stage is audible in the back row.',
+  food:'Gogges, a hand-rolled pasta twisted around a knitting needle, served with aged cheese. The town sits at the edge of Nemea, Greece\u2019s most important red wine region, where the Agiorgitiko grape has been cultivated since antiquity — Nemea is where Heracles killed the lion.',
+  swap:'Most visitors treat the Peloponnese as a day trip from Athens. Staying two or three nights in Nafplio instead turns one rushed coach tour into money that stays in a small town of 14,000 people.'},
+ zh:{name:'纳夫普利翁',alt:'Nafplio · 伯罗奔尼撒',region:'伯罗奔尼撒',
+  usp:'现代希腊的第一个首都。威尼斯要塞、奥斯曼喷泉与新古典主义阳台层层叠在一起，距雅典仅两小时——却几乎被所有赶往埃皮达鲁斯的游客直接开车略过。',
+  history:'1823 至 1834 年，这里是新生希腊国家的首都，之后才迁都雅典。希腊第一任国家元首卡波迪斯特里亚斯于 1831 年在这座城市的圣斯皮里东教堂台阶上遇刺身亡，门框上的弹孔至今还在。城上方的威尼斯帕拉米迪城堡要爬近一千级台阶才能抵达；港口中的布尔奇小岛城堡，曾经是全城刽子手的住所。半小时车程外的埃皮达鲁斯古剧场每年夏天仍在上演古希腊悲剧，声学精确到在舞台上掉一枚硬币，最后一排都能听见。',
+  bridge:'一个国家把首都从临时驻地迁往更大的城市，这段历史中国人再熟悉不过：南京之于民国，正如纳夫普利翁之于现代希腊——第一个首都往往不是最终的首都，却留下了最完整的建国记忆。',
+  food:'Gogges——一种用织针卷成的手工面食，配陈年奶酪。小城紧邻希腊最重要的红葡萄酒产区内梅亚，当地的 Agiorgitiko 葡萄自古代起就在种植；内梅亚正是神话中赫拉克勒斯斩杀巨狮的地方。',
+  swap:'大多数人只把伯罗奔尼撒当作雅典的一日游。改成在纳夫普利翁住上两三晚，一场匆忙的大巴团就变成了留在这座一万四千人小城里的实在收入。'}},
+
+{id:'monemvasia',type:'town',lon:23.05,lat:36.69,pressure:2,dist:3,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:2,byzantine:5,food:3,nature:3,village:5,art:3,sea:4,living:2},
+ en:{name:'Monemvasia',alt:'Μονεμβασιά · Laconia',region:'Peloponnese',
+  usp:'A Byzantine fortress town carved into the seaward face of a rock — invisible from the mainland, entered through a single gate, and still inhabited. No cars have ever driven inside it.',
+  history:'Founded in 583 AD by Byzantines fleeing Slavic raids, the town clings to a limestone monolith connected to the shore by one causeway; its name means "single entrance." It passed between Byzantines, Venetians, Franks and Ottomans for a thousand years, and was one of the first towns liberated in the 1821 War of Independence. The poet Yannis Ritsos was born inside the walls and is buried just outside them. The upper town, now ruined, still holds the 12th-century church of Agia Sofia on the cliff edge.',
+  food:'Malvasia — the sweet wine that took its name from Monemvasia and travelled across medieval Europe as "Malmsey," the wine Shakespeare\u2019s Duke of Clarence drowns in. Local producers revived it in 2010 after a gap of centuries. Also saitia, a fried cheese parcel drizzled with honey.',
+  swap:'Monemvasia receives a fraction of the visitors of a comparable Italian hill town. Arriving outside July and August means you may have the upper town entirely to yourself.'},
+ zh:{name:'莫奈姆瓦夏',alt:'Monemvasia · 拉科尼亚',region:'伯罗奔尼撒',
+  usp:'一座凿在巨岩临海一面的拜占庭要塞城。从陆地上完全看不见它，只有一道城门可以进入，至今仍有人居住——城里从未开进过一辆汽车。',
+  history:'公元 583 年，躲避斯拉夫人劫掠的拜占庭人建起了这座城。它攀附在一块石灰岩巨岩上，只靠一条堤道与陆地相连，名字的意思就是"唯一的入口"。此后一千年间，它在拜占庭、威尼斯、法兰克与奥斯曼之间几经易手，也是 1821 年独立战争中最早光复的城镇之一。诗人扬尼斯·里索斯出生在城墙之内，葬在城墙之外。如今已成废墟的上城，悬崖边仍立着 12 世纪的圣索菲亚教堂。',
+  bridge:'一座只有一个入口、靠地形自保的城，很容易让人想到平遥或凤凰的城墙逻辑：不是为了壮观，而是为了活下来。不同的是，莫奈姆瓦夏把整座城藏在了一块海中巨岩的背面，从陆地上完全看不见。',
+  food:'Malvasia 甜酒——它的名字就来自莫奈姆瓦夏，中世纪时以"Malmsey"之名风行全欧，莎士比亚笔下克拉伦斯公爵正是溺死在这种酒的酒桶里。断代数百年后，本地酒庄在 2010 年重新复原了它。另有 saitia，一种淋蜂蜜的炸奶酪卷。',
+  swap:'与体量相当的意大利山城相比，莫奈姆瓦夏的游客量只有零头。避开七八月前来，整座上城很可能只属于你一个人。'}},
+
+{id:'meteora',type:'region',lon:21.63,lat:39.71,pressure:3,dist:3,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:2,byzantine:5,food:3,nature:5,village:3,art:4,sea:1,living:3},
+ en:{name:'Meteora',alt:'Μετέωρα · Thessaly',region:'Central Greece',
+  usp:'Six working monasteries balanced on top of sandstone pillars up to 400 metres high. Monks first reached them by rope ladders and nets that were replaced, in the old saying, "only when the Lord let them break."',
+  history:'Hermits began living in the rock cavities in the 11th century; the monasteries were built from the 14th century onwards as the Byzantine Empire collapsed and Serbian and Ottoman raids swept Thessaly. Twenty-four were built; six remain active. The frescoes inside — particularly at Varlaam and Great Meteoron — are among the finest post-Byzantine painting anywhere. UNESCO listed the site in 1988 under both cultural and natural criteria, a rare combination.',
+  film:'The climactic sequence of the James Bond film For Your Eyes Only (1981) was shot at Holy Trinity Monastery, with Roger Moore scaling the rock face. The monks, unhappy about the filming, hung laundry from the windows to disrupt the shots.',
+  food:'Thessaly is hearty mountain cooking: hilopites egg noodles, slow-cooked lamb, and the local tsipouro distilled after the grape harvest. The nearby town of Kalabaka is known for its bean and pork dishes rather than anything coastal.',
+  swap:'Meteora is busy at midday when the coaches arrive from Athens and Thessaloniki. Staying overnight in Kastraki gives you sunrise and sunset on the rocks almost alone — and keeps the spending in the village rather than on the bus.'},
+ zh:{name:'迈泰奥拉',alt:'Meteora · 色萨利',region:'希腊中部',
+  usp:'六座仍在运作的修道院，架在高达四百米的砂岩巨柱顶端。最早的修士靠绳梯和吊网上下，而按当地的老话说，那些绳子"只有在上帝让它断的时候才会换"。',
+  history:'11 世纪起，隐修士开始住进岩洞；14 世纪之后，随着拜占庭帝国崩溃、塞尔维亚人与奥斯曼人的劫掠席卷色萨利，修道院被一座座建起。前后共建成二十四座，如今仍有六座在运作。院内的壁画——尤其是瓦尔拉姆与大迈泰奥拉两座——是后拜占庭绘画的最高水准。1988 年，联合国教科文组织同时以文化与自然两项标准将其列入世界遗产，这种双重身份极为罕见。',
+  film:'007 电影《最高机密》（For Your Eyes Only，1981）的高潮戏就在圣三一修道院拍摄，罗杰·摩尔徒手攀上岩壁。修士们对剧组进驻颇有意见，特意在窗口晾出衣物来干扰取景。',
+  bridge:'把修行之所建在悬崖绝壁上，中国有山西的悬空寺——同样贴着峭壁、同样靠木石与信念撑住。两者相隔七千公里，却都源于同一个念头：离世俗越远，离天越近。',
+  food:'色萨利是扎实的山地菜：hilopites 鸡蛋面、慢炖羊肉，以及葡萄收成后蒸馏的本地 tsipouro 烈酒。山脚的卡兰巴卡以豆类和猪肉料理闻名，而非海产。',
+  swap:'正午时分，来自雅典和塞萨洛尼基的大巴集中抵达，是迈泰奥拉最拥挤的时候。在山脚的卡斯特拉基住上一晚，日出与日落时分的巨岩几乎只属于你——钱也留在了村子里，而不是留在大巴上。'}},
+
+{id:'delphi',type:'town',lon:22.50,lat:38.48,pressure:3,dist:1,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:5,byzantine:2,food:3,nature:4,village:3,art:4,sea:2,living:2},
+ en:{name:'Delphi',alt:'Δελφοί · Phocis',region:'Central Greece',
+  usp:'The place the ancient world believed was the centre of the earth — built on a mountainside so steep that the sanctuary climbs in terraces, with a view running all the way down to the sea.',
+  history:'For a thousand years, Greek cities, kings and eventually Roman emperors sent envoys here to ask the Pythia, Apollo\u2019s priestess, what to do. Her answers, famously ambiguous, shaped wars and colonies across the Mediterranean. A stone called the omphalos marked what Zeus determined was the navel of the world, after releasing two eagles from opposite ends of the earth. The site held the Pythian Games, second only to Olympia, and the museum holds the Charioteer — a life-size bronze from 470 BC with eyelashes still intact.',
+  food:'Arachova, ten minutes up the mountain, makes formaela — a firm sheep\u2019s cheese sliced and grilled until it blisters, served with lemon. The Parnassos slopes produce mountain honey, trahana and hilopites.',
+  swap:'Most people see Delphi in three hours on a coach from Athens and leave. The mountain villages above it — Arachova, Chrisso, Desfina — are barely visited outside ski season, and are where the region\u2019s food actually lives.'},
+ zh:{name:'德尔斐',alt:'Delphi · 福基斯',region:'希腊中部',
+  usp:'古代世界所认定的"大地中心"。圣域依着陡峭的山坡一层层向上叠起，视线可以一路落到远处的海面。',
+  history:'在长达一千年的时间里，希腊各城邦、国王乃至后来的罗马皇帝，都派使节来此向阿波罗的女祭司皮媞亚请示该怎么做。她那些著名的模棱两可的回答，左右了地中海世界的战争与殖民。宙斯从大地两端各放出一只鹰，相遇之处便是"世界的肚脐"，由一块名为 omphalos 的石头标记。这里举办的皮提亚竞技会，地位仅次于奥林匹亚。博物馆中收藏的《驭者》是公元前 470 年的真人大小青铜像，连睫毛都完整保存至今。',
+  bridge:'希腊城邦出兵前派使者去德尔斐问神谕，商王出征前则灼烧龟甲、看裂纹定吉凶。安阳出土的十几万片甲骨，本质上就是一部国家级的问卜档案。两个文明都相信：重大决定不该只由人来做。',
+  food:'山上十分钟车程的阿拉霍瓦出产 formaela——一种质地紧实的羊奶酪，切片煎到表皮起泡，挤上柠檬即食。帕纳索斯山坡还产山地蜂蜜、trahana 与 hilopites。',
+  swap:'大多数人坐大巴从雅典来，花三小时看完德尔斐就走。而山上的阿拉霍瓦、赫里索、德斯菲纳这些村子，除了滑雪季几乎无人到访——那里才是这片山区真正的饮食所在。'}},
+
+{id:'pelion',type:'region',lon:23.10,lat:39.36,pressure:2,dist:2,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:3,byzantine:3,food:5,nature:5,village:5,art:3,sea:4,living:4},
+ en:{name:'Pelion & Volos',alt:'Πήλιο · Thessaly',region:'Central Greece',
+  usp:'The mythological home of the centaurs: a mountain ridge of cobbled stone villages with the Aegean on one side and a calm gulf on the other — and the most generous drinking ritual in Greece at its foot.',
+  history:'The port of Volos stands on ancient Iolcos, where Jason assembled the Argonauts and sailed for the Golden Fleece. Pelion itself was where Chiron the centaur — the one civilised member of a wild race — tutored Achilles, Jason and Asclepius. The mountain villages of Makrinitsa, Vizitsa and Milies kept their stone mansions and slate roofs because Ottoman rule here was unusually light: Pelion was granted privileges in exchange for supplying silk, and the wealth built schools and libraries. Milies\u2019 library held banned books that helped seed the independence movement.',
+  food:'Volos is the capital of the tsipouradiko. You order a small bottle of tsipouro and a plate of meze arrives free; order another and a different plate arrives; the meze changes every round and the afternoon disappears. Up the mountain: spetsofai, country sausage stewed with peppers, and Pelion apples and chestnuts.',
+  swap:'Pelion has a full road network, ferries to the Sporades, and almost no international visitors outside August. It is the clearest example in Greece of a region that could comfortably take more people and currently does not get them.'},
+ zh:{name:'皮立翁山与沃洛斯',alt:'Pelion & Volos · 色萨利',region:'希腊中部',
+  usp:'神话中半人马的故乡：一道山脊上散落着石板铺就的老村，一侧是爱琴海，另一侧是风平浪静的海湾——山脚下则有全希腊最慷慨的饮酒仪式。',
+  history:'沃洛斯港建在古代的伊俄尔科斯城上，伊阿宋正是在这里召集阿尔戈英雄、启航去寻找金羊毛。皮立翁山则是半人马喀戎——这个野蛮族群中唯一开化者——教导阿喀琉斯、伊阿宋与医神阿斯克勒庇俄斯的地方。马克里尼察、维齐察、米利耶斯这些山村之所以完整保留了石砌宅邸与石板屋顶，是因为奥斯曼在此的统治异常宽松：皮立翁以供应生丝换来了特权，积累的财富建起了学校与图书馆。米利耶斯图书馆里收藏的禁书，为独立运动埋下了种子。',
+  bridge:'皮立翁山脊上那些石板屋顶、依山而筑的村落，与徽州的古村落在气质上惊人地接近——都是靠一段特殊的税赋或商贸特权积累了财富，然后把钱变成了石头、书院和桥。',
+  food:'沃洛斯是 tsipouradiko（小酒馆）的首都。你点一小瓶 tsipouro，店家免费送上一碟小菜；再点一瓶，换一碟新的；每一轮的菜都不重样，一个下午就这样过去了。山上则有 spetsofai——乡村香肠炖甜椒，以及皮立翁的苹果和栗子。',
+  swap:'皮立翁公路网完整，有渡轮通往斯波拉泽斯群岛，八月之外几乎见不到国际游客。在全希腊，它是"完全有能力接待更多人、却始终没等到人"的最典型例子。'}},
+
+{id:'thessaloniki',type:'city',lon:22.94,lat:40.64,pressure:3,dist:3,
+ months:'GGGBBGGGBBGG',
+ t:{ancient:4,byzantine:5,food:5,nature:1,village:1,art:5,sea:2,living:5},
+ en:{name:'Thessaloniki',alt:'Θεσσαλονίκη · Macedonia',region:'Northern Greece',
+  usp:'Greece\u2019s second city and its most layered: Roman rotunda, Byzantine churches, Ottoman baths and the ghost of one of the largest Sephardic Jewish communities in the world, all within a twenty-minute walk — plus the best street food in the country.',
+  history:'Founded in 315 BC and named after Alexander the Great\u2019s half-sister. The Rotunda, built as a Roman mausoleum for the emperor Galerius, has been a church, a mosque and a monument in turn; its minaret still stands beside it. Fifteen of the city\u2019s Paleochristian and Byzantine monuments are inscribed by UNESCO. After Spain expelled its Jews in 1492, the Ottoman sultan settled tens of thousands of them here; for four hundred years Thessaloniki was a majority-Jewish city, known as the Mother of Israel, with Ladino spoken in the port. Almost the entire community was deported in 1943. The city was also the birthplace of Mustafa Kemal Atatürk, whose house is now a museum.',
+  food:'Bougatsa for breakfast — semolina custard in crackling phyllo, cut with a scraper and dusted with sugar. Then koulouri from a street cart, trigona panoramatos (cream-filled pastry horns), and a long evening in a tsipouro bar where every round brings new meze. The city\u2019s food carries Anatolian and Sephardic memory that Athens does not have.',
+  swap:'Thessaloniki receives roughly a tenth of Athens\u2019 international arrivals despite being a 50-minute flight away and an easier city to walk. It is the single most effective way to add a second Greek city to a trip.'},
+ zh:{name:'塞萨洛尼基',alt:'Thessaloniki · 马其顿',region:'希腊北部',
+  usp:'希腊第二大城，也是层次最厚的一座：罗马圆形大厅、拜占庭教堂、奥斯曼浴场，以及世界上最大的塞法迪犹太社群之一留下的余影——全都在二十分钟步行圈内。街头小吃也是全希腊第一。',
+  history:'公元前 315 年建城，以亚历山大大帝同父异母的妹妹命名。圆形大厅最初是罗马皇帝伽列里乌斯的陵墓，此后先后成为教堂、清真寺与纪念建筑，旁边的宣礼塔至今矗立。城中十五处早期基督教与拜占庭遗迹已列入世界遗产。1492 年西班牙驱逐犹太人后，奥斯曼苏丹将其中数万人安置在此；此后四百年，塞萨洛尼基一直是犹太人占多数的城市，被称为"以色列之母"，港口里通行拉迪诺语。1943 年，整个社群几乎被悉数驱逐。这里也是土耳其国父凯末尔的出生地，故居现为博物馆。',
+  bridge:'罗马人修建的艾格纳提亚大道由此穿过，把亚得里亚海与君士坦丁堡连在一起——它正是丝绸之路最西端的陆上延伸。从长安出发的丝绸，在走完沙漠与海洋之后，最后一程往往就走在这条路上。',
+  food:'早餐是 bougatsa——酥皮里裹着粗麦布丁，用刮刀切开、撒上糖粉。接着是街头推车上的 koulouri 芝麻圈、trigona panoramatos 奶油酥角，然后在 tsipouro 小酒馆里消磨整个夜晚，每一轮酒都配上新的小菜。这座城市的味道里有安纳托利亚与塞法迪的记忆，是雅典没有的。',
+  swap:'塞萨洛尼基距雅典只有 50 分钟飞行，城市更适合步行，国际到访量却只有雅典的约十分之一。想在行程里加上第二座希腊城市，它是效率最高的选择。'}},
+
+{id:'vergina',type:'town',lon:22.32,lat:40.48,pressure:2,dist:4,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:5,byzantine:2,food:4,nature:2,village:3,art:5,sea:1,living:2},
+ en:{name:'Vergina & Naoussa',alt:'Βεργίνα · Imathia',region:'Northern Greece',
+  usp:'The intact royal tomb of Philip II — Alexander the Great\u2019s father — with his cremated remains still inside a gold casket, displayed underground exactly where it was found. There is rarely a queue.',
+  history:'Vergina stands on ancient Aigai, the first capital of Macedon and the burial ground of its kings. In 1977 the archaeologist Manolis Andronikos opened a tomb beneath a large earth mound and found it unlooted — the only unrobbed Macedonian royal tomb ever discovered. Inside were a gold larnax stamped with the Macedonian sun, a gold wreath of oak leaves, iron armour and ivory portrait heads. Philip II was assassinated at Aigai in 336 BC during his daughter\u2019s wedding; Alexander was proclaimed king on the spot. The site became a UNESCO listing in 1996. The museum is built into the mound itself, so you descend into the dark to see the tombs in situ.',
+  food:'Nearby Naoussa grows Xinomavro, the grape behind Greece\u2019s most age-worthy red — often compared to Barolo for its tannin and its stubbornness. The region also makes Naoussa peaches and the sweet fried pastry bougatsa served all across Macedonia.',
+  swap:'Vergina holds a discovery comparable in significance to Tutankhamun\u2019s tomb and receives a small fraction of the visitors of the Acropolis. Pairing it with Thessaloniki adds one day and an entirely different chapter of Greek history.'},
+ zh:{name:'韦尔吉纳与纳乌萨',alt:'Vergina & Naoussa · 伊马夏',region:'希腊北部',
+  usp:'腓力二世——亚历山大大帝之父——完好无损的王陵。他火化后的遗骨至今仍装在那只黄金匣中，就在被发现的原位、地下原址展出。这里几乎从不排队。',
+  history:'韦尔吉纳所在之处是古代的埃盖，马其顿的第一个首都，也是历代国王的葬地。1977 年，考古学家安德罗尼科斯挖开一座大土丘下的陵墓，发现它从未被盗——这是迄今唯一一座未遭劫掠的马其顿王陵。墓中出土了压印着马其顿太阳纹的黄金骨匣、橡叶黄金花冠、铁甲，以及象牙雕成的肖像头像。公元前 336 年，腓力二世在女儿的婚礼上于埃盖遇刺，亚历山大当场被拥立为王。1996 年，这里被列入世界遗产。博物馆直接建在土丘内部，你要走进黑暗中，才能在原位看见这些陵墓。',
+  bridge:'腓力二世墓（前 336 年）未遭盗掘、原封不动地出土，其震撼程度可以直接对照曾侯乙墓（前 433 年）——年代相近，同样完整，同样让人第一次真正看清了一个时代的工艺上限。',
+  food:'邻近的纳乌萨种植 Xinomavro 葡萄，酿出希腊最耐陈年的红酒——因其单宁与倔强，常被拿来与巴罗洛相比。这一带还出产纳乌萨蜜桃，以及整个马其顿都吃得到的甜口炸酥皮点心。',
+  swap:'韦尔吉纳的发现意义可与图坦卡蒙墓相提并论，游客量却只有卫城的一个零头。把它和塞萨洛尼基串在一起，只多花一天，却补上了希腊历史里完全不同的一章。'}},
+
+{id:'zagori',type:'region',lon:20.85,lat:39.67,pressure:2,dist:4,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:1,byzantine:4,food:5,nature:5,village:5,art:3,sea:1,living:4},
+ en:{name:'Ioannina & Zagori',alt:'Ιωάννινα · Epirus',region:'Epirus',
+  usp:'An Ottoman lakeside city with an inhabited island at its centre, backed by 46 stone villages and the deepest gorge in the world relative to its width.',
+  history:'Ioannina was the capital of Ali Pasha, the Albanian-born governor who ruled Epirus semi-independently of the Sultan for thirty years, courted Napoleon and Britain in turn, and was finally cornered and killed on the lake island in 1822 — his severed head sent to Constantinople. Byron visited his court and wrote about it. North of the city, the Zagori villages were granted self-rule under the Ottomans in exchange for guarding the mountain passes; the wealth from that autonomy built arched stone bridges, cobbled mule paths and schools. The Zagori Cultural Landscape was inscribed by UNESCO in 2023, one of Greece\u2019s newest listings. The Vikos Gorge has the greatest depth-to-width ratio of any canyon on earth.',
+  food:'Epirus is the land of the pita — not pita bread, but hand-rolled phyllo pies filled with greens, cheese, pumpkin or nettles, a different one in every village. Nearby Metsovo makes smoked Metsovone cheese and Katogi, one of the first serious Greek estate wines. Tsipouro is drunk here with everything.',
+  swap:'Epirus is a one-hour flight from Athens and receives fewer international visitors in a year than Santorini receives in a fortnight. The villages have restored guesthouses and empty beds outside August.'},
+ zh:{name:'约阿尼纳与扎戈里',alt:'Ioannina & Zagori · 伊庇鲁斯',region:'伊庇鲁斯',
+  usp:'一座奥斯曼风格的湖畔城市，湖心有一座至今有人居住的小岛；城市背后是四十六座石砌山村，以及按宽深比计算全世界最深的峡谷。',
+  history:'约阿尼纳曾是阿里帕夏的都城。这位出身阿尔巴尼亚的总督半独立于苏丹统治伊庇鲁斯长达三十年，先后与拿破仑和英国周旋，最终于 1822 年在湖心岛上被围杀，头颅被送往君士坦丁堡。拜伦曾造访他的宫廷并写下见闻。城北的扎戈里诸村，因替奥斯曼把守山口而换得自治权，这份自治带来的财富建起了石拱桥、卵石骡道与学校。2023 年，"扎戈里文化景观"被列入世界遗产，是希腊最新的遗产项目之一。维科斯峡谷的深宽比为全球之最。',
+  bridge:'扎戈里那些跨越深谷的石拱桥，与赵州桥出自同一种思路：用最少的石料、最准的弧度，去对抗水与时间。不同的是，扎戈里有上百座，散在群山之间，至今还在走人。',
+  food:'伊庇鲁斯是"派"的故乡——不是中东的皮塔饼，而是手擀酥皮包裹野菜、奶酪、南瓜或荨麻的馅饼，每个村子的做法都不一样。邻近的梅措沃出产烟熏 Metsovone 奶酪，以及希腊最早一批正经的酒庄酒 Katogi。在这里，tsipouro 配什么都喝。',
+  swap:'伊庇鲁斯距雅典一小时飞行，一整年的国际游客量还不如圣托里尼两周的接待量。八月之外，山村里那些修缮好的石屋客栈，床位大量空着。'}},
+
+{id:'philippi',type:'city',lon:24.41,lat:40.94,pressure:1,dist:5,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:5,byzantine:4,food:4,nature:2,village:2,art:3,sea:3,living:3},
+ en:{name:'Kavala & Philippi',alt:'Καβάλα · Eastern Macedonia',region:'Northern Greece',
+  usp:'A tobacco-boom port stacked up a hillside under an Ottoman aqueduct — next door to the battlefield where the Roman Republic ended and the first Christian sermon in Europe was preached.',
+  history:'At Philippi in 42 BC, Mark Antony and Octavian defeated Brutus and Cassius, the assassins of Julius Caesar. Both losers killed themselves on the field, and with them the Roman Republic effectively died; Octavian would become Augustus. Ninety years later the apostle Paul arrived and delivered what is recorded as the first Christian sermon on European soil, baptising a purple-dye merchant named Lydia in a stream outside the walls — the first named Christian convert in Europe. Philippi was inscribed by UNESCO in 2016. Kavala itself, ancient Neapolis, grew rich on tobacco in the 19th century; its Kamares aqueduct strides across the old town, and the Imaret, a vast Ottoman almshouse, is now a hotel.',
+  food:'Kavala is a mussel town — midia saganaki and midia achnista straight off the boats. The region supplies much of Greece\u2019s eastern olive oil, and nearby Thassos is known for its honey and walnut sweets.',
+  swap:'Philippi has world-changing history and virtually no queue. The whole of Eastern Macedonia and Thrace takes in a small share of Greece\u2019s foreign visitors, and it is arguably the country\u2019s most underweighted region.'},
+ zh:{name:'卡瓦拉与腓立比',alt:'Kavala & Philippi · 东马其顿',region:'希腊北部',
+  usp:'一座因烟草兴盛而沿山坡层层叠起的港口城市，奥斯曼引水渠横跨其上——而隔壁，就是罗马共和国终结的战场，也是欧洲土地上第一场基督教布道的发生地。',
+  history:'公元前 42 年的腓立比之战中，安东尼与屋大维击败了刺杀恺撒的布鲁图斯与卡西乌斯。两名败者在战场上自尽，罗马共和国也随之实际终结，屋大维日后成为奥古斯都。九十年后，使徒保罗抵达此地，发表了史载欧洲土地上的第一场基督教布道，并在城外的溪水中为一位名叫吕底亚的紫色染料商人施洗——她是欧洲第一位留下姓名的基督徒。2016 年，腓立比被列入世界遗产。卡瓦拉本身即古代的尼阿波利斯，19 世纪因烟草贸易而暴富；卡马雷斯引水渠横跨老城，而巨大的奥斯曼济贫院 Imaret 如今已改成酒店。',
+  bridge:'公元前 42 年的腓立比之战终结了罗马共和国；一百六十年前，中国的垓下之战则开启了汉朝。两场战役相隔不远的年代里，东西方各自完成了一次政治形态的彻底换挡。',
+  food:'卡瓦拉是贻贝之城——midia saganaki（奶酪焗贻贝）与清蒸贻贝直接从渔船上端来。这一带供应了希腊东部大量橄榄油，邻近的萨索斯岛则以蜂蜜与核桃甜点闻名。',
+  swap:'腓立比握有足以改变世界的历史，却几乎不用排队。整个东马其顿与色雷斯大区，只分到希腊外国游客中极小的一部分，很可能是全国被严重低估的第一名。'}},
+
+{id:'mani',type:'region',lon:22.38,lat:36.67,pressure:2,dist:3,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:3,byzantine:5,food:4,nature:5,village:5,art:3,sea:4,living:3},
+ en:{name:'The Mani',alt:'Μάνη · Laconia & Messenia',region:'Peloponnese',
+  usp:'A stone landscape of fortified tower houses built for family feuds, running down to the second-southernmost point of mainland Europe — where the ancients believed the entrance to the underworld stood.',
+  history:'The Maniots claimed descent from the Spartans and were never fully subdued by the Ottomans; the mountains were too poor to be worth taking and the clans too well armed. Their towers were built storey by storey during blood feuds, each family racing to build higher than its enemy. The Greek War of Independence is traditionally dated to 17 March 1821, when Petrobey Mavromichalis raised the flag at Areopoli. Hundreds of small Byzantine chapels are scattered across the peninsula, many with frescoes and no lock. At Cape Tainaron, a cave was believed to be the gate through which Heracles dragged Cerberus out of Hades.',
+  film:'Before Midnight (2013), the third of Richard Linklater\u2019s Before trilogy, was filmed almost entirely in and around Kardamyli in the Outer Mani. The house used in the film belonged to the travel writer Patrick Leigh Fermor, who settled there in the 1960s; it is now open to visitors.',
+  food:'Syglino — pork smoked over sage and orange peel, then preserved in fat, a technique born of a landscape with no refrigeration and little water. Kalamata olives and Messinian olive oil come from the northern end, and pasteli, the honey-and-sesame bar, is claimed here as an ancient Spartan ration.',
+  swap:'The Mani has a handful of small hotels and a season that barely exists outside July and August. Visiting in spring, when the wildflowers cover the terraces, supports villages that lose population every year.'},
+ zh:{name:'马尼半岛',alt:'The Mani · 拉科尼亚与美塞尼亚',region:'伯罗奔尼撒',
+  usp:'一片由家族械斗催生出的石塔楼构成的荒野，一路延伸到欧洲大陆的第二南端——古人相信，冥界的入口就在那里。',
+  history:'马尼人自称斯巴达人的后裔，从未被奥斯曼真正征服：这片山地太贫瘠，不值得攻取，而各家族又武装精良。他们的塔楼是在血仇中一层层加盖起来的，每家都要抢着比仇家盖得更高。希腊独立战争的传统起点被定在 1821 年 3 月 17 日——彼得罗贝·马夫罗米哈利斯在阿雷奥波利升起战旗的那一天。半岛上散落着数百座拜占庭小教堂，许多仍有壁画，且从不上锁。在泰纳龙角，有一个洞穴被认为就是赫拉克勒斯把地狱三头犬拖出冥府的那道门。',
+  film:'理查德·林克莱特"爱在"三部曲的终章《爱在午夜降临前》（2013）几乎全程在外马尼的卡尔达米利一带拍摄。片中那座宅子属于旅行作家帕特里克·利·弗莫尔，他 1960 年代定居于此，故居如今对公众开放。',
+  bridge:'为家族械斗而层层加高的石塔楼，在中国有几乎一模一样的产物：开平碉楼与闽西土楼。三者都诞生于同一个前提——国家的手伸不到这里，安全只能靠自己砌起来。',
+  food:'Syglino——用鼠尾草与橙皮熏制、再以油脂封存的猪肉，这种做法生于一个没有冷藏、也缺水的地方。半岛北端出产卡拉马塔橄榄与美塞尼亚橄榄油；而蜂蜜芝麻糖 pasteli，当地人坚称是古斯巴达人的军粮。',
+  swap:'马尼只有零星几家小旅馆，七八月之外几乎没有旅游季。在野花铺满梯田的春天前来，能支撑这些每年都在流失人口的村庄。'}},
+
+{id:'naxos',type:'island',lon:25.53,lat:37.10,pressure:3,dist:3,
+ months:'LLSGBGGGBBSL',
+ t:{ancient:4,byzantine:4,food:5,nature:5,village:5,art:3,sea:5,living:4},
+ en:{name:'Naxos',alt:'Νάξος · Cyclades',region:'Cyclades',
+  usp:'The largest and only genuinely self-sufficient Cycladic island: mountains, working farms, a Venetian castle quarter and a marble temple doorway that frames the sunset — at roughly half the price of its famous neighbours.',
+  history:'The Portara, a freestanding marble doorway on an islet by the port, is all that was built of a 6th-century BC temple to Apollo, abandoned when the tyrant who commissioned it fell. Mount Zas, the highest peak in the Cyclades, is where myth says Zeus was raised by a goat. In the island\u2019s quarries, unfinished kouros statues from the 7th century BC still lie where they cracked and were abandoned, one of them ten metres long, in an olive grove you can walk into. The Venetian Kastro in Naxos Town has been continuously inhabited by the same families for seven hundred years. Ariadne, abandoned by Theseus, was said to have been found on this shore by Dionysus.',
+  food:'Naxos makes the Cyclades\u2019 only serious cheeses — graviera with PDO status, plus arseniko and xinomizithra. Its potatoes are a protected product sold across Greece, and kitron, a liqueur distilled from citron leaves, exists nowhere else.',
+  swap:'Naxos has more beach, more history and more food than Mykonos, at a fraction of the cost and crowding, and is on the same ferry line. Choosing it instead is the single most effective swap a first-time Cyclades visitor can make.'},
+ zh:{name:'纳克索斯',alt:'Naxos · 基克拉泽斯',region:'基克拉泽斯群岛',
+  usp:'基克拉泽斯最大、也是唯一真正能自给自足的岛：有山、有真正在耕作的农田、有威尼斯城堡区，还有一道把落日framed其中的大理石神庙之门——价格大约只有邻居名岛的一半。',
+  history:'港口旁小岛上那道独立矗立的大理石门 Portara，是公元前 6 世纪一座阿波罗神庙唯一建成的部分——下令修建的僭主倒台后，工程就此停工。基克拉泽斯的最高峰扎斯山，据神话是宙斯被一只山羊哺育长大的地方。岛上的采石场里，公元前 7 世纪未完成的青年立像至今仍躺在开裂当天被弃置的原处，其中一尊长达十米，就在一片可以直接走进去的橄榄林里。纳克索斯城的威尼斯城堡区，七百年来一直由同样那几个家族居住至今。被忒修斯抛弃的阿里阿德涅，传说正是在这片海岸被狄俄尼索斯寻获的。',
+  bridge:'采石场里那尊裂开后被就地遗弃的十米石像，与龙门石窟中那些凿到一半便停工的佛龛是同一种遗迹：它们记录的不是完成，而是中断，反而更清楚地显示了古人是怎么干活的。',
+  food:'纳克索斯出产基克拉泽斯唯一称得上认真的奶酪：拥有原产地保护的 graviera，以及 arseniko 和 xinomizithra。岛上的土豆是受保护农产品，行销全希腊；用香橼叶蒸馏的 kitron 利口酒，则是别处没有的。',
+  swap:'纳克索斯的海滩更多、历史更厚、食物更好，花费与拥挤程度却远低于米克诺斯，而且就在同一条渡轮航线上。对第一次来基克拉泽斯的人来说，换成这里是最有效的一次选择。'}},
+
+{id:'milos',type:'island',lon:24.44,lat:36.72,pressure:3,dist:3,
+ months:'LLSGBGGGBBSL',
+ t:{ancient:5,byzantine:3,food:4,nature:5,village:4,art:4,sea:5,living:2},
+ en:{name:'Milos',alt:'Μήλος · Cyclades',region:'Cyclades',
+  usp:'The island a farmer was ploughing when he hit the Venus de Milo — with a volcanic coastline of more than seventy beaches, no two of which look alike.',
+  history:'In 1820 a farmer named Yorgos Kentrotas uncovered a marble Aphrodite in a field near Tripiti; within a year it had been acquired for France and it has stood in the Louvre ever since, still missing its arms. Long before that, Milos\u2019 obsidian made it one of the earliest trading centres in the Mediterranean — Melian obsidian blades have been found across the Aegean from 11,000 BC, making this arguably the oldest sea trade route in the world. The island also holds Early Christian catacombs, among the most significant outside Rome. In 416 BC Athens destroyed Milos for refusing to join its alliance; Thucydides\u2019 account of the negotiation, the Melian Dialogue, is still taught as the founding text of political realism.',
+  food:'Pitarakia, small fried cheese pies; karpouzopita, a watermelon and honey cake baked in summer; and koufeto, pumpkin simmered with honey and almonds, traditionally served at weddings.',
+  swap:'Milos has the volcanic drama people come to Santorini for, with a fraction of the cruise pressure, and the beaches are the point rather than the sunset bar. It is the clearest alternative for anyone whose image of Greece is a caldera.'},
+ zh:{name:'米洛斯',alt:'Milos · 基克拉泽斯',region:'基克拉泽斯群岛',
+  usp:'一个农夫耕地时一锄头挖出了"米洛的维纳斯"的岛——火山海岸线上散布着七十多片海滩，没有两片是一样的。',
+  history:'1820 年，一位名叫肯特罗塔斯的农夫在特里皮提附近的田里挖出了一尊大理石阿佛洛狄忒像；不到一年，它就被法国购得，此后一直陈列在卢浮宫，双臂至今下落不明。而在这更早之前，米洛斯的黑曜石让它成为地中海最早的贸易中心之一——公元前 11000 年的米洛斯黑曜石刀片已在整个爱琴海被发现，这很可能是世界上最古老的海上贸易航线。岛上还有罗马之外最重要的早期基督教地下墓穴之一。公元前 416 年，米洛斯因拒绝加入雅典同盟而被彻底摧毁；修昔底德记录下的那场谈判《米洛斯对话》，至今仍被当作政治现实主义的奠基文本来讲授。',
+  bridge:'米洛斯的黑曜石在公元前一万一千年就已行销整个爱琴海，是世界上最早的海上贸易线之一。与之可比的是良渚的玉器网络——同样在文字出现之前，就已经把远方连了起来。',
+  food:'Pitarakia 小炸奶酪派；夏天烤制的西瓜蜂蜜蛋糕 karpouzopita；以及 koufeto——南瓜与蜂蜜、杏仁同煮的甜食，传统上用于婚宴。',
+  swap:'人们奔赴圣托里尼想看的火山地貌，米洛斯都有，邮轮压力却小得多，而且这里的主角是海滩本身，不是看日落的酒吧。如果你对希腊的印象就是那道火山口，这里是最直接的替代选项。'}},
+
+{id:'sifnos',type:'island',lon:24.72,lat:36.97,pressure:2,dist:2,
+ months:'LLSGBGGGBBSL',
+ t:{ancient:3,byzantine:4,food:5,nature:4,village:5,art:4,sea:4,living:4},
+ en:{name:'Sifnos',alt:'Σίφνος · Cyclades',region:'Cyclades',
+  usp:'Greece\u2019s culinary island: the man who wrote the country\u2019s first modern cookbook was born here, and his surname is still the Greek word for "cookbook." People come back for the food.',
+  history:'Nikolaos Tselementes published his cookbook in 1910 and reshaped how Greece cooks — for better and worse, since he also added béchamel to moussaka. His name entered the language: a Greek asking for a cookbook asks for a tselementes. Long before that, Sifnos\u2019 gold and silver mines made it the richest island in the Cyclades; it paid an annual gold tithe to Delphi and built a treasury there, whose frieze is among the finest Archaic sculpture surviving. The island has over two hundred churches and a living pottery tradition — the clay cooking vessels used for its signature dishes are still thrown here.',
+  food:'Revithada: chickpeas, onion and oil sealed in a clay pot and left overnight in a wood-fired oven, eaten every Sunday after church. Mastelo, lamb or goat cooked in red wine and dill in a ceramic dish. Melopita, a honey and fresh cheese tart. Ambelofasoula, vine-tendril salad in spring.',
+  swap:'Sifnos is a two-and-a-half-hour ferry from Athens, has no airport and therefore no mass arrivals, and offers exactly the whitewashed Cycladic village life people fly to Santorini for.'},
+ zh:{name:'锡夫诺斯',alt:'Sifnos · 基克拉泽斯',region:'基克拉泽斯群岛',
+  usp:'希腊的美食之岛：写出全国第一本现代食谱的人生于此，而他的姓氏至今就是希腊语里"食谱"这个词。人们是为了这里的食物一再回来的。',
+  history:'尼古拉奥斯·采莱门特斯 1910 年出版的食谱，重塑了希腊人做菜的方式——有功也有过，因为正是他把白酱加进了慕萨卡。他的名字从此进入语言：希腊人要一本食谱，说的就是"一本 tselementes"。而在更早的年代，锡夫诺斯的金银矿让它成为基克拉泽斯最富的岛，每年向德尔斐缴纳黄金什一税，并在那里建了一座宝库，其浮雕是现存最精美的古风时期雕刻之一。岛上有两百多座教堂，制陶传统至今仍在延续——招牌菜所用的陶锅，依然由本地人拉坯烧制。',
+  bridge:'采莱门特斯 1910 年的食谱重塑了希腊人的厨房，其地位约等于袁枚的《随园食单》：一本书之后，一个民族开始用另一种方式谈论吃饭。区别是，采莱门特斯的姓氏直接变成了"食谱"这个词。',
+  food:'Revithada：鹰嘴豆、洋葱与橄榄油封进陶罐，在柴火炉里焖一整夜，每个周日做完礼拜后食用。Mastelo：羊肉用红酒与莳萝在陶器中慢煮。Melopita：蜂蜜鲜奶酪挞。春天还有嫩葡萄卷须做的沙拉。',
+  swap:'从雅典坐船两个半小时可达，没有机场、因而没有大批空运来的客流，而人们特地飞去圣托里尼想体验的那种白房子村落生活，这里原样都有。'}},
+
+{id:'tinos',type:'island',lon:25.16,lat:37.54,pressure:2,dist:2,
+ months:'LLSGBGGGBBSL',
+ t:{ancient:2,byzantine:5,food:5,nature:4,village:5,art:5,sea:4,living:5},
+ en:{name:'Tinos',alt:'Τήνος · Cyclades',region:'Cyclades',
+  usp:'Twenty minutes by boat from Mykonos and a completely different island: forty villages of marble carvers, a thousand Venetian dovecotes, and the most important pilgrimage site in the Orthodox world.',
+  history:'The church of Panagia Evangelistria was built in 1823 over an icon found after a nun\u2019s vision, and became the spiritual anchor of the new Greek state. On 15 August, pilgrims climb the road from the port on their hands and knees. The marble craftsmanship of Tinos was inscribed on UNESCO\u2019s Intangible Cultural Heritage list in 2015 — the village of Pyrgos has produced most of Greece\u2019s significant sculptors, and its school of fine arts still teaches carving to teenagers. Under Venetian rule for far longer than its neighbours, Tinos remained substantially Catholic, and Catholic and Orthodox villages still sit side by side. The Venetians also left the dovecotes: over a thousand elaborately latticed stone towers scattered across the terraces.',
+  food:'Louza, air-cured pork loin rubbed with spices, sliced paper-thin. Artichokes from Komi, kopanisti and volaki cheeses, and raki. The island now has one of the strongest young restaurant scenes in the Cyclades, built almost entirely on its own produce.',
+  swap:'Tinos sits on the same ferry route as Mykonos and takes a small fraction of its visitors. For anyone drawn to Mykonos for the Cycladic look rather than the nightlife, this is the same landscape with its culture intact.'},
+ zh:{name:'蒂诺斯',alt:'Tinos · 基克拉泽斯',region:'基克拉泽斯群岛',
+  usp:'距米克诺斯二十分钟船程，却是完全不同的一座岛：四十个大理石雕刻村、上千座威尼斯鸽舍，以及东正教世界最重要的朝圣地。',
+  history:'1823 年，人们依一位修女的异象找到一幅圣像，并在其上建起了圣母领报教堂，它随即成为新生希腊国家的精神支点。每年 8 月 15 日，朝圣者会从港口一路跪爬上山。2015 年，蒂诺斯的大理石工艺被列入联合国教科文组织人类非物质文化遗产名录——皮尔戈斯村出了希腊绝大多数重要雕塑家，村里的美术学校至今仍在教十几岁的孩子雕刻。由于受威尼斯统治的时间远长于邻岛，蒂诺斯保留了大量天主教人口，天主教村与东正教村至今比邻而居。威尼斯人还留下了鸽舍：上千座石砌镂花塔楼，散落在层层梯田之间。',
+  bridge:'蒂诺斯的大理石雕刻被列入人类非物质文化遗产，村里的学校至今在教十几岁的孩子凿石。这与福建惠安的石雕传承几乎是同一套模式：一个村子、一门手艺、师徒相传、靠订单活着。',
+  food:'Louza——香料揉过、风干的猪里脊，切得薄如纸。科米村的朝鲜蓟、kopanisti 与 volaki 奶酪，以及 raki 烈酒。如今这里拥有基克拉泽斯最强的年轻餐厅群之一，而且几乎完全建立在本岛物产之上。',
+  swap:'蒂诺斯和米克诺斯在同一条渡轮航线上，游客量却只有后者的一小部分。如果你被米克诺斯吸引是因为那种基克拉泽斯的模样、而不是夜生活，这里有同样的风景，且文化未被冲淡。'}},
+
+{id:'chios',type:'island',lon:26.14,lat:38.37,pressure:1,dist:4,
+ months:'LSSGBGGGBBSL',
+ t:{ancient:3,byzantine:5,food:5,nature:3,village:5,art:5,sea:4,living:5},
+ en:{name:'Chios',alt:'Χίος · North Aegean',region:'North Aegean',
+  usp:'The only place on earth where mastic trees produce resin — a monopoly Chios has held since antiquity — and a medieval village whose every facade is covered in black-and-white geometric patterns.',
+  history:'Mastic, the resin wept by Pistacia lentiscus var. Chia, grows commercially nowhere else despite centuries of attempts; under the Genoese and then the Ottomans, stealing it was punishable by death, and the mastic villages were built as fortified squares with no outward-facing doors. The cultivation of mastic was inscribed on UNESCO\u2019s Intangible Cultural Heritage list in 2014. Pyrgi\u2019s houses are decorated in xysta, a scratched black-and-white geometric plasterwork found nowhere else in Greece. Nea Moni, an 11th-century monastery with mosaics commissioned by a Byzantine emperor, is a UNESCO World Heritage site. Chios also claims to be Homer\u2019s birthplace, and the 1822 massacre of its population by Ottoman forces — painted by Delacroix and now hanging in the Louvre — turned European opinion decisively toward Greek independence.',
+  food:'Mastiha appears in everything: chewing gum, liqueur, ice cream, bread, even toothpaste. The island also grows exceptional tangerines in the Kampos, a plain of walled Genoese citrus estates, and makes mastelo cheese grilled in slabs.',
+  swap:'Chios receives almost no international leisure visitors despite a 50-minute flight from Athens and a UNESCO monastery, a UNESCO craft and a village unlike anywhere else in Europe. It may be the most underweighted island in Greece.'},
+ zh:{name:'希俄斯',alt:'Chios · 北爱琴海',region:'北爱琴海诸岛',
+  usp:'全世界唯一能产出乳香树脂的地方——这个垄断希俄斯自古代起就一直握着——以及一座整村外墙都布满黑白几何花纹的中世纪村落。',
+  history:'乳香是希俄斯变种乳香黄连木流出的树脂，尽管数百年来各地不断尝试移植，至今仍只有这里能够商业化生产。在热那亚人和其后的奥斯曼统治下，偷采乳香是死罪，乳香村因此被建成不朝外开门的封闭方阵。2014 年，乳香种植被列入人类非物质文化遗产名录。皮尔吉村的房屋外墙采用 xysta 刮花工艺——黑白几何图案的灰泥装饰，全希腊再无第二处。11 世纪的新修道院（Nea Moni）由拜占庭皇帝出资、以镶嵌画闻名，是世界文化遗产。希俄斯还自称是荷马的出生地；而 1822 年奥斯曼军队对岛民的大屠杀，经德拉克洛瓦画成油画、如今挂在卢浮宫，彻底扭转了欧洲舆论、转向支持希腊独立。',
+  bridge:'希俄斯的乳香脂（玛斯蒂哈，与中医所说的乳香并非同一物）在中世纪经阿拉伯商人向东流通，走的正是把中国丝绸运向西方的那几条商路。香料与丝绸在同一条路上擦肩而过，方向相反。',
+  food:'乳香无处不在：口香糖、利口酒、冰淇淋、面包，甚至牙膏。岛上的坎波斯平原是一片被高墙围起的热那亚柑橘庄园，产出极佳的橘子；另有整块煎烤的 mastelo 奶酪。',
+  swap:'距雅典只有 50 分钟飞行，拥有一处世界遗产修道院、一项世界非遗工艺，以及一座全欧洲独一无二的村落——希俄斯的国际休闲游客却几乎为零。它可能是全希腊被低估得最厉害的岛。'}},
+
+{id:'symi',type:'island',lon:27.84,lat:36.61,pressure:2,dist:5,
+ months:'LLSGBGGGBBSL',
+ t:{ancient:2,byzantine:4,food:4,nature:3,village:5,art:4,sea:5,living:3},
+ en:{name:'Symi',alt:'Σύμη · Dodecanese',region:'Dodecanese',
+  usp:'A harbour of pastel neoclassical mansions rising in tiers from the water, built on sponge-diving fortunes — and the best shrimp in Greece, eaten whole.',
+  history:'In the 19th century Symi was one of the richest ports in the Aegean, with a fleet of sponge divers working the eastern Mediterranean and a shipbuilding trade that supplied the Ottoman navy. The mansions climbing the harbour were built with that money; a protection order means they must still be repainted in the original ochres and blues. The population collapsed from 22,000 to under 2,500 as synthetic sponges and emigration took hold. On 8 May 1945, the German surrender of the entire Dodecanese was signed on Symi, ending the Second World War in Greece. The monastery of Panormitis remains a major pilgrimage destination.',
+  food:'Garides Symis — tiny sweet shrimp caught in the deep water off the island, flash-fried and eaten whole, shells and heads included. They exist in this size nowhere else and are not exported.',
+  swap:'Symi is reached by ferry from Rhodes rather than directly, which keeps day-trip volume high but overnight stays low. Staying two nights transforms the island after the last boat leaves at five.'},
+ zh:{name:'锡米',alt:'Symi · 多德卡尼斯',region:'多德卡尼斯群岛',
+  usp:'一座由海绵采集生意堆出来的港口：粉彩色的新古典主义宅邸从水面一层层叠上山坡——还有全希腊最好的虾，连壳带头整只吃下。',
+  history:'19 世纪的锡米曾是爱琴海最富庶的港口之一，拥有一支在东地中海作业的海绵潜水船队，还造船供应奥斯曼海军。港口两侧层叠的宅邸就是那时的财富所建；如今有保护条例规定，它们必须仍用最初的赭黄与蓝色重新粉刷。随着合成海绵问世与大规模移民，岛上人口从两万两千跌到不足两千五。1945 年 5 月 8 日，德军交出整个多德卡尼斯群岛的投降书正是在锡米签署的，希腊的二战就此结束。帕诺尔米蒂斯修道院至今仍是重要朝圣地。',
+  bridge:'锡米靠海绵潜水致富，潜水员屏息下沉数十米作业。中国合浦自汉代起的采珠业几乎是同一份危险的工作——同样靠屏息，同样让一座港口富起来，也同样在技术变迁后迅速衰落。',
+  food:'Garides Symis——岛外深水捕捞的小甜虾，急火油炸后整只吃下，连壳带头。这种尺寸的虾别处没有，也从不外运。',
+  swap:'锡米要从罗德岛转渡轮才能抵达，因此一日游客很多、过夜的人很少。住上两晚，你会看见下午五点最后一班船开走之后，这座岛完全变了样。'}},
+
+{id:'chania',type:'island',lon:24.02,lat:35.51,pressure:4,dist:3,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:4,byzantine:4,food:5,nature:5,village:4,art:4,sea:5,living:5},
+ en:{name:'Chania, Crete',alt:'Χανιά · Crete',region:'Crete',
+  usp:'A Venetian harbour under the White Mountains, with Europe\u2019s most-walked gorge starting an hour inland and a food culture that behaves like a separate country\u2019s.',
+  history:'Chania stands on ancient Kydonia, continuously occupied since the Minoan period. It was Crete\u2019s capital until 1971, and the old town still reads as a palimpsest: a Venetian lighthouse at the harbour mouth, Ottoman minarets, a Jewish quarter with a restored 15th-century synagogue, and Byzantine walls underneath it all. In May 1941 the region was the centre of the Battle of Crete, the first largely airborne invasion in military history; local civilians fought the paratroopers with farm tools, and the resistance that followed tied down German divisions for years. The Samaria Gorge, 16 kilometres through the national park, opens each spring.',
+  film:'Zorba the Greek (1964) was shot here; the sirtaki scene in which Anthony Quinn teaches Alan Bates to dance was filmed on the beach at Stavros, on the Akrotiri peninsula outside town. The dance itself was invented for the film — it is not a traditional Greek dance, though it has since become one.',
+  food:'Dakos — barley rusk soaked in tomato, topped with mizithra and oregano. Graviera aged in mountain huts, kalitsounia cheese pastries with honey, snails, and raki poured unasked at the end of every meal. Crete\u2019s diet was the original subject of the 1950s study that defined the Mediterranean diet.',
+  swap:'Crete absorbs visitors far better than a small island can, but they concentrate on the north coast strip. The south coast — Sfakia, Loutro, Paleochora — is reached by mountain road or boat and is a different island entirely.'},
+ zh:{name:'克里特 · 哈尼亚',alt:'Chania, Crete',region:'克里特岛',
+  usp:'白山脚下的威尼斯港口，向内陆一小时就是全欧洲被走得最多的峡谷，而这里的饮食文化，几乎自成一个国家。',
+  history:'哈尼亚坐落在古代的基多尼亚之上，自米诺斯时期起就从未中断过居住。1971 年之前它一直是克里特的首府，老城至今像一张反复擦写的羊皮纸：港口入口的威尼斯灯塔、奥斯曼宣礼塔、修复后的 15 世纪犹太会堂，以及压在这一切之下的拜占庭城墙。1941 年 5 月，这一带是克里特战役的中心——军事史上第一次以空降为主的入侵。当地平民拿着农具迎战伞兵，此后的抵抗运动牵制了德军数个师长达数年。穿越国家公园的 16 公里萨马利亚峡谷，每年春天开放。',
+  film:'《希腊人佐巴》（1964）在此拍摄；安东尼·奎恩教艾伦·贝茨跳舞的那场 sirtaki 戏，就拍于城外阿克罗蒂里半岛的斯塔夫罗斯海滩。有意思的是，这支舞本身是为电影现编的——它原本并非希腊传统舞蹈，只是后来变成了。',
+  bridge:'克诺索斯宫所属的米诺斯文明，与二里头文化大致同期。当克里特人在建造带排水系统的多层宫殿时，中原也正出现中国最早的宫城格局——两个文明都在同一个世纪迈进了"国家"的门槛。',
+  food:'Dakos——大麦干面包泡上番茄汁，铺上 mizithra 鲜奶酪与牛至。山间小屋里熟成的 graviera 奶酪、淋蜂蜜的 kalitsounia 奶酪酥、蜗牛，以及每餐结束时不点也会端上来的 raki。1950 年代那项定义了"地中海饮食"的研究，最初研究的就是克里特人的吃法。',
+  swap:'克里特消化游客的能力远胜小岛，但人群高度集中在北岸那一条带上。南岸的斯法基亚、卢特罗、帕莱奥霍拉，要翻山或坐船才能抵达，完全是另一座岛。'}},
+
+{id:'corfu',type:'island',lon:19.92,lat:39.62,pressure:4,dist:3,
+ months:'LSGBBGGGBBSL',
+ t:{ancient:2,byzantine:3,food:5,nature:5,village:4,art:5,sea:5,living:4},
+ en:{name:'Corfu',alt:'Κέρκυρα · Ionian Islands',region:'Ionian Islands',
+  usp:'The one part of Greece the Ottomans never took — so it looks, sounds and above all eats Venetian, with dishes found nowhere else in the country.',
+  history:'Corfu withstood four major Ottoman sieges and never fell, held by Venice for four centuries. That continuity is why the old town, UNESCO-listed in 2007, is a Venetian city rather than a Greek one, with two fortresses, arcaded streets called kantounia and an esplanade the French later laid out. Because Corfu was never under Ottoman rule, the Greek Enlightenment took root here first: the Ionian Academy, founded in 1824, was Greece\u2019s first university, and the island\u2019s philharmonic societies still fill the streets with brass bands at Easter, when islanders throw clay pots from balconies. Empress Elisabeth of Austria built the Achilleion palace here; Kaiser Wilhelm II later bought it.',
+  film:'The ITV series The Durrells (2016–2019) was filmed across the island, adapted from Gerald Durrell\u2019s memoir of a 1930s childhood in Corfu. Scenes from the James Bond film For Your Eyes Only (1981) were also shot here.',
+  food:'Corfiot cooking is Venetian at root and exists nowhere else in Greece: sofrito, veal in garlic and white wine vinegar; pastitsada, rooster in a spiced tomato sauce over thick pasta; bourdeto, fish stewed in cayenne. Kumquats, introduced in the 19th century, are made into liqueur and preserves.',
+  swap:'Corfu\u2019s north-east resorts are heavily booked while the interior — Old Perithia, a 14th-century mountain village, the olive terraces, the west coast villages — stays quiet even in August.'},
+ zh:{name:'科孚岛',alt:'Corfu · 伊奥尼亚群岛',region:'伊奥尼亚群岛',
+  usp:'希腊唯一一块奥斯曼从未攻下的土地——所以它的样子、声音，尤其是味道，都是威尼斯式的，有些菜在全希腊别处根本吃不到。',
+  history:'科孚顶住了四次大规模奥斯曼围城，从未陷落，被威尼斯统治了四个世纪。正因为这种连续性，2007 年列入世界遗产的老城更像一座威尼斯城市而非希腊城市：两座要塞、被称作 kantounia 的拱廊窄巷，以及后来由法国人规划的广场。由于从未经历奥斯曼统治，希腊启蒙运动最先在这里扎根：1824 年创立的伊奥尼亚学院是希腊第一所大学；岛上的爱乐社团至今仍在复活节把铜管乐队送上街头，而那一天，居民会从阳台往下摔陶罐。奥地利皇后茜茜在此建了阿喀琉斯宫，后来被德皇威廉二世买下。',
+  film:'英国 ITV 剧集《德雷尔一家》（2016–2019）全岛取景，改编自杰拉尔德·德雷尔回忆 1930 年代在科孚度过的童年。007 电影《最高机密》（1981）也有部分场景在此拍摄。',
+  bridge:'统治科孚四百年的威尼斯舰队，正是把马可·波罗送向东方的那支力量。科孚老城里的拱廊、要塞与菜谱，都是威尼斯海上帝国留下的实物；而那个帝国另一端的终点，是元大都。',
+  food:'科孚菜根子上是威尼斯的，全希腊别无分号：sofrito——蒜与白酒醋烧小牛肉；pastitsada——香料番茄酱汁炖公鸡配粗面；bourdeto——辣椒炖鱼。19 世纪引入的金橘，如今被做成利口酒与蜜饯。',
+  swap:'科孚东北部的度假区常年爆满，而岛的内陆——14 世纪山村老佩里西亚、层层橄榄梯田、西岸的村落——即便在八月也依然安静。'}}
+];
+
+/* ---- appended destinations ---- */
+var EXTRA=[
+{id:'athens',type:'city',lon:23.73,lat:37.98,pressure:5,dist:1,flagship:true,pair:['nafplio','thessaloniki'],
+ months:'LLGBBGGGBBGL',
+ t:{ancient:5,byzantine:4,food:5,nature:1,village:1,art:5,sea:2,living:5},
+ en:{name:'Athens',alt:'Αθήνα · Attica',region:'Attica',
+  usp:'The city where the idea of citizenship was invented — and, underneath the Acropolis, one of Europe\u2019s most restless contemporary cities, with more archaeology under its pavements than any capital on the continent.',
+  history:'Athens is the only city on earth continuously inhabited for over three thousand years that also produced, inside a single century, tragedy, comedy, history-writing, philosophy and democracy. The Parthenon was finished in 432 BC; it has since been a temple, a church, a mosque, a gunpowder store — blown apart by a Venetian shell in 1687 — and a ruin. Beneath the modern city, the metro excavations uncovered so much that three stations are effectively museums. The Athenian Agora, where Socrates argued and was condemned, is a ten-minute walk from Syntagma Square.',
+  film:'My Big Fat Greek Wedding 2 (2016) and parts of the Before Midnight trilogy open here; Jules Dassin\u2019s Never on Sunday (1960), filmed in the port of Piraeus, gave Greece its first international film star in Melina Mercouri, who later became the minister who began the campaign for the return of the Parthenon Marbles.',
+  food:'Koulouri from a street cart, souvlaki in Monastiraki, and the covered Varvakios market at dawn. But the real Athenian meal is the mezedopoleio: a long table, a dozen small plates, and no one in a hurry.',
+  swap:'Athens holds roughly a third of the country\u2019s population and an enormous share of its visitors. Go — it deserves the days. But treat it as the beginning of Greece rather than the whole of it: everything below is two to five hours away.'},
+ zh:{name:'雅典',alt:'Athens · 阿提卡',region:'阿提卡',
+  usp:'"公民"这个概念诞生的城市——而在卫城之下，它同时是欧洲最躁动的当代城市之一，人行道底下埋着的考古遗存，比这片大陆上任何一座首都都多。',
+  history:'雅典是地球上唯一一座连续居住超过三千年、并且在短短一个世纪内同时产出了悲剧、喜剧、史学、哲学与民主制度的城市。帕特农神庙完工于公元前 432 年，此后先后做过神庙、教堂、清真寺与火药库——1687 年被威尼斯人的炮弹炸开——最终成为废墟。在现代城市之下，地铁开挖时出土的文物多到有三座车站实质上就是博物馆。苏格拉底辩论并被判死刑的古阿哥拉广场，距宪法广场只有十分钟步行。',
+  film:'《我盛大的希腊婚礼 2》（2016）在此取景；而 1960 年在比雷埃夫斯港拍摄的《痴汉艳娃》（Never on Sunday）捧红了希腊第一位国际影星梅利娜·梅尔库里——她后来出任文化部长，正是她发起了要求归还帕特农神庙大理石雕的运动。',
+  bridge:'苏格拉底（前 470–前 399）与孔子（前 551–前 479）的生卒年几乎首尾相接。当雅典人在阿哥拉广场上辩论何为正义时，鲁国的学生们也正围着另一位老师问同样的问题。雅斯贝尔斯称这段时期为"轴心时代"——人类几大文明几乎在同一时间开始追问同一批问题，彼此却素不相识。',
+  food:'街头推车上的 koulouri 芝麻圈、莫纳斯提拉基的烤肉串，以及清晨的瓦尔瓦基奥斯市场。但真正的雅典式一餐是 mezedopoleio：一张长桌、十几碟小菜，没有人着急。',
+  swap:'雅典聚集了全国约三分之一的人口，也吸走了极大比例的游客。去，它值得你留几天。但请把它当作希腊的开端，而不是希腊的全部——下面这些地方，离它只有两到五小时。'}},
+
+{id:'santorini',type:'island',lon:25.43,lat:36.42,pressure:5,dist:3,flagship:true,pair:['milos','sifnos'],
+ months:'LLSGBGGGBBSL',
+ t:{ancient:5,byzantine:2,food:4,nature:5,village:4,art:4,sea:4,living:2},
+ en:{name:'Santorini',alt:'Σαντορίνη · Cyclades',region:'Cyclades',
+  usp:'What you are standing on is the rim of a volcano that exploded so violently in the Bronze Age it may have ended a civilisation — and buried a city so completely that its three-storey houses and frescoes survived intact.',
+  history:'Around 1600 BC the Thera eruption blew the centre out of the island, sending tsunamis across the Aegean and, many archaeologists argue, crippling Minoan Crete. Beneath the ash at Akrotiri lies a Bronze Age town with paved streets, drainage and wall paintings of blue monkeys and saffron gatherers — preserved like Pompeii, but fifteen centuries earlier, and with no bodies found: they had warning, and they left. The caldera cliff villages came much later, built by people who farmed vines in ash without irrigation, training them into baskets on the ground against the wind.',
+  food:'Fava, a yellow split-pea purée with PDO status grown in volcanic soil; white aubergines; tomatokeftedes made from tiny intense Santorini tomatoes; and Assyrtiko, a bone-dry white from ungrafted vines up to four hundred years old — phylloxera never reached this ash.',
+  swap:'Santorini is extraordinary and it is also the clearest case of a place under strain: cruise arrivals are now capped at 8,000 a day and a levy applies in peak season. If you go, go in April, May or October, stay at least three nights, and sleep on the island rather than arriving by ship for six hours.'},
+ zh:{name:'圣托里尼',alt:'Santorini · 基克拉泽斯',region:'基克拉泽斯群岛',
+  usp:'你脚下站着的，是一座火山的边缘。它在青铜时代的一次爆发猛烈到可能终结了一整个文明——同时也把一座城市埋得如此彻底，以至于三层高的房屋和壁画都完整地留了下来。',
+  history:'约公元前 1600 年，锡拉火山把岛的中心整个炸掉，海啸横扫爱琴海；许多考古学家认为，这重创了克里特的米诺斯文明。阿克罗蒂里的火山灰之下，是一座青铜时代城市：有铺石街道、排水系统，墙上画着蓝色猴子与采摘番红花的少女——保存状况堪比庞贝，却早了十五个世纪，而且没有发现任何遗骸：他们得到了预警，提前走了。悬崖上的村落要晚得多，由一群在火山灰里不靠灌溉种葡萄的人建起——他们把藤蔓在地面盘成篮状，用来抵挡海风。',
+  bridge:'锡拉火山爆发的年代，约当中国的夏末商初。阿克罗蒂里被火山灰封存的壁画与三星堆青铜器的年代相去不远——两个互不知晓的文明，几乎同时把自己最精致的技艺留在了地下。',
+  food:'Fava——火山土上种出的黄豌豆泥，拥有原产地保护；白茄子；用极小而浓郁的圣岛番茄做的 tomatokeftedes 番茄丸子；以及 Assyrtiko 白葡萄酒，酒体极干，来自树龄可达四百年的未嫁接老藤——根瘤蚜从未攻进这片火山灰。',
+  swap:'圣托里尼确实非凡，但它也是"不堪重负"最清楚的案例：邮轮到港人数如今被限制在每天 8,000 人，旺季还要加收费用。如果要去，请选 4 月、5 月或 10 月，至少住三晚，并且睡在岛上，而不是坐船来待六个小时就走。'}},
+
+{id:'mykonos',type:'island',lon:25.33,lat:37.45,pressure:5,dist:2,flagship:true,pair:['tinos','naxos'],
+ months:'LLSGBGGGBSLL',
+ t:{ancient:4,byzantine:2,food:4,nature:2,village:4,art:3,sea:5,living:3},
+ en:{name:'Mykonos & Delos',alt:'Μύκονος · Cyclades',region:'Cyclades',
+  usp:'Thirty minutes from the party is Delos — an entire abandoned ancient city on an island where, for a thousand years, no one was permitted to be born or to die.',
+  history:'Delos was the mythological birthplace of Apollo and Artemis, and because of that sanctity the Athenians twice "purified" it: all graves were removed and, from 426 BC, births and deaths were forbidden on the island entirely — the dying were ferried to a neighbouring islet. It became the treasury of the Athenian alliance and later one of the largest slave markets in the Mediterranean, handling, one ancient source claims, ten thousand people in a day. The whole island is now an uninhabited UNESCO site: mosaic floors, a street of marble lions, and no one living there but the guards. Mykonos itself was a poor fishing and farming island until the 1950s, when the visitors to Delos began staying the night.',
+  food:'Kopanisti, a peppery aged cheese fermented by hand; louza cured pork; and amygdalota almond sweets. The island\u2019s farming tradition is almost gone, but a few producers have brought back the old cheeses.',
+  swap:'Mykonos absorbs an enormous concentration of Aegean visitors on nine square miles. Tinos is twenty minutes away by ferry with the same landscape, forty villages of marble carvers and a fraction of the pressure — and Delos is reachable from both.'},
+ zh:{name:'米克诺斯与提洛岛',alt:'Mykonos & Delos · 基克拉泽斯',region:'基克拉泽斯群岛',
+  usp:'离派对三十分钟船程，是提洛岛——一整座被遗弃的古城。在长达一千年的时间里，岛上不许任何人出生，也不许任何人死去。',
+  history:'提洛是神话中阿波罗与阿尔忒弥斯的出生地。正因这份神圣，雅典人先后两次"净化"该岛：所有坟墓被迁走，并自公元前 426 年起全面禁止在岛上出生与死亡——将死之人会被船运到邻近小岛。它先是成为雅典同盟的金库，后来又变成地中海最大的奴隶市场之一，古代文献称其一天可成交上万人。如今全岛无人居住，是世界文化遗产：镶嵌地面、一整条大理石狮子大道，除守卫外空无一人。米克诺斯本身在 1950 年代之前只是一个贫穷的渔农之岛，直到来看提洛的人开始留宿过夜。',
+  bridge:'一座因为太神圣而不准生死的岛，在中国并非无从类比：泰山作为帝王封禅之地，同样被视为人间与天界交接的特殊territory，普通秩序在那里要让路。提洛的禁令是把神圣写进了户籍。',
+  food:'Kopanisti——一种手工发酵、带辛辣气的陈年奶酪；louza 风干猪肉；以及杏仁甜点 amygdalota。岛上的农业传统几近消失，但仍有少数生产者把老奶酪做了回来。',
+  swap:'米克诺斯在不到 24 平方公里的土地上，承接了极高密度的爱琴海游客。蒂诺斯坐船二十分钟就到，风景一样，还多了四十个大理石雕刻村，而压力只有其零头——而且从两座岛都能去提洛。'}},
+
+{id:'patmos',type:'island',lon:26.55,lat:37.31,pressure:2,dist:4,
+ months:'LLSGBGGGBBSL',
+ t:{ancient:2,byzantine:5,food:3,nature:3,village:5,art:4,sea:4,living:4},
+ en:{name:'Patmos',alt:'Πάτμος · Dodecanese',region:'Dodecanese',
+  usp:'The island where the Book of Revelation was written, in a cave you can still enter — and a fortified monastery that has functioned without interruption since 1088.',
+  history:'John of Patmos, exiled here by Rome around 95 AD, is said to have received and dictated the Apocalypse in a grotto halfway up the hill; the rock face said to have split into three at the moment of revelation is still shown. In 1088 the Byzantine emperor Alexios Komnenos granted the entire island to a monk, Christodoulos, who built the monastery of St John as a fortress against pirates — it has never closed, and its library holds manuscripts continuously since the eleventh century. The Cave of the Apocalypse, the monastery and the medieval town of Chora were inscribed by UNESCO in 1999. Chora has no signage, no cars in its lanes, and mansions built by shipowners in the seventeenth century.',
+  food:'Cheese pies with local mizithra, chickpea balls, and pougakia almond pastries made for feast days. The island has almost no industrial food culture — what you eat is what the handful of tavernas grew.',
+  swap:'Cruise ships call at Patmos, but almost all passengers return by evening. Chora after the last boat, with the monastery lit above the white lanes, is one of the quietest places in the Aegean.'},
+ zh:{name:'帕特莫斯',alt:'Patmos · 多德卡尼斯',region:'多德卡尼斯群岛',
+  usp:'《启示录》写成的地方——那个洞穴今天仍能走进去；山上那座堡垒式修道院，自 1088 年起从未中断运作。',
+  history:'约公元 95 年，被罗马流放至此的拔摩岛约翰，据传在半山腰的一个岩洞中领受并口述了《启示录》；据说在启示降临那一刻裂成三道的岩面，至今仍指给人看。1088 年，拜占庭皇帝阿莱克修斯·科穆宁把整座岛赐给一位名叫赫里斯托杜洛斯的修士，他建起圣约翰修道院作为抵御海盗的堡垒——此后从未关闭，藏书室里的手稿自十一世纪起连续积累至今。1999 年，启示录洞穴、修道院与中世纪山城霍拉一并列入世界遗产。霍拉没有招牌、巷子里不通车，宅邸是十七世纪船主们建的。',
+  bridge:'一部改变世界的经典，被保存在一个山洞里——这个画面中国人并不陌生。敦煌莫高窟的藏经洞中，五万余件写卷在封闭近千年后重见天日。两处洞窟相隔万里，却都做了同一件事：让文字躲过了时间。',
+  food:'用本地 mizithra 鲜奶酪做的奶酪派、鹰嘴豆丸，以及节庆日才做的杏仁酥 pougakia。岛上几乎没有工业化食品，你吃到的就是那几家小馆自己种出来的。',
+  swap:'邮轮确实停靠帕特莫斯，但乘客几乎全在傍晚前返船。最后一班船开走之后的霍拉，修道院的灯光照着白色巷弄，是整个爱琴海最安静的地方之一。'}},
+
+{id:'karpathos',type:'island',lon:27.21,lat:35.51,pressure:1,dist:5,
+ months:'LLSGBGGGBSLL',
+ t:{ancient:2,byzantine:4,food:4,nature:5,village:5,art:3,sea:5,living:5},
+ en:{name:'Karpathos',alt:'Κάρπαθος · Dodecanese',region:'Dodecanese',
+  usp:'In the mountain village of Olympos, women still wear the daily dress of their grandmothers, the dialect preserves words lost elsewhere two thousand years ago, and property passes to the eldest daughter.',
+  history:'Olympos was founded high on a ridge in the Byzantine period to hide from pirates, and its isolation — no road reached it until the 1980s — preserved a way of life anthropologists have studied for a century. The local dialect retains Doric Greek forms and vocabulary that vanished from the rest of the language; some older residents speak a Greek closer to the ancient than anywhere living. Inheritance follows the kanakara system, passing the house and land to the eldest daughter, who wears the family gold. Wooden looms still work in the village and bread is baked in communal ovens.',
+  food:'Makarounes — hand-rolled pasta with caramelised onion and sour mizithra, the dish of the island. Also byzantina, sesame honey cakes made at weddings, and wild thyme honey from the ridges.',
+  swap:'Karpathos is one of the least-visited large islands in Greece despite having an airport and some of the finest beaches in the Aegean. It is the strongest example of a living tradition that tourism, carefully managed, can help fund rather than erode.'},
+ zh:{name:'卡尔帕索斯',alt:'Karpathos · 多德卡尼斯',region:'多德卡尼斯群岛',
+  usp:'在山村奥林波斯，女人至今穿着祖母辈的日常服装，方言里留着别处两千年前就消失的词，而房产传给长女。',
+  history:'奥林波斯建在高高的山脊上，是拜占庭时期为躲避海盗而形成的村落。它的封闭——直到 1980 年代才通公路——保存下一种被人类学家研究了一个世纪的生活方式。当地方言保留了多里斯希腊语的词形与词汇，这些在希腊语其他地方早已消失；一些老人说的希腊语，比任何活着的语言都更接近古希腊语。继承遵循 kanakara 制度：房屋与土地传给长女，她佩戴家族的金饰。村里的木织机仍在运转，面包仍在公共烤炉里烤。',
+  bridge:'一个偏远村落保住了古语的读音，这件事在中国有直接的对应：闽南语与客家话中保留了大量中古汉语的入声与用字，用它们读唐诗，押韵往往比普通话更准。语言的化石，总是藏在交通最不便的地方。',
+  food:'Makarounes——手搓面条配焦糖洋葱与酸 mizithra，是全岛的代表菜。另有婚礼上才做的芝麻蜂蜜糕 byzantina，以及山脊上采的野百里香蜂蜜。',
+  swap:'卡尔帕索斯有机场，也有爱琴海最好的一批海滩，却是希腊访客最少的大岛之一。它最能说明一件事：被妥善管理的旅游，可以成为活态传统的资助者，而不是侵蚀者。'}},
+
+{id:'skopelos',type:'island',lon:23.73,lat:39.12,pressure:2,dist:2,
+ months:'LLSGBGGGBSLL',
+ t:{ancient:2,byzantine:4,food:4,nature:5,village:4,art:3,sea:5,living:3},
+ en:{name:'Skopelos & Alonnisos',alt:'Σκόπελος · Sporades',region:'Sporades',
+  usp:'Pine forest running down to the waterline, 360 churches on one island, and Europe\u2019s first marine national park next door — home to the Mediterranean monk seal, one of the rarest mammals on earth.',
+  history:'Skopelos is the greenest island in the Aegean, and its Chora is a vertical stack of slate-roofed houses and chapels — the island claims 360, one for each day of the old church calendar. Ancient Peparethos was known for its wine, exported across the Mediterranean in amphorae stamped with its name. Next door, the National Marine Park of Alonnisos, founded in 1992, was the first in Greece and remains the largest marine protected area in Europe; it was created to protect the Mediterranean monk seal, of which fewer than eight hundred survive worldwide. Fishing is restricted across large zones, and the population has slowly recovered.',
+  film:'Mamma Mia! (2008) was filmed here. The wedding chapel on the clifftop is Agios Ioannis Kastri, reached by 198 steps cut into the rock; the beach scenes were shot at Kastani. The island absorbed the attention without being remade by it, which is rare.',
+  food:'Skopelitiki tiropita — a cheese pie coiled into a spiral and fried, unlike any other Greek pie. Also plums, which the island dries in old stone ovens and puts into everything from pork stew to sweets.',
+  swap:'The Sporades take a small share of Aegean visitors and have their own airport on Skiathos. Alonnisos in particular has the quietest villages and the strongest conservation story in the Greek islands.'},
+ zh:{name:'斯科派洛斯与阿洛尼索斯',alt:'Skopelos & Alonnisos · 斯波拉泽斯',region:'斯波拉泽斯群岛',
+  usp:'松林一直长到水线，一座岛上有 360 座教堂，隔壁就是欧洲第一座国家海洋公园——地中海僧海豹的家园，这是地球上最稀有的哺乳动物之一。',
+  history:'斯科派洛斯是爱琴海最绿的岛，主镇霍拉是一整面垂直堆叠的石板屋顶与小教堂——岛上号称有 360 座，对应旧教历的每一天。古代的佩帕雷托斯以葡萄酒闻名，装在压印着城名的陶罐里销往整个地中海。隔壁 1992 年设立的阿洛尼索斯国家海洋公园是希腊第一座，至今仍是欧洲面积最大的海洋保护区；设立的目的是保护地中海僧海豹——全球现存不足八百头。大片海域禁渔，种群数量正在缓慢回升。',
+  film:'《妈妈咪呀！》（2008）在此拍摄。悬崖顶上的婚礼小教堂是圣约翰卡斯特里，要爬 198 级凿在岩石上的台阶；海滩戏则拍于卡斯塔尼。难得的是，这座岛承接了随之而来的关注，却没有被它改造。',
+  bridge:'一座岛上 360 座小庙，每天一座——这种把信仰嵌进日历的做法，与闽南、潮汕一带"一村数庙、逐日有神诞"的民间信仰格局颇为相似：神圣不是集中在一处大殿，而是散在生活的每一个转角。',
+  food:'Skopelitiki tiropita——把奶酪派盘成螺旋后油炸，与希腊其他任何一种派都不一样。还有李子：岛上用老石炉把它烘干，从炖猪肉到甜点，什么都放。',
+  swap:'斯波拉泽斯只分到爱琴海游客中很小的一份，而斯基亚索斯岛上就有机场。其中阿洛尼索斯的村子最安静，也拥有希腊群岛中最扎实的生态保护故事。'}},
+
+{id:'evia',type:'island',lon:23.60,lat:38.46,pressure:1,dist:1,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:4,byzantine:4,food:4,nature:5,village:4,art:2,sea:5,living:3},
+ en:{name:'Evia',alt:'Εύβοια · Central Greece',region:'Central Greece',
+  usp:'Greece\u2019s second-largest island, reached by a bridge you can drive across in seconds — with a tidal current that reverses direction several times a day and has puzzled scientists since Aristotle.',
+  history:'At Chalkida the channel narrows to forty metres, and the water reverses roughly every six hours, sometimes switching direction a dozen times in a day at speeds that stop boats. Aristotle studied it and could not explain it; a persistent legend says he drowned himself in frustration, which is untrue but tells you how the phenomenon was regarded. The island\u2019s ancient cities, Chalkis and Eretria, founded colonies from Sicily to the Black Sea and gave the Greek alphabet to the Etruscans and so, eventually, to Rome. Karystos in the south quarries a green-veined marble Roman emperors shipped to build the Pantheon\u2019s portico. The north has Byzantine monasteries and Edipsos, thermal springs used since antiquity — Sulla and Aristotle both mention them.',
+  food:'Fresh fish straight off the Chalkida quay, figs and retsina from the central hills, and the honey of northern Evia, which supplies a large share of Greece\u2019s pine honey. The island is one of the country\u2019s main olive and wine producers and almost none of it is marketed abroad.',
+  swap:'Evia is an hour from Athens by car and receives almost no international visitors — Greeks holiday here and foreigners fly over it. After the 2021 wildfires, the north in particular needs visitors more than almost anywhere in the country.'},
+ zh:{name:'埃维亚岛',alt:'Evia · 希腊中部',region:'希腊中部',
+  usp:'希腊第二大岛，开车几秒钟就过桥抵达——这里的潮流每天多次反向，从亚里士多德起就让科学家困惑至今。',
+  history:'在哈尔基达，海峡收窄到四十米，水流大约每六小时逆转一次，有时一天内变向十几次，流速快到能把船顶住。亚里士多德研究过它，却无法解释；一个流传已久的传说称他因此投水自尽——这不是真的，但足以说明古人如何看待这个现象。岛上的古城哈尔基斯与埃雷特里亚，曾向西西里到黑海之间广建殖民地，并把希腊字母传给了伊特鲁里亚人，最终传到罗马。南部的卡里斯托斯出产带绿纹的大理石，罗马皇帝专门海运回去修建万神殿的门廊。北部有拜占庭修道院，以及自古使用的埃迪普索斯温泉——苏拉和亚里士多德都提到过它。',
+  bridge:'一处让古代哲人百思不解的潮汐，在中国有它的镜像：钱塘江潮同样被观测、记录、写进诗里长达两千年。亚里士多德在埃维亚海峡边失败的地方，中国的历代观潮者也同样交出了满是敬畏的答卷。',
+  food:'哈尔基达码头直接上岸的鲜鱼、中部丘陵的无花果与松脂酒，以及北埃维亚的蜂蜜——希腊松树蜜有相当大一部分产自这里。这座岛是全国主要的橄榄与葡萄酒产区之一，而它几乎完全没有对外营销过。',
+  swap:'埃维亚距雅典一小时车程，国际游客却几乎为零——希腊人来这里度假，外国人则从它上空飞过。2021 年山火之后，北部尤其比全国几乎任何地方都更需要访客。'}},
+
+{id:'xanthi',type:'city',lon:24.88,lat:41.14,pressure:1,dist:5,
+ months:'SSGBBGGGBBGS',
+ t:{ancient:2,byzantine:4,food:5,nature:4,village:4,art:4,sea:2,living:5},
+ en:{name:'Xanthi & Thrace',alt:'Ξάνθη · Thrace',region:'Thrace',
+  usp:'The least-visited corner of Greece: an Ottoman-era old town of tobacco-merchant mansions, minarets and church towers on the same street, and a carnival that shuts the city for a week.',
+  history:'Xanthi grew rich on tobacco in the nineteenth century, and the mansions of the old town — pastel, timber-framed, with overhanging upper storeys — were built by the merchant families who ran that trade. Thrace is the only region of Greece where a Muslim population remained after the 1923 population exchange, protected by the Treaty of Lausanne; Pomaks, Turks and Roma live alongside Greek Orthodox communities, and mosques and churches stand within sight of each other. In the mountain villages north of the city, Pomak is still spoken. The Xanthi Carnival, held before Lent, is the largest in northern Greece and blends Thracian folk customs with Balkan brass.',
+  food:'Thracian cooking is the spiciest in Greece, closest to Anatolian and Balkan tables: kavourmas, soutzouki, hot peppers preserved in brine, and syrup-soaked sweets. Nearby Nestos delta villages serve freshwater fish, and the region makes a strong case for Greece\u2019s most underrated food.',
+  swap:'Thrace receives a very small share of Greece\u2019s foreign visitors despite an airport, a UNESCO site nearby at Philippi, and a cultural mix that exists nowhere else in the country.'},
+ zh:{name:'克桑西与色雷斯',alt:'Xanthi & Thrace · 色雷斯',region:'色雷斯',
+  usp:'希腊访客最少的一角：奥斯曼时期的烟草商宅老城，宣礼塔与教堂钟楼立在同一条街上，还有一场能让全城停摆一周的狂欢节。',
+  history:'19 世纪，克桑西因烟草而暴富，老城里那些粉彩色、木构架、上层外挑的宅邸，正是经营这项贸易的商人家族所建。色雷斯是 1923 年人口交换之后希腊唯一保留下穆斯林人口的地区，受《洛桑条约》保护；波马克人、土耳其人、罗姆人与希腊东正教社群比邻而居，清真寺与教堂彼此在望。城北的山村里，至今仍在说波马克语。四旬斋前举行的克桑西狂欢节是希腊北部最大的一场，把色雷斯民俗与巴尔干铜管乐混在了一起。',
+  bridge:'一座城里同时立着宣礼塔与教堂钟楼，几条街内并行着三四种语言——这正是喀什、泉州这类中国历史商贸城市的形态。泉州的清净寺、开元寺与妈祖庙相距不过数里，靠的也是同一种东西：贸易带来的财富，和随之而来的必须共处。',
+  food:'色雷斯菜是希腊最辣的，最接近安纳托利亚与巴尔干的餐桌：kavourmas 腌肉、soutzouki 香肠、盐水腌辣椒，以及浸透糖浆的甜点。邻近内斯托斯三角洲的村子供应淡水鱼。要说希腊被低估得最狠的食物，这一带很有资格。',
+  swap:'色雷斯有机场，隔壁腓立比是世界遗产，文化混合度全国独一份，却只分到希腊外国访客中极小的一份。'}}
+];
+
+D=D.concat(EXTRA);
+
+/* =========================================================
+   POSTCARD ILLUSTRATIONS
+   Each scene is drawn in a 560 x 350 space, mounted inside a
+   white postcard frame with stamp and postmark.
+   ========================================================= */
+var PCUID=0;
+
+/* small builders ------------------------------------------------ */
+function hs(x,y,w,h,f){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+f+'"/>'; }
+function roof(x,y,w,h,f){ return '<path d="M'+(x-4)+' '+y+'h'+(w+8)+'l-'+(w/2+4)+' -'+h+'z" fill="'+f+'"/>'; }
+function dome(cx,y,r,f){ return '<path d="M'+(cx-r)+' '+y+'a'+r+' '+r+' 0 0 1 '+(2*r)+' 0z" fill="'+f+'"/>'; }
+function win(x,y,w,h,f){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(w/2)+'" fill="'+f+'"/>'; }
+function cols(x,y,n,gap,h,w,f){ var s=''; for(var i=0;i<n;i++){ s+=hs(x+i*gap,y,w,h,f); } return s; }
+function waves(y,c,op){
+  return '<path d="M0 '+y+' q35 -7 70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0 t70 0" stroke="'+c+'" stroke-width="3" fill="none" opacity="'+op+'"/>';
+}
+function pine(x,b,hh,f){ return '<path d="M'+x+' '+b+'c-'+(hh*0.22)+' -'+(hh*0.18)+' -'+(hh*0.28)+' -'+(hh*0.62)+' -'+(hh*0.07)+' -'+hh+'c'+(hh*0.2)+' '+(hh*0.38)+' '+(hh*0.29)+' '+(hh*0.8)+' '+(hh*0.07)+' '+hh+'z" fill="'+f+'"/>'; }
+function olive(cx,cy,r,f){ return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+f+'"/><rect x="'+(cx-2.5)+'" y="'+cy+'" width="5" height="'+(r*1.1)+'" fill="#7C6242"/>'; }
+function cyp(x,b,hh,f){ return '<path d="M'+x+' '+b+'c-8 -7 -10 -'+(hh*0.62)+' -3 -'+hh+'c7 '+(hh*0.38)+' 9 '+(hh*0.8)+' 3 '+hh+'z" fill="'+f+'"/>'; }
+function boat(x,y,w,sail,sf){
+  return '<path d="M'+x+' '+y+'h'+w+'l-'+(w*0.16)+' '+(w*0.22)+'h-'+(w*0.68)+'z" fill="#FFFFFF"/>'
+   +'<path d="M'+(x+w*0.5)+' '+y+'v-'+sail+'l'+(w*0.38)+' '+sail+'z" fill="'+sf+'"/>';
+}
+
+/* the 26 scenes -------------------------------------------------- */
+var SCENES={
+
+athens:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="470" cy="70" r="30" fill="#FFF0C4"/><circle cx="470" cy="70" r="20" fill="#FFE49A"/>'
+ /* city roofs */
+ +'<path d="M0 350V268q40-10 80 0t80 0 80 0 80 0 80 0 80 0 80 0V350z" fill="#E4DCCB"/>'
+ +'<g fill="#F2EBDC">'+hs(22,272,58,78,'#F2EBDC')+hs(96,282,48,68,'#F2EBDC')+hs(160,268,62,82,'#F2EBDC')
+ +hs(400,276,54,74,'#F2EBDC')+hs(470,286,50,64,'#F2EBDC')+'</g>'
+ +'<g fill="#C9BEA6">'+hs(22,268,58,6,'#C9BEA6')+hs(96,278,48,6,'#C9BEA6')+hs(160,264,62,6,'#C9BEA6')
+ +hs(400,272,54,6,'#C9BEA6')+hs(470,282,50,6,'#C9BEA6')+'</g>'
+ /* acropolis rock */
+ +'<path d="M150 290q30-52 100-58t130 12q34 6 46 46z" fill="#C7A97A"/>'
+ +'<path d="M150 290q34-30 106-32t150 12q26 8 20 20z" fill="#D8BE94"/>'
+ /* parthenon */
+ +'<g><rect x="212" y="214" width="164" height="10" fill="#EFE3C9"/>'
+ +cols(220,164,9,17,50,10,'#F7EFDC')
+ +'<rect x="208" y="156" width="172" height="10" fill="#EFE3C9"/>'
+ +'<path d="M204 156h180l-90-34z" fill="#F7EFDC"/>'
+ +'<path d="M214 152h160l-80-26z" fill="#E6D8B8" opacity=".55"/></g>'
+ +olive(70,246,22,'#6B8F5E')+olive(505,252,18,'#7BA06B')
+ +cyp(120,268,44,'#3E6B4A');
+},
+
+santorini:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="92" cy="74" r="30" fill="#FFE9B8"/>'
+ +hs(0,246,560,104,'url(#se'+u+')')
+ +'<path d="M0 246V150q60-26 128-12t140-6q70-18 140 6t152-14v122z" fill="#C8713F"/>'
+ +'<path d="M0 246V192q70-14 140 0t140-4q70-12 140 6t140-8v60z" fill="#A85B31"/>'
+ +'<g fill="#FFFFFF">'+hs(36,156,52,34,'#FFFFFF')+hs(96,170,40,26,'#FFFFFF')+hs(150,160,46,32,'#FFFFFF')
+ +hs(206,176,36,24,'#FFFFFF')+hs(272,158,54,34,'#FFFFFF')+hs(336,172,38,26,'#FFFFFF')
+ +hs(398,164,48,30,'#FFFFFF')+hs(458,178,34,24,'#FFFFFF')+hs(506,152,48,34,'#FFFFFF')+'</g>'
+ +'<g fill="#1C6FA8">'+dome(62,156,15,'#1C6FA8')+dome(173,160,14,'#1C6FA8')+dome(299,158,16,'#1C6FA8')
+ +dome(422,164,14,'#1C6FA8')+dome(530,152,15,'#1C6FA8')+'</g>'
+ +hs(242,136,14,44,'#FFFFFF')+'<path d="M242 136h14l-7-11z" fill="#1C6FA8"/>'
+ /* windmill */
+ +hs(560-46,124,22,28,'#FFFFFF')+'<path d="M514 124h22l-11-13z" fill="#D9CDAF"/>'
+ +'<g stroke="#8C7B58" stroke-width="2.4"><path d="M525 128L508 117M525 128l17-11M525 128v-16"/></g>'
+ +waves(296,'#9BDDF2','.5')+waves(324,'#9BDDF2','.35');
+},
+
+mykonos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="474" cy="72" r="28" fill="#FFF0C4"/>'
+ +hs(0,262,560,88,'url(#se'+u+')')
+ +'<path d="M0 262V212q80-24 160-10t150-14q90-16 250 10v64z" fill="#D9C9A6"/>'
+ /* windmills row */
+ +function(){ var s='',xs=[70,164,258,352];
+   xs.forEach(function(x){
+     s+=hs(x,168,44,54,'#FFFFFF')+'<path d="M'+(x-6)+' 168h56l-28-24z" fill="#C8B68E"/>'
+      +'<g stroke="#8C7B58" stroke-width="3" stroke-linecap="round">'
+      +'<path d="M'+(x+22)+' 176L'+(x-6)+' 158M'+(x+22)+' 176l28-18M'+(x+22)+' 176v-26M'+(x+22)+' 176l-20 24"/></g>'
+      +win(x+16,192,12,16,'#2F6E96');
+   }); return s; }()
+ /* Delos lion */
+ +'<g transform="translate(436,196)"><path d="M0 60V32q0-14 14-16l10-14 8 12h10q14 2 14 16v30h-12V40l-8 6-10-6-8 8v12z" fill="#EFE7D2"/>'
+ +'<path d="M22 6a12 12 0 1 1 20 10l-4 8h-14l-4-10z" fill="#EFE7D2"/>'
+ +'<rect x="-6" y="60" width="72" height="9" fill="#DCD2B8"/></g>'
+ +waves(304,'#9BDDF2','.5');
+},
+
+nafplio:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="92" cy="68" r="26" fill="#FFF0C4"/>'
+ +hs(0,258,560,92,'url(#se'+u+')')
+ /* palamidi hill */
+ +'<path d="M250 258q20-104 116-128t194 44v84z" fill="#B49C72"/>'
+ +'<path d="M300 258q22-76 108-92t152 30v62z" fill="#C7AF83"/>'
+ +'<g fill="#DCCBA2" stroke="#B29863" stroke-width="2">'
+ +'<rect x="352" y="112" width="128" height="46"/><rect x="336" y="92" width="40" height="66"/><rect x="456" y="98" width="40" height="60"/></g>'
+ +'<g fill="#DCCBA2"><rect x="336" y="86" width="11" height="9"/><rect x="352" y="86" width="11" height="9"/><rect x="368" y="86" width="8" height="9"/>'
+ +'<rect x="456" y="92" width="11" height="9"/><rect x="472" y="92" width="11" height="9"/><rect x="488" y="92" width="8" height="9"/>'
+ +'<rect x="382" y="106" width="10" height="8"/><rect x="406" y="106" width="10" height="8"/><rect x="430" y="106" width="10" height="8"/></g>'
+ /* town */
+ +'<g>'+hs(16,206,52,52,'#FBF3E4')+roof(16,206,52,16,'#B3583F')
+ +hs(76,218,44,40,'#F2E8D4')+roof(76,218,44,14,'#B3583F')
+ +hs(128,200,56,58,'#FBF3E4')+roof(128,200,56,18,'#B3583F')
+ +hs(192,216,46,42,'#F2E8D4')+roof(192,216,46,14,'#B3583F')+'</g>'
+ +'<g fill="#2F6E96">'+win(30,222,10,16,'#2F6E96')+win(48,222,10,16,'#2F6E96')
+ +win(144,216,10,16,'#2F6E96')+win(162,216,10,16,'#2F6E96')+'</g>'
+ /* bourtzi island castle */
+ +'<g transform="translate(96,274)"><ellipse cx="34" cy="26" rx="52" ry="9" fill="#BFD9C6" opacity=".6"/>'
+ +'<rect x="4" y="-6" width="62" height="32" fill="#E2D3AE"/><rect x="24" y="-30" width="24" height="30" fill="#EADCB8"/>'
+ +'<g fill="#E2D3AE"><rect x="4" y="-12" width="9" height="8"/><rect x="21" y="-12" width="9" height="8"/><rect x="40" y="-12" width="9" height="8"/><rect x="57" y="-12" width="9" height="8"/></g>'
+ +'<path d="M24 -30h24l-12-12z" fill="#B3583F"/></g>'
+ +waves(324,'#9BDDF2','.45');
+},
+
+monemvasia:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="86" cy="70" r="26" fill="#FFF0C4"/>'
+ +hs(0,252,560,98,'url(#se'+u+')')
+ /* the rock */
+ +'<path d="M170 252q-8-120 90-156t190 38q42 34 46 118z" fill="#9A8768"/>'
+ +'<path d="M206 252q-4-104 78-134t164 34q34 28 38 100z" fill="#B09C79"/>'
+ /* town clinging to seaward face */
+ +'<g>'+hs(228,186,44,42,'#F6EEDC')+roof(228,186,44,13,'#B3583F')
+ +hs(280,198,38,30,'#EDE1C8')+roof(280,198,38,11,'#B3583F')
+ +hs(326,180,48,48,'#F6EEDC')+roof(326,180,48,14,'#B3583F')
+ +hs(382,196,40,32,'#EDE1C8')+roof(382,196,40,12,'#B3583F')
+ +hs(252,228,46,24,'#F6EEDC')+hs(308,230,44,22,'#EDE1C8')+hs(362,228,44,24,'#F6EEDC')+'</g>'
+ /* upper church */
+ +'<g><rect x="286" y="118" width="46" height="30" fill="#F6EEDC"/>'+dome(309,118,16,'#8FA6B8')
+ +'<rect x="305" y="92" width="8" height="12" fill="#F6EEDC"/></g>'
+ +'<g fill="#7C6242">'+win(240,196,9,14,'#7C6242')+win(256,196,9,14,'#7C6242')+win(340,192,9,14,'#7C6242')+win(356,192,9,14,'#7C6242')+'</g>'
+ /* causeway */
+ +'<path d="M0 286h178v10H0z" fill="#CFC3A6"/>'
+ +waves(320,'#9BDDF2','.45');
+},
+
+meteora:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="480" cy="66" r="26" fill="#FFF0C4"/>'
+ +'<path d="M0 350V254q70-34 150-16t160-10 250 20v102z" fill="#7E9A6E"/>'
+ +'<path d="M0 350V296q80-20 170-6t180-8 210 14v54z" fill="#5F7E54"/>'
+ /* four rock pillars, each a different height */
+ +function(){
+   var P=[[56,140,150],[176,244,190],[296,392,108],[430,502,170]], s='';
+   P.forEach(function(a){
+     var xl=a[0], xr=a[1], ty=a[2];
+     s+='<path d="M'+(xl+10)+' 304C'+(xl-8)+' 252,'+(xl+4)+' 190,'+xl+' '+(ty+10)
+       +'L'+xr+' '+(ty+10)+'C'+(xr+8)+' 200,'+(xr-6)+' 258,'+(xr-10)+' 304Z" fill="#B0A084"/>';
+     s+='<path d="M'+(xl+16)+' 304C'+(xl+2)+' 250,'+(xl+12)+' 194,'+(xl+8)+' '+(ty+10)
+       +'L'+((xl+xr)/2)+' '+(ty+10)+'C'+((xl+xr)/2-4)+' 210,'+(xl+26)+' 260,'+(xl+22)+' 304Z" fill="#C6B79B"/>';
+     s+='<rect x="'+(xl-4)+'" y="'+ty+'" width="'+(xr-xl+8)+'" height="12" rx="3" fill="#D3C6A8"/>';
+   });
+   return s; }()
+ /* monasteries, each seated on its own pillar cap */
+ +function(){
+   var M=[[62,150,72,30,true],[182,190,56,26,false],[302,108,84,36,true],[436,170,60,28,false]], s='';
+   M.forEach(function(a){
+     var x=a[0], ty=a[1], w=a[2], hh=a[3], big=a[4];
+     var y=ty-hh;
+     s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+hh+'" fill="#F5EDDC"/>'
+      +'<path d="M'+(x-5)+' '+y+'h'+(w+10)+'l-'+(w/2+5)+' -13z" fill="#B3583F"/>'
+      +win(x+8,y+9,9,13,'#8FA6B8')+win(x+w-17,y+9,9,13,'#8FA6B8');
+     if(big){ s+=dome(x+w/2,y,13,'#8FA6B8')+'<rect x="'+(x+w/2-4)+'" y="'+(y-26)+'" width="8" height="14" fill="#F5EDDC"/>'; }
+   });
+   return s; }()
+ +pine(34,318,54,'#3E6B4A')+pine(524,326,46,'#3E6B4A')+pine(262,332,40,'#4A7A56')+pine(118,330,36,'#4A7A56');
+},
+
+delphi:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="478" cy="64" r="26" fill="#FFF0C4"/>'
+ /* mountain behind */
+ +'<path d="M0 350V140l110-96 96 104 70-52 104 96 180-56v214z" fill="#A9B4A0"/>'
+ +'<path d="M110 44l44 48H66z" fill="#F0F4EE"/>'
+ +'<path d="M0 350V214q90-26 170-4t190-14 200 16v138z" fill="#8C9C7E"/>'
+ /* terraces */
+ +'<g fill="#C4B48F"><rect x="0" y="268" width="560" height="12"/><rect x="40" y="304" width="520" height="12"/></g>'
+ /* tholos: round temple, 3 columns */
+ +'<g><ellipse cx="150" cy="268" rx="66" ry="12" fill="#E4D8B8"/>'
+ +cols(100,204,7,16,64,10,'#F7EFDC')
+ +'<ellipse cx="150" cy="204" rx="56" ry="11" fill="#EFE3C9"/>'
+ +'<ellipse cx="150" cy="196" rx="50" ry="10" fill="#F7EFDC"/></g>'
+ /* temple of apollo */
+ +'<g><rect x="300" y="256" width="180" height="12" fill="#E4D8B8"/>'
+ +cols(308,196,10,18,60,11,'#F7EFDC')
+ +'<rect x="296" y="186" width="188" height="12" fill="#EFE3C9"/>'
+ +'<path d="M292 186h196l-98-32z" fill="#F7EFDC"/></g>'
+ /* omphalos */
+ +'<ellipse cx="240" cy="316" rx="20" ry="24" fill="#DCCFAE"/>'
+ +'<g stroke="#BFAE84" stroke-width="2" fill="none"><path d="M224 310q16-8 32 0M224 320q16-8 32 0"/></g>'
+ +cyp(40,290,54,'#3E6B4A')+cyp(524,300,46,'#3E6B4A');
+},
+
+pelion:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="86" cy="66" r="26" fill="#FFF0C4"/>'
+ +hs(0,268,560,82,'url(#se'+u+')')
+ +'<path d="M0 268V134q90-58 180-16t190-26 190 40v136z" fill="#4E7D50"/>'
+ +'<path d="M0 268V202q100-30 200-6t180-14 180 26v60z" fill="#3B6741"/>'
+ /* stone village */
+ +function(){ var s='',v=[[64,186,54,44],[128,200,44,36],[182,180,58,50],[248,198,46,38],[306,190,50,44]];
+   v.forEach(function(a){ s+=hs(a[0],a[1],a[2],a[3],'#E8E0D0')
+     +'<path d="M'+(a[0]-6)+' '+a[1]+'h'+(a[2]+12)+'l-'+(a[2]/2+6)+' -14z" fill="#8D9AA2"/>'
+     +win(a[0]+8,a[1]+12,10,14,'#5E6B4A')+win(a[0]+a[2]-18,a[1]+12,10,14,'#5E6B4A'); });
+   return s; }()
+ /* plane tree */
+ +'<g><circle cx="430" cy="196" r="38" fill="#3E6B4A"/><circle cx="462" cy="212" r="26" fill="#4A7A56"/>'
+ +'<rect x="424" y="196" width="12" height="52" fill="#6B573C"/></g>'
+ /* the Argo */
+ +'<g transform="translate(360,286)"><path d="M0 0h130l-22 26H20z" fill="#B3785A"/>'
+ +'<path d="M62 0v-64l52 64z" fill="#F7EFDC"/><path d="M58 0v-52l-40 52z" fill="#EBDFC4"/>'
+ +'<rect x="58" y="-70" width="5" height="72" fill="#7C5F3C"/></g>'
+ +waves(324,'#9BDDF2','.45');
+},
+
+thessaloniki:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="94" cy="68" r="26" fill="#FFF0C4"/>'
+ +hs(0,276,560,74,'url(#se'+u+')')
+ +hs(0,262,560,16,'#D8CBB2')
+ /* skyline */
+ +'<g fill="#EDE4D2">'+hs(0,198,50,64,'#EDE4D2')+hs(58,214,44,48,'#E3D8C2')+hs(110,190,52,72,'#EDE4D2')
+ +hs(392,206,46,56,'#E3D8C2')+hs(446,192,48,70,'#EDE4D2')+hs(502,212,58,50,'#E3D8C2')+'</g>'
+ /* rotunda */
+ +'<g><rect x="196" y="196" width="88" height="66" fill="#D8A48A"/>'+dome(240,196,44,'#C08A6E')
+ +'<circle cx="240" cy="160" r="6" fill="#B3583F"/>'
+ +'<g fill="#9E6E56">'+win(212,214,14,22,'#9E6E56')+win(234,214,14,22,'#9E6E56')+win(256,214,14,22,'#9E6E56')+'</g></g>'
+ /* minaret beside it */
+ +hs(292,150,12,112,'#EFE6D4')+'<path d="M292 150h12l-6-18z" fill="#9AB3A0"/>'
+ /* white tower */
+ +'<g><rect x="326" y="132" width="56" height="130" fill="#F4EFE2"/>'
+ +'<rect x="320" y="126" width="68" height="12" fill="#E8E0CE"/>'
+ +'<rect x="340" y="98" width="28" height="30" fill="#F4EFE2"/>'
+ +'<g fill="#E8E0CE"><rect x="320" y="118" width="12" height="9"/><rect x="340" y="118" width="12" height="9"/><rect x="360" y="118" width="12" height="9"/><rect x="376" y="118" width="12" height="9"/></g>'
+ +'<g fill="#B9AE96">'+win(338,158,12,20,'#B9AE96')+win(358,158,12,20,'#B9AE96')+win(338,198,12,20,'#B9AE96')+win(358,198,12,20,'#B9AE96')+'</g></g>'
+ +waves(312,'#9BDDF2','.45');
+},
+
+vergina:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<path d="M0 350V244q80-24 160-8t180-12 220 20v106z" fill="#8E9C6C"/>'
+ /* tumulus */
+ +'<path d="M40 300q100-96 240-96t240 96z" fill="#A9B57F"/>'
+ /* tomb facade */
+ +'<g><rect x="186" y="196" width="188" height="104" fill="#E6D9B8"/>'
+ +'<rect x="178" y="184" width="204" height="16" fill="#EFE4C6"/>'
+ +'<path d="M172 184h216l-108-46z" fill="#F4EBD2"/>'
+ +cols(196,200,2,152,100,20,'#F7F0DC')+cols(232,200,2,80,100,16,'#F7F0DC')
+ +'<rect x="256" y="216" width="48" height="84" fill="#8A7248"/>'
+ +'<rect x="278" y="216" width="4" height="84" fill="#6E5A38"/>'
+ +'<path d="M178 200h204v10H178z" fill="#C9B98E"/></g>'
+ /* vergina sun */
+ +'<g transform="translate(280,150)"><circle r="30" fill="#D9A22B"/>'
+ +function(){ var s=''; for(var i=0;i<16;i++){ var a=i*22.5*Math.PI/180;
+   s+='<path d="M0 0L'+(Math.cos(a)*54).toFixed(1)+' '+(Math.sin(a)*54).toFixed(1)+'L'+(Math.cos(a+0.19)*30).toFixed(1)+' '+(Math.sin(a+0.19)*30).toFixed(1)+'z" fill="#E0AE3C"/>'; }
+   return s; }()
+ +'<circle r="17" fill="#C08A1E"/></g>'
+ /* vines */
+ +'<g stroke="#5E6B3C" stroke-width="3" opacity=".6"><path d="M0 328h560M0 340h560"/></g>';
+},
+
+zagori:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ /* gorge walls */
+ +'<path d="M0 350V96q60 20 96 78t44 176z" fill="#6E8A62"/>'
+ +'<path d="M560 350V86q-70 22-110 84t-46 180z" fill="#5E7A54"/>'
+ +'<path d="M0 350V160q46 24 74 76t30 114z" fill="#83A075"/>'
+ +'<path d="M560 350V150q-52 26-82 80t-32 120z" fill="#749668"/>'
+ /* river */
+ +'<path d="M150 350q40-70 130-70t130 70z" fill="#5FB6DB"/>'
+ +'<path d="M186 350q34-46 94-46t94 46z" fill="#8FD6EE" opacity=".6"/>'
+ /* stone bridge: two arches */
+ +'<g><path d="M96 256h368v26H96z" fill="#CBBFA4"/>'
+ +'<path d="M96 282h368v14H96z" fill="#B7AA8C"/>'
+ +'<path d="M140 296q0-60 66-60t66 60z" fill="url(#sk'+u+')"/>'
+ +'<path d="M296 296q0-48 54-48t54 48z" fill="url(#sk'+u+')"/>'
+ +'<path d="M140 296q0-60 66-60t66 60h-12q0-48-54-48t-54 48z" fill="#D8CDB2"/>'
+ +'<path d="M296 296q0-48 54-48t54 48h-11q0-38-43-38t-43 38z" fill="#D8CDB2"/>'
+ +'<rect x="90" y="248" width="380" height="10" fill="#DCD1B6"/></g>'
+ +pine(44,214,60,'#2F5B3C')+pine(510,206,64,'#2F5B3C')+pine(92,240,44,'#3E6B4A')+pine(474,238,48,'#3E6B4A');
+},
+
+philippi:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="480" cy="66" r="26" fill="#FFF0C4"/>'
+ +'<path d="M0 350V264q90-22 180-6t190-10 190 18v84z" fill="#9CA86B"/>'
+ /* aqueduct */
+ +'<g><rect x="0" y="150" width="560" height="22" fill="#CFC0A0"/>'
+ +function(){ var s=''; for(var i=0;i<7;i++){ var x=14+i*80;
+   s+='<path d="M'+x+' 264V202q0-30 26-30t26 30v62h-13v-62q0-18-13-18t-13 18v62z" fill="#CFC0A0"/>'; }
+   return s; }()
+ +'<rect x="0" y="142" width="560" height="10" fill="#DED0B2"/></g>'
+ /* broken columns foreground */
+ +'<g>'+hs(56,236,20,64,'#EFE6D0')+hs(104,254,20,46,'#EFE6D0')+hs(150,226,20,74,'#EFE6D0')
+ +hs(196,266,20,34,'#EFE6D0')+'</g>'
+ +'<g fill="#DCD0B4">'+hs(50,230,32,9,'#DCD0B4')+hs(144,220,32,9,'#DCD0B4')+'</g>'
+ +'<rect x="40" y="298" width="200" height="10" fill="#DCD0B4"/>'
+ /* theatre curve */
+ +'<g transform="translate(400,250)"><path d="M-70 50a70 46 0 0 1 140 0z" fill="#D8CBA8"/>'
+ +'<path d="M-52 50a52 34 0 0 1 104 0z" fill="#E6DBBE"/>'
+ +'<path d="M-32 50a32 20 0 0 1 64 0z" fill="#F0E8D2"/></g>'
+ +cyp(280,300,52,'#3E6B4A')+cyp(316,306,42,'#3E6B4A');
+},
+
+mani:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="480" cy="68" r="26" fill="#FFF0C4"/>'
+ +hs(0,288,560,62,'url(#se'+u+')')
+ +'<path d="M0 288V196q80-30 164-12t196-14 200 26v92z" fill="#A08D6C"/>'
+ +'<path d="M0 288V240q90-18 180-4t190-8 190 16v44z" fill="#8C7A5C"/>'
+ /* tower cluster */
+ +function(){ var s='',t=[[40,148,44],[96,186,38],[150,120,48],[212,166,40],[268,134,46],[330,180,38],[382,146,44],[442,190,36],[490,160,42]];
+   t.forEach(function(a){ var x=a[0],y=a[1],w=a[2];
+     s+=hs(x,y,w,288-y,'#E2D8C4')+hs(x-4,y-8,w+8,10,'#D2C6AE');
+     s+='<g fill="#D2C6AE"><rect x="'+(x-4)+'" y="'+(y-16)+'" width="9" height="9"/><rect x="'+(x+w*0.4)+'" y="'+(y-16)+'" width="9" height="9"/><rect x="'+(x+w-5)+'" y="'+(y-16)+'" width="9" height="9"/></g>';
+     s+=win(x+w/2-5,y+22,10,16,'#7C6242')+win(x+w/2-5,y+60,10,16,'#7C6242');
+   }); return s; }()
+ +olive(28,252,20,'#6B8F5E')+olive(524,262,18,'#6B8F5E')
+ +waves(322,'#9BDDF2','.4');
+},
+
+naxos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="286" cy="150" r="52" fill="#FFE49A"/><circle cx="286" cy="150" r="72" fill="#FFE9B8" opacity=".35"/>'
+ +hs(0,252,560,98,'url(#se'+u+')')
+ +'<path d="M0 252V206q70-16 140-4t150-10 270 14v46z" fill="#B9A382"/>'
+ /* Portara */
+ +'<g><rect x="196" y="72" width="30" height="188" fill="#EFE6D0"/>'
+ +'<rect x="348" y="72" width="30" height="188" fill="#EFE6D0"/>'
+ +'<rect x="184" y="52" width="206" height="28" fill="#F7F0DC"/>'
+ +'<rect x="190" y="44" width="194" height="12" fill="#E4D8B8"/>'
+ +'<rect x="176" y="248" width="222" height="14" fill="#E4D8B8"/></g>'
+ /* island base */
+ +'<path d="M120 262q80-22 168-22t160 22z" fill="#C9B594"/>'
+ +'<path d="M0 300q60-10 120 0t120 0 120 0 120 0 80 0" stroke="#FFD98A" stroke-width="4" fill="none" opacity=".5"/>'
+ +waves(324,'#9BDDF2','.45')
+ +'<g fill="#D7C3A0"><circle cx="70" cy="238" r="16"/><circle cx="486" cy="244" r="13"/></g>';
+},
+
+milos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="92" cy="66" r="26" fill="#FFF0C4"/>'
+ +hs(0,250,560,100,'#2FB8D6')
+ /* lunar white rock */
+ +'<path d="M0 250V200q40-34 92-20t74-40 96 10 78-34 104 26 116-6v114z" fill="#F4F1E8"/>'
+ +'<path d="M0 250V226q50-22 104-8t84-26 92 14 86-22 94 22 100-4v48z" fill="#E6E2D4"/>'
+ +'<g fill="#FAF8F2"><path d="M160 250q10-44 56-44t54 44z"/><path d="M340 250q8-36 46-36t44 36z"/></g>'
+ /* inlet */
+ +'<path d="M232 250q30 32 76 32t72-32z" fill="#2FB8D6"/>'
+ /* Venus silhouette on a plinth */
+ +'<g transform="translate(70,150)">'
+ +'<path d="M22 94V62q-10-4-10-16 0-10 8-14V20a14 14 0 0 1 28 0v12q8 4 8 14 0 12-10 16v32z" fill="#EFE6D0"/>'
+ +'<path d="M18 40q-8 4-8 12h8zM52 40q8 4 8 12h-8z" fill="#E0D5BA"/>'
+ +'<rect x="10" y="94" width="52" height="14" fill="#DCD0B4"/>'
+ +'<rect x="16" y="108" width="40" height="42" fill="#E6DCC4"/></g>'
+ +boat(400,286,72,42,'#EE5A5F')
+ +waves(322,'#8FE0F2','.5');
+},
+
+sifnos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="474" cy="66" r="26" fill="#FFF0C4"/>'
+ +hs(0,272,560,78,'url(#se'+u+')')
+ +'<path d="M0 272V186q80-32 166-10t180-18 214 26v88z" fill="#C4B18C"/>'
+ /* village + chapel */
+ +'<g fill="#FFFFFF">'+hs(40,196,48,34,'#FFFFFF')+hs(94,208,40,26,'#FFFFFF')+hs(142,192,44,38,'#FFFFFF')
+ +hs(194,210,38,26,'#FFFFFF')+'</g>'
+ +'<g><rect x="256" y="174" width="72" height="56" fill="#FFFFFF"/>'+dome(292,174,26,'#1C6FA8')
+ +'<rect x="288" y="136" width="9" height="14" fill="#FFFFFF"/>'
+ +win(270,192,14,22,'#1C6FA8')+win(300,192,14,22,'#1C6FA8')+'</g>'
+ +'<g fill="#FFFFFF">'+hs(348,200,44,30,'#FFFFFF')+hs(400,190,48,40,'#FFFFFF')+hs(456,206,42,24,'#FFFFFF')+'</g>'
+ +'<g fill="#1C6FA8">'+dome(370,200,14,'#1C6FA8')+dome(424,190,15,'#1C6FA8')+'</g>'
+ /* the clay pots */
+ +'<g transform="translate(60,250)">'
+ +'<path d="M8 20q-10 26 12 40t36-14-8-26z" fill="#B5714A"/><ellipse cx="28" cy="20" rx="24" ry="8" fill="#C9835A"/>'
+ +'<ellipse cx="28" cy="16" rx="16" ry="5" fill="#8E5334"/>'
+ +'<g transform="translate(64,10)"><path d="M6 14q-8 20 9 31t28-11-6-20z" fill="#C08055"/><ellipse cx="22" cy="14" rx="19" ry="6" fill="#D49468"/></g>'
+ +'<g transform="translate(-40,16)"><path d="M6 12q-7 17 8 26t24-9-5-17z" fill="#A9663F"/><ellipse cx="19" cy="12" rx="16" ry="5" fill="#BC7A4E"/></g></g>'
+ +waves(320,'#9BDDF2','.45');
+},
+
+tinos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="478" cy="66" r="26" fill="#FFF0C4"/>'
+ +'<path d="M0 350V212q80-36 170-14t180-20 210 30v142z" fill="#B3A583"/>'
+ +'<path d="M0 350V276q90-22 180-8t190-10 190 20v72z" fill="#9C8F6E"/>'
+ /* terraces */
+ +'<g stroke="#8A7D5E" stroke-width="3" opacity=".5"><path d="M0 300h560M0 322h560"/></g>'
+ /* dovecote */
+ +'<g transform="translate(180,120)">'
+ +'<rect x="0" y="60" width="150" height="130" fill="#F4EEDC"/>'
+ +'<rect x="-8" y="46" width="166" height="18" fill="#FAF5E6"/>'
+ +function(){ var s='';
+   for(var r=0;r<3;r++){ for(var c=0;c<5;c++){ var x=12+c*28,y=74+r*22;
+     s+='<path d="M'+x+' '+y+'l11 11-11 11-11-11z" fill="#C9BE9E"/>'; } }
+   for(var c2=0;c2<6;c2++){ s+='<rect x="'+(6+c2*24)+'" y="146" width="14" height="18" fill="#B5A984"/>'; }
+   return s; }()
+ +'<g fill="#7C6E4E"><rect x="28" y="166" width="14" height="20" rx="7"/><rect x="68" y="166" width="14" height="20" rx="7"/><rect x="108" y="166" width="14" height="20" rx="7"/></g>'
+ +'<path d="M-8 46h166l-83-30z" fill="#D8CDAE"/></g>'
+ /* marble arch + carver block */
+ +'<g transform="translate(392,196)"><path d="M0 94V34a34 34 0 0 1 68 0v60h-16V34a18 18 0 0 0-36 0v60z" fill="#F2EDE0"/>'
+ +'<rect x="-10" y="94" width="88" height="12" fill="#E2DBC8"/></g>'
+ /* doves */
+ +'<g fill="#FFFFFF"><path d="M96 92q10-8 20 0-8 4-20 0zM120 74q9-7 18 0-7 4-18 0z"/></g>';
+},
+
+chios:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<path d="M0 350V268q90-16 180-4t190-8 190 14v80z" fill="#B9A882"/>'
+ /* pyrgi facade with xysta */
+ +'<g><rect x="60" y="76" width="300" height="212" fill="#F2EFE6"/>'
+ +function(){ var s='';
+   var pats=['tri','zig','chk','dia'];
+   for(var r=0;r<6;r++){
+     var y=84+r*34, p=pats[r%4];
+     s+='<rect x="66" y="'+y+'" width="288" height="26" fill="#FFFFFF"/>';
+     for(var c=0;c<16;c++){ var x=70+c*18;
+       if(p==='tri') s+='<path d="M'+x+' '+(y+22)+'l8-16 8 16z" fill="#2E3A44"/>';
+       else if(p==='zig') s+='<path d="M'+x+' '+(y+20)+'l5-12 5 12 5-12" stroke="#2E3A44" stroke-width="3" fill="none"/>';
+       else if(p==='chk') s+=(c%2? '<rect x="'+x+'" y="'+(y+5)+'" width="14" height="16" fill="#2E3A44"/>':'');
+       else s+='<path d="M'+(x+7)+' '+(y+4)+'l9 9-9 9-9-9z" fill="#2E3A44"/>';
+     }
+   } return s; }()
+ +'<rect x="150" y="196" width="60" height="92" fill="#2F6E96"/>'
+ +'<rect x="176" y="196" width="5" height="92" fill="#1F5474"/>'
+ +'<g fill="#2F6E96">'+win(92,120,24,34,'#2F6E96')+win(296,120,24,34,'#2F6E96')+'</g>'
+ +'<rect x="52" y="68" width="316" height="14" fill="#E6E1D2"/></g>'
+ /* mastic tree with resin tears */
+ +'<g transform="translate(420,150)"><circle cx="50" cy="44" r="46" fill="#6B8F5E"/><circle cx="86" cy="66" r="30" fill="#7BA06B"/>'
+ +'<rect x="42" y="82" width="16" height="72" fill="#7C6242"/>'
+ +'<g fill="#FBF3D8" stroke="#E6D9A8"><ellipse cx="34" cy="126" rx="7" ry="10"/><ellipse cx="66" cy="140" rx="6" ry="9"/><ellipse cx="50" cy="152" rx="8" ry="11"/></g>'
+ +'<ellipse cx="50" cy="164" rx="56" ry="10" fill="#E8E2CE"/></g>';
+},
+
+symi:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="82" cy="64" r="26" fill="#FFF0C4"/>'
+ +hs(0,282,560,68,'url(#se'+u+')')
+ +'<path d="M0 282V150q60-40 124-16t140-30 150 22 146-8v164z" fill="#B7A483"/>'
+ /* tiers of pastel mansions */
+ +function(){ var s='';
+   var rows=[[168,['#F2C9A0','#E8B9C4','#F4DFA6','#CFD9EC','#EFC9A8']],
+             [214,['#E9C6D2','#F5E0AE','#D6E0F0','#F0CBA6','#E3C9DE']],
+             [252,['#F6E3B4','#DCE4F2','#F1CDAB','#E6C6D6','#F7E8C2']]];
+   rows.forEach(function(rw,ri){
+     var y=rw[0],cs=rw[1];
+     for(var i=0;i<6;i++){ var x=24+i*90+(ri%2?22:0), w=72,h=(ri===2?30:38);
+       s+=hs(x,y,w,h,cs[i%cs.length])
+        +'<path d="M'+(x-5)+' '+y+'h'+(w+10)+'l-'+(w/2+5)+' -13z" fill="#B4694B"/>'
+        +win(x+12,y+10,12,17,'#FFFFFF')+win(x+w-24,y+10,12,17,'#FFFFFF');
+     }
+   }); return s; }()
+ /* clock tower */
+ +'<g><rect x="256" y="104" width="34" height="76" fill="#FAF3E4"/><path d="M252 104h42l-21-18z" fill="#B4694B"/>'
+ +'<circle cx="273" cy="130" r="11" fill="#FFFFFF" stroke="#B4694B" stroke-width="2"/></g>'
+ /* quay + caique */
+ +hs(0,272,560,12,'#E0D5BC')
+ +boat(196,294,96,0,'#fff')
+ +'<path d="M232 294v-40l44 40z" fill="#FFFFFF"/><path d="M228 294v-30l-32 30z" fill="#EE5A5F"/>'
+ +waves(330,'#9BDDF2','.45');
+},
+
+chania:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="86" cy="62" r="26" fill="#FFF0C4"/>'
+ /* white mountains */
+ +'<path d="M0 250V150l100-72 80 78 60-42 90 86 230-56v106z" fill="#A6B2BE"/>'
+ +'<path d="M100 78l40 54H60zM240 114l32 46h-64z" fill="#F4F8FB"/>'
+ +hs(0,250,560,100,'url(#se'+u+')')
+ /* harbour arc of venetian houses */
+ +'<path d="M0 250V206q120-26 260-20t300 14v50z" fill="#D9C9A8"/>'
+ +function(){ var s='',c=['#F0D9B4','#E9C7A4','#F5E3C2','#DFC6AE','#F2D5AE','#E8CDB0'];
+   for(var i=0;i<8;i++){ var x=10+i*52,y=200+(i%2?8:0);
+     s+=hs(x,y,44,50,c[i%6])+'<path d="M'+(x-4)+' '+y+'h52l-26-12z" fill="#B4694B"/>'
+      +win(x+8,y+12,10,15,'#8C6A4E')+win(x+26,y+12,10,15,'#8C6A4E');
+   } return s; }()
+ /* lighthouse */
+ +'<g transform="translate(452,140)"><path d="M14 110V40q0-8 8-8h12q8 0 8 8v70z" fill="#EFE6D0"/>'
+ +'<rect x="8" y="106" width="44" height="14" fill="#DCD0B4"/>'
+ +'<rect x="16" y="14" width="24" height="20" fill="#E4D8B8"/>'
+ +'<path d="M14 14h28l-14-14z" fill="#B4694B"/>'
+ +'<rect x="20" y="18" width="16" height="12" fill="#FFE9A8"/>'
+ +'<path d="M0 120h56v10H0z" fill="#CFC3A6"/></g>'
+ +waves(312,'#9BDDF2','.45');
+},
+
+corfu:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="88" cy="64" r="26" fill="#FFF0C4"/>'
+ +hs(0,272,560,78,'url(#se'+u+')')
+ /* twin-peak old fortress */
+ +'<path d="M280 272q10-96 76-112t120 40q30 30 34 72z" fill="#A79470"/>'
+ +'<path d="M320 272q8-72 62-84t96 32q22 22 26 52z" fill="#BCA881"/>'
+ +'<g fill="#E0D4B4" stroke="#B9A67E" stroke-width="2">'
+ +'<rect x="336" y="150" width="34" height="58"/><rect x="430" y="132" width="36" height="76"/>'
+ +'<rect x="336" y="196" width="130" height="34"/></g>'
+ +'<g fill="#E0D4B4"><rect x="336" y="144" width="10" height="8"/><rect x="352" y="144" width="10" height="8"/>'
+ +'<rect x="430" y="126" width="10" height="8"/><rect x="446" y="126" width="10" height="8"/><rect x="456" y="126" width="10" height="8"/></g>'
+ /* venetian arcaded terrace */
+ +'<g><rect x="16" y="176" width="240" height="96" fill="#F2DCB8"/>'
+ +'<rect x="8" y="166" width="256" height="14" fill="#F7E7C8"/>'
+ +function(){ var s='';
+   for(var i=0;i<6;i++){ var x=28+i*38;
+     s+='<path d="M'+x+' 272v-34a14 14 0 0 1 28 0v34z" fill="#C79A6A"/>'; }
+   for(var j=0;j<6;j++){ var x2=28+j*38;
+     s+=win(x2+4,192,20,28,'#C79A6A'); }
+   return s; }()
+ +'<rect x="16" y="228" width="240" height="6" fill="#E0C79C"/></g>'
+ +cyp(276,272,60,'#3E6B4A')+olive(508,242,24,'#6B8F5E')
+ +waves(318,'#9BDDF2','.45');
+},
+
+patmos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="466" cy="64" r="26" fill="#FFF0C4"/>'
+ +hs(0,288,560,62,'url(#se'+u+')')
+ +'<path d="M0 288V170q90-64 200-30t190-38 170 60v126z" fill="#B0A184"/>'
+ /* white chora climbing */
+ +function(){ var s='',p=[[54,216],[104,232],[150,208],[200,228],[252,212],[300,234],[348,214]];
+   p.forEach(function(a){ s+=hs(a[0],a[1],42,288-a[1],'#FAF6EC')
+     +'<path d="M'+(a[0]-4)+' '+a[1]+'h50l-25-11z" fill="#C9BCA0"/>'
+     +win(a[0]+8,a[1]+14,10,14,'#8FA6B8')+win(a[0]+24,a[1]+14,10,14,'#8FA6B8'); });
+   return s; }()
+ /* fortified monastery */
+ +'<g><rect x="186" y="96" width="196" height="106" fill="#C6B189"/>'
+ +'<rect x="170" y="82" width="52" height="120" fill="#D2BE97"/>'
+ +'<rect x="350" y="88" width="48" height="114" fill="#D2BE97"/>'
+ +'<g fill="#D2BE97"><rect x="170" y="74" width="12" height="9"/><rect x="190" y="74" width="12" height="9"/><rect x="210" y="74" width="12" height="9"/>'
+ +'<rect x="350" y="80" width="12" height="9"/><rect x="370" y="80" width="12" height="9"/><rect x="386" y="80" width="12" height="9"/>'
+ +'<rect x="234" y="88" width="11" height="9"/><rect x="262" y="88" width="11" height="9"/><rect x="290" y="88" width="11" height="9"/><rect x="318" y="88" width="11" height="9"/></g>'
+ +dome(284,96,26,'#8B5E3C')+'<rect x="280" y="58" width="8" height="14" fill="#C6B189"/>'
+ +'<path d="M268 202v-36a16 16 0 0 1 32 0v36z" fill="#7C5F3C"/>'
+ +'<g fill="#7C5F3C">'+win(196,120,14,20,'#7C5F3C')+win(362,124,14,20,'#7C5F3C')+'</g></g>'
+ +waves(324,'#9BDDF2','.4');
+},
+
+karpathos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="84" cy="62" r="26" fill="#FFF0C4"/>'
+ +hs(0,300,560,50,'url(#se'+u+')')
+ +'<path d="M0 300V128q70-56 150-20t150-44 260 62v174z" fill="#9C8D6E"/>'
+ +'<path d="M0 300V216q90-28 180-8t190-12 190 26v78z" fill="#87795C"/>'
+ /* ridge village */
+ +function(){ var s='',p=[[70,196],[118,210],[164,190],[212,206],[260,186],[308,204],[356,192],[404,210]];
+   p.forEach(function(a){ s+=hs(a[0],a[1],40,42,'#F7F2E4')
+     +'<path d="M'+(a[0]-4)+' '+a[1]+'h48l-24-12z" fill="#9EA8AE"/>'
+     +win(a[0]+8,a[1]+12,9,13,'#2F6E96')+win(a[0]+22,a[1]+12,9,13,'#2F6E96'); });
+   return s; }()
+ /* windmills */
+ +function(){ var s='',xs=[452,506];
+   xs.forEach(function(x){ s+=hs(x,168,32,44,'#FFFFFF')+'<path d="M'+(x-5)+' 168h42l-21-16z" fill="#C8B68E"/>'
+    +'<g stroke="#8C7B58" stroke-width="2.6" stroke-linecap="round"><path d="M'+(x+16)+' 176L'+(x-4)+' 164M'+(x+16)+' 176l20-12M'+(x+16)+' 176v-18"/></g>'; });
+   return s; }()
+ /* woman in traditional dress */
+ +'<g transform="translate(180,236)">'
+ +'<path d="M14 64L4 64 10 26q2-10 12-12l6-2 6 2q10 2 12 12l6 38h-10l-2-22-2 24z" fill="#B23A48"/>'
+ +'<path d="M8 64h32l6 30H2z" fill="#2E4A6B"/>'
+ +'<circle cx="24" cy="8" r="9" fill="#E8C9A8"/>'
+ +'<path d="M13 8a11 11 0 0 1 22 0l4 8H9z" fill="#FFFFFF"/>'
+ +'<g fill="#D9A22B"><circle cx="24" cy="30" r="3"/><circle cx="18" cy="38" r="2.4"/><circle cx="30" cy="38" r="2.4"/></g></g>'
+ +'<g transform="translate(240,246)" opacity=".9">'
+ +'<path d="M12 54L4 54 9 22q2-8 10-10l5-2 5 2q8 2 10 10l5 32h-8l-2-18-2 20z" fill="#7C5F9C"/>'
+ +'<path d="M7 54h26l5 24H2z" fill="#2E4A6B"/><circle cx="20" cy="6" r="7" fill="#E8C9A8"/>'
+ +'<path d="M11 6a9 9 0 0 1 18 0l3 7H8z" fill="#FFFFFF"/></g>'
+ +waves(330,'#9BDDF2','.4');
+},
+
+skopelos:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="88" cy="62" r="26" fill="#FFF0C4"/>'
+ +hs(0,268,560,82,'#35B8CE')
+ /* pine headland left */
+ +'<path d="M0 268V178q60-34 128-8t108 26v72z" fill="#2F6B4C"/>'
+ +pine(30,206,64,'#1D4A34')+pine(74,216,56,'#1D4A34')+pine(118,200,70,'#1D4A34')
+ +pine(162,220,52,'#245840')+pine(202,212,58,'#1D4A34')
+ /* the rock pinnacle with chapel */
+ +'<g><path d="M300 290q-14-100 20-142t92-30q54 12 62 74t6 98z" fill="#BCAE92"/>'
+ +'<path d="M330 290q-10-84 22-118t74-22q40 12 46 62t4 78z" fill="#CFC2A4"/>'
+ /* steps */
+ +function(){ var s=''; for(var i=0;i<12;i++){ s+='<rect x="'+(306+i*4)+'" y="'+(278-i*10)+'" width="26" height="6" fill="#E2D8BE"/>'; } return s; }()
+ +'<g><rect x="360" y="96" width="76" height="52" fill="#FFFFFF"/>'+dome(398,96,26,'#1C6FA8')
+ +'<rect x="394" y="58" width="9" height="14" fill="#FFFFFF"/>'
+ +'<path d="M382 148v-26a16 16 0 0 1 32 0v26z" fill="#1C6FA8"/></g></g>'
+ +boat(120,300,80,48,'#EE5A5F')
+ +waves(322,'#9BE2EE','.5');
+},
+
+evia:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="468" cy="64" r="26" fill="#FFF0C4"/>'
+ /* two shores */
+ +'<path d="M0 350V214q60-26 120-14t72 22v128z" fill="#7E9A6E"/>'
+ +'<path d="M560 350V206q-70-24-136-10t-82 26v128z" fill="#6E8A62"/>'
+ /* the channel */
+ +hs(192,240,176,110,'#2FA8D0')
+ /* swirling current */
+ +'<g stroke="#8FE0F2" stroke-width="4" fill="none" opacity=".85">'
+ +'<path d="M204 274q24-18 44 0t44 0 44 0 20-8"/>'
+ +'<path d="M204 300q24 18 44 0t44 0 44 0 20 8"/>'
+ +'<path d="M232 322q20-14 40 0t40 0"/></g>'
+ +'<g stroke="#CFF1FA" stroke-width="3" fill="none" opacity=".9">'
+ +'<path d="M250 258a16 12 0 1 0 22 10"/><path d="M304 290a16 12 0 1 1-22-10"/></g>'
+ /* arrows both ways */
+ +'<g fill="#E8F8FE"><path d="M216 246l18 8-18 8z"/><path d="M344 334l-18-8 18-8z"/></g>'
+ /* the bridge */
+ +'<g><rect x="168" y="216" width="224" height="16" fill="#E0D7C2"/>'
+ +'<rect x="168" y="232" width="224" height="8" fill="#C7BCA2"/>'
+ +'<rect x="238" y="140" width="12" height="78" fill="#D8CDB2"/><rect x="310" y="140" width="12" height="78" fill="#D8CDB2"/>'
+ +'<g stroke="#C7BCA2" stroke-width="3" fill="none"><path d="M244 144q40 44 72 0M244 144L180 216M316 144l64 72"/></g></g>'
+ /* town roofs */
+ +'<g>'+hs(24,224,50,40,'#F4EDDE')+roof(24,224,50,14,'#B4694B')
+ +hs(86,236,42,30,'#EBE2D0')+roof(86,236,42,12,'#B4694B')
+ +hs(452,218,50,40,'#F4EDDE')+roof(452,218,50,14,'#B4694B')
+ +hs(392,232,44,32,'#EBE2D0')+roof(392,232,44,12,'#B4694B')+'</g>'
+ +olive(140,288,22,'#6B8F5E')+olive(438,296,20,'#6B8F5E');
+},
+
+xanthi:function(u){ return ''
+ +hs(0,0,560,350,'url(#sk'+u+')')
+ +'<circle cx="474" cy="62" r="26" fill="#FFF0C4"/>'
+ +'<path d="M0 350V236q80-40 170-14t180-22 210 34v116z" fill="#A9A876"/>'
+ /* ottoman merchant houses with overhanging upper storeys */
+ +function(){ var s='',c=['#EFD3B0','#E4C3D2','#F3E3B8','#CFDCE8','#EED6C0','#DCC9E0'];
+   var p=[[20,168],[124,182],[228,162],[332,180],[436,170]];
+   p.forEach(function(a,i){ var x=a[0],y=a[1],col=c[i%6];
+     s+=hs(x+8,y+52,72,118,col)                       /* ground floor */
+      +hs(x,y,88,56,col)                              /* jettied upper floor */
+      +'<path d="M'+(x-8)+' '+y+'h104l-52-20z" fill="#B4694B"/>'
+      +'<g stroke="#8C6A4E" stroke-width="2" fill="none"><path d="M'+x+' '+(y+20)+'h88M'+(x+30)+' '+y+'v56M'+(x+58)+' '+y+'v56"/></g>'
+      +win(x+10,y+12,16,26,'#FFFFFF')+win(x+36,y+12,16,26,'#FFFFFF')+win(x+62,y+12,16,26,'#FFFFFF')
+      +win(x+22,y+74,14,24,'#8C6A4E')+win(x+52,y+74,14,24,'#8C6A4E');
+   }); return s; }()
+ /* minaret + church belfry side by side */
+ +'<g><rect x="96" y="60" width="16" height="130" fill="#F4EDDC"/>'
+ +'<rect x="90" y="96" width="28" height="7" fill="#D8CDB2"/>'
+ +'<path d="M96 60h16l-8-22z" fill="#9AB3A0"/></g>'
+ +'<g><rect x="396" y="74" width="34" height="112" fill="#F4EDDC"/>'
+ +'<path d="M392 74h42l-21-24z" fill="#B4694B"/>'
+ +'<circle cx="413" cy="104" r="10" fill="#FFFFFF" stroke="#B4694B" stroke-width="2"/>'
+ +'<path d="M413 44v-12M407 38h12" stroke="#B4694B" stroke-width="3"/></g>'
+ /* carnival bunting */
+ +'<g><path d="M0 40q140 52 280 26t280-34" stroke="#C05C3E" stroke-width="2.5" fill="none"/>'
+ +function(){ var s='',cols=['#EE5A5F','#D9A22B','#2F6E96','#6B8F5E','#B23A8E'];
+   for(var i=0;i<14;i++){ var t=i/13, x=t*560, y=40+52*Math.sin(Math.PI*t)*0.9-(t>0.5?(t-0.5)*40:0);
+     s+='<path d="M'+(x-7)+' '+y+'h14l-7 16z" fill="'+cols[i%5]+'"/>'; }
+   return s; }()+'</g>';
+}
+};
+
+/* frame ---------------------------------------------------------- */
+function postcard(d,lang){
+  var u='p'+(++PCUID);
+  var fn=SCENES[d.id];
+  var body = fn ? fn(u) : hs(0,0,560,350,'url(#sk'+u+')');
+  var label = lang==='zh' ? 'ΕΛΛΑΔΑ · 希腊' : 'ΕΛΛΑΔΑ · GREECE';
+  return '<svg viewBox="0 0 600 452" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+d[lang].name+'">'
+   +'<defs>'
+   +'<linearGradient id="sk'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BEE4F7"/><stop offset="1" stop-color="#EEF9FE"/></linearGradient>'
+   +'<linearGradient id="se'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#48B3DC"/><stop offset="1" stop-color="#1B7FAE"/></linearGradient>'
+   +'<clipPath id="cl'+u+'"><rect x="20" y="20" width="560" height="350" rx="4"/></clipPath>'
+   +'</defs>'
+   +'<rect width="600" height="452" rx="8" fill="#FFFFFF"/>'
+   +'<g clip-path="url(#cl'+u+')"><g transform="translate(20,20)">'+body+'</g></g>'
+   +'<rect x="20" y="20" width="560" height="350" rx="4" fill="none" stroke="#E3E9EE" stroke-width="1.5"/>'
+   /* bottom margin: label, postmark, stamp */
+   +'<text x="28" y="414" font-size="17" letter-spacing="3" fill="#9BAAB8" font-family=\'Georgia, Times New Roman, serif\'>'+label+'</text>'
+   +'<g transform="translate(455,392)" opacity=".5">'
+   +'<circle r="27" fill="none" stroke="#8FA6B8" stroke-width="2"/>'
+   +'<circle r="21" fill="none" stroke="#8FA6B8" stroke-width="1"/>'
+   +'<g stroke="#8FA6B8" stroke-width="2" fill="none"><path d="M-40 -8q10-6 20 0t20 0M-40 0q10-6 20 0t20 0M-40 8q10-6 20 0t20 0"/></g>'
+   +'</g>'
+   +'<g transform="translate(508,368)">'
+   +'<rect width="58" height="54" rx="2" fill="#F4F8FB" stroke="#CFDCE6" stroke-width="1.5" stroke-dasharray="4 3"/>'
+   +'<rect x="6" y="6" width="46" height="34" fill="#DCEEF8"/>'
+   +'<path d="M6 40V26l12-12 12 14 8-8 14 20z" fill="#8FC5DE"/>'
+   +'<circle cx="42" cy="16" r="5" fill="#FFE49A"/>'
+   +'<text x="29" y="50" text-anchor="middle" font-size="8" fill="#8FA6B8" font-family=\'Georgia, Times New Roman, serif\' letter-spacing="1">ΕΛΛΑΣ</text>'
+   +'</g>'
+   +'</svg>';
+}
+
+/* =========================================================
+   MAP GEOMETRY  (lon/lat → svg)
+   ========================================================= */
+var MAP={w:520,h:470,lon0:19.0,lon1:28.6,lat0:42.0,lat1:34.6};
+function px(lon){ return (lon-MAP.lon0)/(MAP.lon1-MAP.lon0)*MAP.w; }
+function py(lat){ return (MAP.lat0-lat)/(MAP.lat0-MAP.lat1)*MAP.h; }
+function poly(pts){ return pts.map(function(p,i){ return (i?'L':'M')+px(p[0]).toFixed(1)+' '+py(p[1]).toFixed(1); }).join(' ')+' Z'; }
+
+var MAINLAND=[[19.95,39.62],[20.35,40.05],[20.72,40.45],[21.0,40.86],[21.7,41.10],[22.5,41.30],[23.2,41.40],[24.2,41.55],[25.1,41.30],[26.15,41.40],[26.60,41.30],[26.30,40.95],[25.90,40.85],[25.20,40.90],[24.60,40.95],[24.10,40.90],[23.70,40.70],[23.40,40.40],[23.62,40.10],[23.20,40.15],[22.90,40.50],[22.55,40.50],[22.65,40.10],[22.55,39.70],[22.92,39.40],[23.35,39.20],[23.12,38.92],[22.82,38.86],[22.55,38.62],[23.05,38.55],[23.30,38.30],[23.55,38.10],[23.85,37.95],[24.03,37.65],[23.72,37.90],[23.45,37.95],[23.15,37.98],[22.95,38.32],[22.55,38.38],[22.05,38.40],[21.45,38.34],[21.12,38.42],[20.98,38.85],[20.78,39.22],[20.45,39.38],[20.15,39.42]];
+var PELOP=[[22.95,38.05],[23.16,37.90],[23.22,37.60],[23.06,37.44],[23.22,37.30],[22.92,37.42],[22.86,37.00],[23.06,36.80],[23.20,36.45],[22.96,36.76],[22.74,36.86],[22.50,36.40],[22.40,36.92],[22.20,37.06],[22.10,36.80],[21.90,36.72],[21.68,37.06],[21.58,37.52],[21.30,37.66],[21.32,38.02],[21.78,38.30],[22.22,38.34],[22.62,38.24]];
+var CRETE=[[23.52,35.56],[24.02,35.56],[24.52,35.40],[25.02,35.36],[25.52,35.36],[26.10,35.26],[26.32,35.20],[26.20,35.00],[25.70,35.00],[25.10,34.94],[24.70,35.04],[24.20,35.14],[23.70,35.20],[23.50,35.26]];
+var EUBOEA=[[22.92,38.92],[23.32,38.90],[23.92,38.50],[24.32,38.26],[24.10,38.14],[23.58,38.46],[23.08,38.70]];
+var DOTS=[[19.65,39.30,3.5],[20.72,38.70,3],[20.62,38.16,3],[20.78,37.78,2.6],[21.32,37.78,2],
+ [24.42,37.74,2.2],[25.16,37.54,2.6],[25.35,37.44,2.4],[25.53,37.10,3.2],[25.06,37.02,2.4],[24.72,36.97,2.4],[24.44,36.72,2.6],[25.44,36.40,2.4],[25.16,36.62,2.2],
+ [26.14,38.37,3],[26.55,39.20,3.4],[26.83,37.75,2.8],[27.30,36.89,2.6],[27.84,36.61,2.2],[28.22,36.44,3],[26.98,36.14,2.4],
+ [24.60,40.68,2.2],[25.58,38.47,2],[23.48,39.16,2],[23.90,39.18,2]];
+
+function miniMap(d,lang){
+  var ax=px(23.73), ay=py(37.98), dx=px(d.lon), dy=py(d.lat);
+  var mx=(ax+dx)/2 + (ay-dy)*0.18, my=(ay+dy)/2 + (dx-ax)*0.18;
+  var athensLabel = lang==='zh' ? '雅典' : 'Athens';
+  var s='<svg viewBox="0 0 '+MAP.w+' '+MAP.h+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+d[lang].name+'">';
+  s+='<rect width="'+MAP.w+'" height="'+MAP.h+'" fill="#EAF5FC"/>';
+  s+='<g fill="#D6E7D2" stroke="#BCD4B8" stroke-width="1" stroke-linejoin="round">';
+  s+='<path d="'+poly(MAINLAND)+'"/><path d="'+poly(PELOP)+'"/><path d="'+poly(CRETE)+'"/><path d="'+poly(EUBOEA)+'"/>';
+  s+='</g><g fill="#D6E7D2">';
+  DOTS.forEach(function(p){ s+='<circle cx="'+px(p[0]).toFixed(1)+'" cy="'+py(p[1]).toFixed(1)+'" r="'+p[2]+'"/>'; });
+  s+='</g>';
+  s+='<path d="M'+ax.toFixed(1)+' '+ay.toFixed(1)+' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+dx.toFixed(1)+' '+dy.toFixed(1)+'" stroke="#0071CE" stroke-width="1.8" stroke-dasharray="5 4" fill="none" opacity=".75"/>';
+  s+='<circle cx="'+ax.toFixed(1)+'" cy="'+ay.toFixed(1)+'" r="4.5" fill="#fff" stroke="#5D7391" stroke-width="2"/>';
+  s+='<text x="'+(ax+9).toFixed(1)+'" y="'+(ay+4).toFixed(1)+'" font-size="13" fill="#5D7391" font-family=\'-apple-system, PingFang SC, Microsoft YaHei, sans-serif\'>'+athensLabel+'</text>';
+  s+='<g><circle cx="'+dx.toFixed(1)+'" cy="'+dy.toFixed(1)+'" r="13" fill="#EE5A5F" opacity=".18"/>';
+  s+='<circle cx="'+dx.toFixed(1)+'" cy="'+dy.toFixed(1)+'" r="6.5" fill="#D8434A" stroke="#fff" stroke-width="2.4"/></g>';
+  var anchor = dx>MAP.w-120?'end':'start', tx = dx>MAP.w-120? dx-11 : dx+11;
+  s+='<text x="'+tx.toFixed(1)+'" y="'+(dy-12).toFixed(1)+'" text-anchor="'+anchor+'" font-size="15" font-weight="700" fill="#14335C" font-family=\'-apple-system, PingFang SC, Microsoft YaHei, sans-serif\'>'+d[lang].name+'</text>';
+  s+='</svg>';
+  return s;
+}
+
+/* distances from Athens */
+var DIST={
+ nafplio:[['car','1 h 50 · 145 km','自驾 1 小时 50 分 · 145 公里']],
+ monemvasia:[['car','4 h · 290 km','自驾 4 小时 · 290 公里']],
+ meteora:[['train','4 h 20 · direct','火车 4 小时 20 分 · 直达'],['car','4 h · 355 km','自驾 4 小时 · 355 公里']],
+ delphi:[['car','2 h 20 · 180 km','自驾 2 小时 20 分 · 180 公里']],
+ pelion:[['train','3 h 30 to Volos','火车 3 小时 30 分到沃洛斯'],['car','3 h 15 · 320 km','自驾 3 小时 15 分 · 320 公里']],
+ thessaloniki:[['plane','55 min','飞行 55 分钟'],['train','4 h 15 · high-speed','高铁 4 小时 15 分'],['car','5 h · 500 km','自驾 5 小时 · 500 公里']],
+ vergina:[['plane','55 min + 1 h drive','飞行 55 分钟 + 自驾 1 小时'],['car','5 h 30 · 520 km','自驾 5 小时 30 分 · 520 公里']],
+ zagori:[['plane','1 h to Ioannina','飞行 1 小时到约阿尼纳'],['car','4 h 30 · 420 km','自驾 4 小时 30 分 · 420 公里']],
+ philippi:[['plane','1 h to Kavala','飞行 1 小时到卡瓦拉'],['car','7 h · 665 km','自驾 7 小时 · 665 公里']],
+ mani:[['car','4 h · 360 km','自驾 4 小时 · 360 公里']],
+ naxos:[['ferry','3 h 45 fast · 5 h 30 conventional','高速船 3 小时 45 分 · 普通船 5 小时 30 分'],['plane','45 min','飞行 45 分钟']],
+ milos:[['ferry','3 h fast · 7 h conventional','高速船 3 小时 · 普通船 7 小时'],['plane','40 min','飞行 40 分钟']],
+ sifnos:[['ferry','2 h 50 fast · 5 h conventional','高速船 2 小时 50 分 · 普通船 5 小时']],
+ tinos:[['ferry','2 h 15 from Rafina · 4 h 30 from Piraeus','拉菲纳出发 2 小时 15 分 · 比雷埃夫斯 4 小时 30 分']],
+ chios:[['plane','50 min','飞行 50 分钟'],['ferry','7 h overnight','夕发朝至 7 小时']],
+ symi:[['plane','1 h to Rhodes + 1 h ferry','飞行 1 小时到罗德岛 + 渡轮 1 小时'],['ferry','15 h direct','直达渡轮 15 小时']],
+ chania:[['plane','50 min','飞行 50 分钟'],['ferry','9 h overnight','夕发朝至 9 小时']],
+athens:[['car','You are here','就在这里']],
+ santorini:[['ferry','4 h 45 fast · 8 h conventional','高速船 4 小时 45 分 · 普通船 8 小时'],['plane','50 min','飞行 50 分钟']],
+ mykonos:[['ferry','2 h 30 from Rafina · 5 h from Piraeus','拉菲纳出发 2 小时 30 分 · 比雷埃夫斯 5 小时'],['plane','40 min','飞行 40 分钟']],
+ patmos:[['ferry','7 h via Mykonos · 8 h direct','经米克诺斯 7 小时 · 直达 8 小时'],['plane','1 h to Kos or Samos + ferry','飞行 1 小时到科斯或萨摩斯 + 渡轮']],
+ karpathos:[['plane','1 h 20 direct','直飞 1 小时 20 分'],['ferry','18 h','渡轮 18 小时']],
+ skopelos:[['plane','45 min to Skiathos + 45 min ferry','飞行 45 分钟到斯基亚索斯 + 渡轮 45 分钟'],['car','3 h 15 to Volos + 3 h ferry','自驾 3 小时 15 分到沃洛斯 + 渡轮 3 小时']],
+ evia:[['car','1 h · 80 km to Chalkida','自驾 1 小时 · 80 公里到哈尔基达'],['train','1 h 20 direct','火车 1 小时 20 分直达']],
+ xanthi:[['plane','1 h to Kavala + 50 min drive','飞行 1 小时到卡瓦拉 + 自驾 50 分钟'],['car','7 h 30 · 720 km','自驾 7 小时 30 分 · 720 公里']],
+ corfu:[['plane','1 h','飞行 1 小时'],['car','5 h 30 + 1 h 30 ferry','自驾 5 小时 30 分 + 渡轮 1 小时 30 分']]
+};
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+var Q=[
+{key:'themes',type:'multi',min:1,
+ en:{title:'What pulls you toward a place?',note:'Pick as many as you like — this shapes everything that follows.',
+  opts:[['ancient','Ancient history & myth','temple'],['byzantine','Byzantine, medieval & Ottoman','castle'],['food','Food & wine','fork'],
+        ['nature','Mountains, gorges & walking','mountain'],['village','Village life & crafts','craft'],['art','Art, museums & architecture','art'],
+        ['sea','The sea & swimming','wave'],['living','Living traditions & festivals','festival']]},
+ zh:{title:'什么最吸引你去一个地方？',note:'可以多选——这会决定后面所有的推荐。',
+  opts:[['ancient','古代历史与神话','temple'],['byzantine','拜占庭、中世纪与奥斯曼','castle'],['food','美食与葡萄酒','fork'],
+        ['nature','山峦、峡谷与徒步','mountain'],['village','村落生活与手工艺','craft'],['art','艺术、博物馆与建筑','art'],
+        ['sea','大海与游泳','wave'],['living','活着的传统与节庆','festival']]}},
+
+{key:'standing',type:'single',
+ en:{title:'Where does Greece sit in your plans right now?',note:'An honest answer helps us show you the right thing. There is no wrong one.',
+  opts:[['top','Top of my list','star'],['weighing','One of several European options I\u2019m weighing','compass'],
+        ['notyet','I hadn\u2019t really considered it','eye'],['been','I\u2019ve been — I want a different side of it','island']]},
+ zh:{title:'目前，希腊在你的出行计划里排第几？',note:'如实选就好，这能帮我们给你看对的东西。没有错误答案。',
+  opts:[['top','排在第一位','star'],['weighing','欧洲几个备选之一，还在比较','compass'],
+        ['notyet','其实没太认真考虑过','eye'],['been','去过了，想看不一样的一面','island']]}},
+
+{key:'block',type:'single',
+ en:{title:'What\u2019s your picture of Greece?',note:'We ask because the picture is usually narrower than the country.',
+  opts:[['beaches','Beautiful, but mostly beaches and islands','wave'],
+        ['crowded','I worry it\u2019s too crowded','eye'],
+        ['unsure','I\u2019m not sure what there is beyond Athens and Santorini','compass'],
+        ['deep','I already know there\u2019s more — show me','star']]},
+ zh:{title:'你心里的希腊，是什么样子？',note:'我们问这个，是因为大多数人心里的那幅画，比这个国家本身窄得多。',
+  opts:[['beaches','很美，但好像主要就是海岛和沙滩','wave'],
+        ['crowded','担心人太多','eye'],
+        ['unsure','除了雅典和圣托里尼，不太知道还有什么','compass'],
+        ['deep','我知道远不止这些，给我看看','star']]}},
+
+{key:'shape',type:'single',
+ en:{title:'Island, town, or city?',
+  opts:[['island','An island','island'],['town','A small town or mountain village','town'],
+        ['city','A city with depth','city'],['any','Surprise me','dice']]},
+ zh:{title:'海岛、小城，还是城市？',
+  opts:[['island','海岛','island'],['town','小镇或山村','town'],
+        ['city','一座有厚度的城市','city'],['any','都可以，给我惊喜','dice']]}},
+
+{key:'reach',type:'slider',min:1,max:5,def:3,
+ en:{title:'How far from Athens are you willing to go?',note:'Greece is bigger than it looks on a map — the north is as far from Athens as Athens is from Crete.',
+  labels:['Keep it close — day trips and short hops','Anywhere, if it\u2019s worth it']},
+ zh:{title:'愿意离雅典多远？',note:'希腊比地图上看起来大得多——从雅典到北部的距离，和从雅典到克里特差不多。',
+  labels:['尽量近一点，一日游或短途','只要值得，多远都行']}},
+
+{key:'crowd',type:'slider',min:1,max:5,def:3,
+ en:{title:'And how do you feel about crowds?',note:'In 2025 Greece welcomed a record 37.98 million visitors — but 83% of all visits landed in just five of its thirteen regions. Most of the country stayed quiet.',
+  labels:['I want the famous ones','Take me where fewer people go']},
+ zh:{title:'那么，你介意人多吗？',note:'2025 年希腊接待了创纪录的 3,798 万访客——但其中 83% 的到访，只落在十三个大区中的五个。这个国家的大部分，依然很安静。',
+  labels:['我想去最有名的','带我去人少的地方']}},
+
+{key:'season',type:'single',
+ en:{title:'When would you go?',
+  opts:[['spring','April – June','compass'],['summer','July – August','wave'],
+        ['autumn','September – October','fork'],['winter','November – March','castle'],['flex','Not decided','dice']]},
+ zh:{title:'打算什么时候去？',
+  opts:[['spring','4–6 月','compass'],['summer','7–8 月','wave'],
+        ['autumn','9–10 月','fork'],['winter','11–3 月','castle'],['flex','还没定','dice']]}}
+];
+
+/* =========================================================
+   i18n strings
+   ========================================================= */
+var T={
+ en:{brandOrg:'Philhellene',brandName:'Beyond the Postcard',
+  landTitle:'Greece is not one picture.',
+  landBody:'Most people arrive with a single image in mind — a white village on a blue sea. That image is real, and it is also about two percent of the country. Answer seven questions and we\u2019ll show you a place that fits how you actually travel, with its history, its food, and how to reach it.',
+  landStart:'Begin',
+  landMeta:'Seven questions, about two minutes. Nothing you select is saved or sent anywhere.',
+  qOf:function(a,b){return 'Question '+a+' of '+b;},
+  back:'Back',cancel:'Start over',next:'Continue',finish:'Show me',
+  resultEyebrow:'We think you\u2019d love',
+  uspTtl:'Why here',
+  histTtl:'History & heritage',
+  filmTtl:'On screen',
+  foodTtl:'What to eat',
+  swapTtl:'Why this matters',
+  distTtl:'From Athens',
+  pressureLabel:'Visitor pressure',
+  pressureLow:'Low',pressureMid:'Moderate',pressureHigh:'High',
+  moreTtl:'Three more that fit you',
+  moreHint:'Tap any to see it in full.',
+  closeTtl:'A small note on why we built this',
+  closeBody:'In 2025 Greece received a record 37.98 million international visitors.<sup>1</sup> Five of its thirteen regions \u2014 Attica, the Southern Aegean, Central Macedonia, Crete and the Ionian Islands \u2014 took 83% of every visit made in the country. The remaining eight regions shared what was left.<sup>2</sup> That is the imbalance this project exists to address. Byzantine towns, island villages and whole regions holding UNESCO sites see almost no one, and visitors are what keep their schools open, their young people at home and their crafts alive. If one thing here made you reconsider where you\u2019d go, that was the point.',
+  sources:['Bank of Greece, <i>Developments in the balance of travel services: December 2025</i> \u2014 inbound travellers 37,981.1 thousand, up 5.6% on 2024.','Bank of Greece, <i>Developments in the balance of travel services: 2025</i> \u2014 41,749.3 thousand regional visits; the five leading regions account for 83.0%.'],
+  again:'Try different answers',
+  restart:'Start over',
+  seasonTtl:'When to go',
+  bridgeTtl:'A thread to China',
+  pairTtl:'Go — and then go here too',
+  pairBody:'This place earns its fame. But it also carries a large share of the country\u2019s visitors on very little ground. Pair it with one of these, a short hop away, and the trip gets better while the pressure spreads.',
+  monthsB:'Best',monthsG:'Good',monthsS:'Quiet, some closures',monthsL:'Largely closed',
+  share:'Share this',shareHint:'Take a screenshot to share, or copy the text below.',
+  copy:'Copy text',copied:'Copied',close:'Close',
+  shareEye:'My next Hellenic destination',
+  types:{island:'Island',town:'Town',city:'City',region:'Region'}},
+ zh:{brandOrg:'希友',brandName:'明信片之外',
+  landTitle:'希腊，不只有一张照片。',
+  landBody:'大多数人来的时候，心里只装着一张画面：蓝色海面上的白色村庄。那画面是真的，但它大约只占这个国家的百分之二。回答七个问题，我们会给你一个真正贴合你旅行方式的地方——连同它的历史、食物，以及怎么抵达。',
+  landStart:'开始',
+  landMeta:'七个问题，约两分钟。你的任何选择都不会被保存或发送到任何地方。',
+  qOf:function(a,b){return '第 '+a+' / '+b+' 题';},
+  back:'上一题',cancel:'重新开始',next:'下一题',finish:'看看结果',
+  resultEyebrow:'为你推荐',
+  uspTtl:'为什么是这里',
+  histTtl:'历史与遗产',
+  filmTtl:'影视取景',
+  foodTtl:'必尝风味',
+  swapTtl:'为什么值得这样走',
+  distTtl:'从雅典出发',
+  pressureLabel:'游客密度',
+  pressureLow:'低',pressureMid:'中等',pressureHigh:'高',
+  moreTtl:'这三处同样适合你',
+  moreHint:'点击任意一处，查看完整介绍。',
+  closeTtl:'我们为什么做这件事',
+  closeBody:'2025 年，希腊接待了创纪录的 3,798 万国际访客。<sup>1</sup>而在全国十三个大区中，仅阿提卡、南爱琴、中马其顿、克里特与伊奥尼亚这五个大区，就占去了全部到访量的 83%，余下八个大区只能分享剩下的部分。<sup>2</sup>这种失衡，正是这个项目想要回应的问题。拜占庭古城、海岛村落，乃至拥有世界遗产的整片地区，几乎无人踏足；而访客，恰恰是让这些地方的学校留得住、年轻人不必外流、手艺传得下去的那股力量。如果这里有哪一条让你重新想了想"该去哪儿"，那就是我们的目的。',
+  sources:['希腊央行《旅游服务收支发展：2025 年 12 月》\u2014 入境旅客 3,798.11 万人次，同比增长 5.6%。','希腊央行《旅游服务收支发展：2025 年》\u2014 全年分区到访 4,174.93 万人次，前五大区合计占 83.0%。'],
+  again:'换个答案再看',
+  restart:'重新开始',
+  seasonTtl:'什么时候去',
+  bridgeTtl:'与中国的关联',
+  pairTtl:'去，但别只去这一处',
+  pairBody:'这个地方配得上它的名气。但它也在极小的土地上，承接了全国相当大比例的游客。把它和下面这些只有一小段路程的地方搭配起来，旅程会更好，压力也被分担了。',
+  monthsB:'最佳',monthsG:'不错',monthsS:'安静，部分歇业',monthsL:'大多关闭',
+  share:'分享',shareHint:'截屏即可分享，或复制下方文字。',
+  copy:'复制文字',copied:'已复制',close:'关闭',
+  shareEye:'为我推荐的希腊下一站',
+  types:{island:'海岛',town:'小城',city:'城市',region:'地区'}}
+};
+
+/* =========================================================
+   STATE
+   ========================================================= */
+var lang=null, step=0, view=null, forced=null;
+var A={themes:[],standing:null,block:null,shape:null,reach:3,crowd:3,season:null};
+var ranked=null;
+var TOTAL=Q.length, S_RES=TOTAL+1;
+
+/* sky */
+var STOPS=[{t:0,top:[207,234,250],bot:[244,251,255],sun:[255,255,255],g:.35,y:16},
+           {t:.5,top:[176,222,247],bot:[236,248,255],sun:[255,246,214],g:.5,y:34},
+           {t:1,top:[169,215,243],bot:[255,240,214],sun:[255,214,130],g:.65,y:26}];
+function lp(a,b,t){return Math.round(a+(b-a)*t);}
+function rs(a){return 'rgb('+a[0]+','+a[1]+','+a[2]+')';}
+function skyAt(p){ p=Math.max(0,Math.min(1,p));
+  var i=0; while(i<STOPS.length-2&&p>STOPS[i+1].t) i++;
+  var a=STOPS[i],b=STOPS[i+1],sp=(b.t-a.t)||1,t=(p-a.t)/sp;
+  var top=[0,1,2].map(function(c){return lp(a.top[c],b.top[c],t);});
+  var bot=[0,1,2].map(function(c){return lp(a.bot[c],b.bot[c],t);});
+  var sun=[0,1,2].map(function(c){return lp(a.sun[c],b.sun[c],t);});
+  return {top:rs(top),bot:rs(bot),sun:rs(sun),glow:'rgba('+sun[0]+','+sun[1]+','+sun[2]+','+(a.g+(b.g-a.g)*t)+')',y:a.y+(b.y-a.y)*t};
+}
+var SKYLINE='<svg class="skyline" viewBox="0 0 400 62" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">'
+ +'<path d="M0,62 L0,44 Q10,36 20,44 L20,32 Q28,22 36,32 L36,46 L58,46 L58,36 Q66,26 74,36 L74,48 L96,48 L96,30 Q104,20 112,30 L112,50 L134,50 L134,40 Q142,30 150,40 L150,52 L176,52 L176,26 Q185,14 194,26 L194,54 L220,54 L220,42 Q228,32 236,42 L236,56 L262,56 L262,36 Q270,24 278,36 L278,56 L306,56 L306,46 Q314,36 322,46 L322,58 L350,58 L350,32 Q358,20 366,32 L366,60 L400,60 L400,62 Z" fill="#FFFFFF" opacity=".95"/>'
+ +'<path d="M0,62 L0,52 Q40,46 80,52 T160,52 T240,52 T320,52 T400,52 L400,62 Z" fill="#DCEFFA"/>'
+ +'<g fill="#0071CE"><path d="M18 44a5 5 0 0 1 10 0z"/><path d="M104 30a6 6 0 0 1 12 0z"/><path d="M182 26a6 6 0 0 1 12 0z"/><path d="M268 36a5 5 0 0 1 10 0z"/><path d="M356 32a6 6 0 0 1 12 0z"/></g></svg>';
+
+var root=document.getElementById('root');
+
+/* =========================================================
+   SCORING
+   ========================================================= */
+function score(){
+  var out=D.map(function(d){
+    var s=0;
+    A.themes.forEach(function(t){ s+=(d.t[t]||0); });
+    if(A.shape&&A.shape!=='any'){ s += (d.type===A.shape ? 7 : (A.shape==='town'&&d.type==='region' ? 5 : 0)); }
+    s += 5-Math.abs(A.reach-d.dist);
+    s += (5-Math.abs((6-A.crowd)-d.pressure))*1.3;
+    /* mission weighting: quieter places get a lift, but a capped one so a
+       handful of very quiet spots don't crowd out everywhere else */
+    var quiet=6-d.pressure, lift=quiet*0.9;
+    if(A.block==='crowded') lift+=quiet*0.8;
+    else if(A.block==='unsure') lift+=quiet*0.4;
+    if(A.standing==='been') lift+=quiet*0.6;
+    s += Math.min(lift,8);
+    /* flagships stay reachable but never crowd out the rest */
+    if(d.flagship){ s -= 2; if(A.crowd>=4) s -= 8; if(A.block==='crowded') s -= 7; if(A.standing==='been') s -= 6; if(A.crowd<=2) s += 11; else if(A.crowd===3) s += 2; if(A.standing==='top') s += 2; }
+    if(A.block==='beaches'&&d.type!=='island') s+=4;
+    if(A.standing==='notyet'||A.standing==='weighing') s+=(d.t.ancient+d.t.byzantine)*0.3;
+    if(A.season==='winter'&&(d.type==='city'||d.type==='town')) s+=4;
+    if(A.season==='winter'&&d.type==='island') s-=4;
+    if(A.season==='summer'&&d.type==='island') s+=1.5;
+    return {d:d,s:s};
+  });
+  out.sort(function(a,b){return b.s-a.s;});
+  return out;
+}
+
+
+var MCOL={B:'#2E7D57',G:'#5FA37C',S:'#D9A22B',L:'#B0BCC9'};
+var MLET={en:['J','F','M','A','M','J','J','A','S','O','N','D'],zh:['1','2','3','4','5','6','7','8','9','10','11','12']};
+function seasonBlock(d,lang){
+  var t=T[lang], m=d.months||'GGGGGGGGGGGG', cells='';
+  for(var i=0;i<12;i++){ cells+='<div style="background:'+MCOL[m[i]]+'">'+MLET[lang][i]+'</div>'; }
+  var used={}; m.split('').forEach(function(c){used[c]=1;});
+  var order=['B','G','S','L'], names={B:t.monthsB,G:t.monthsG,S:t.monthsS,L:t.monthsL}, leg='';
+  order.forEach(function(c){ if(used[c]) leg+='<span><i style="background:'+MCOL[c]+'"></i>'+names[c]+'</span>'; });
+  return '<div class="season"><div class="ttl">'+ic('calendar')+t.seasonTtl+'</div>'
+    +'<div class="strip">'+cells+'</div><div class="legend">'+leg+'</div></div>';
+}
+function byId(id){ for(var i=0;i<D.length;i++){ if(D[i].id===id) return D[i]; } return null; }
+function pairBlock(d,lang){
+  if(!d.flagship||!d.pair) return '';
+  var t=T[lang];
+  var rows=d.pair.map(function(pid){
+    var p=byId(pid); if(!p) return '';
+    var why = lang==='en' ? (T.en.types[p.type]+' · '+p[lang].region) : (T.zh.types[p.type]+' · '+p[lang].region);
+    return '<button class="pairbtn" data-id="'+p.id+'"><span><span class="pn">'+p[lang].name+'</span><br><span class="pw">'+why+'</span></span><span class="arw">\u2192</span></button>';
+  }).join('');
+  return '<div class="pairbox"><div class="ttl">'+t.pairTtl+'</div><p>'+t.pairBody+'</p><div class="pairlist">'+rows+'</div></div>';
+}
+function shareCard(d,lang){
+  var t=T[lang], c=d[lang];
+  var usp=c.usp.length>150?c.usp.slice(0,148)+'\u2026':c.usp;
+  return '<div class="overlay" id="ov"><div class="sharewrap">'
+   +'<div class="sharecard" id="scard"><div class="sc-top"><div class="sc-org">'+(lang==='en'?'Philhellene':'\u5e0c\u53cb')+'</div>'
+   +'<div class="sc-eye">'+t.shareEye+'</div><div class="sc-name">'+c.name+'</div><div class="sc-alt">'+c.alt+'</div></div>'
+   +'<div class="sc-pc">'+postcard(d,lang)+'</div>'
+   +'<div class="sc-body"><div class="sc-usp">'+usp+'</div>'
+   +'<div class="sc-foot"><b>'+(lang==='en'?'Beyond the postcard':'明信片之外')+'</b></div></div></div>'
+   +'<div class="share-actions"><button class="sa-copy" id="scCopy">'+t.copy+'</button>'
+   +'<button class="sa-close" id="scClose">'+t.close+'</button></div>'
+   +'<div class="share-hint">'+t.shareHint+'</div></div></div>';
+}
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+function gate(){
+  document.body.className='';
+  root.innerHTML=''
+  +'<div class="gate"><div class="gate-inner">'
+  +'<div class="gate-mark">Philhellene <span style="letter-spacing:.06em">\u00b7</span> \u5e0c\u53cb</div>'
+  +'<svg class="gate-art" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+   +'<rect width="400" height="150" fill="none"/>'
+   +'<path d="M0 118 Q60 100 120 112 Q190 126 260 108 Q330 92 400 106 L400 150 L0 150 Z" fill="#9FD6EC" opacity=".5"/>'
+   +'<path d="M0 128 Q70 114 140 124 Q220 136 300 120 Q360 108 400 118 L400 150 L0 150 Z" fill="#5FB6DB" opacity=".45"/>'
+   +'<g fill="#FFFFFF" stroke="#CFE4F3"><rect x="52" y="74" width="34" height="26" rx="2"/><rect x="92" y="82" width="26" height="18" rx="2"/>'
+   +'<rect x="150" y="70" width="30" height="30" rx="2"/><rect x="262" y="78" width="30" height="22" rx="2"/><rect x="300" y="72" width="26" height="28" rx="2"/></g>'
+   +'<g fill="#0071CE"><path d="M60 74a9 9 0 0 1 18 0z"/><path d="M158 70a8 8 0 0 1 16 0z"/><path d="M306 72a8 8 0 0 1 16 0z"/></g>'
+   +'<g stroke="#14335C" stroke-width="2.4" fill="none"><path d="M200 100V56M212 100V56M224 100V56M236 100V56"/><path d="M194 56h48M196 50l22-11 22 11" stroke-linejoin="round"/></g>'
+   +'<circle cx="352" cy="42" r="15" fill="#FFE49A"/>'
+  +'</svg>'
+  +'<h1>Greece is not one picture.</h1>'
+  +'<div class="h1zh">希腊，不只有一张照片。</div>'
+  +'<p class="sub">Choose a language to begin.</p>'
+  +'<p class="subzh">请选择语言，然后开始。</p>'
+  +'<div class="lang-row">'
+   +'<button class="lang-btn" id="btnEn"><span class="big">English</span><span class="small">Continue in English</span></button>'
+   +'<button class="lang-btn zh" id="btnZh"><span class="big">中文</span><span class="small">使用简体中文继续</span></button>'
+  +'</div>'
+  +'<div class="privacy">'
+   +'<div class="row">'+ic('lock')+'<span><b>No information is collected.</b> Your answers stay in this browser tab, are never sent anywhere, and are gone the moment you close it. There is no sign-up, no contact form and no tracking.</span></div>'
+   +'<div class="row">'+ic('lock')+'<span><b>我们不收集任何信息。</b>你的回答只停留在这个浏览器标签页中，不会被发送到任何地方，关闭页面即消失。没有注册、没有留资表单，也没有任何追踪。</span></div>'
+  +'</div>'
+  +'<div class="gate-foot">Philhellene — a friend of Greece, a word in use since Byron\u2019s day<br>希友 — 希腊之友，亦音同「稀有」</div>'
+  +'</div></div>';
+  document.getElementById('btnEn').addEventListener('click',function(){ setLang('en'); });
+  document.getElementById('btnZh').addEventListener('click',function(){ setLang('zh'); });
+}
+
+function setLang(l){ lang=l; step=0; render(); }
+
+function shell(inner,prog){
+  var s=skyAt(prog), pct=Math.round(prog*100), t=T[lang];
+  document.body.className = lang==='zh'?'zh':'';
+  root.innerHTML='<div class="app">'
+   +'<header class="sky" style="--sky-top:'+s.top+';--sky-bottom:'+s.bot+'">'
+   +'<div class="brandmark"><span class="org">'+t.brandOrg+'</span><span class="word">'+t.brandName+'</span></div>'
+   +'<button class="langswap" id="swapLang">'+(lang==='en'?'中文':'English')+'</button>'
+   +'<div class="sun" style="left:'+(12+prog*76)+'%; bottom:'+s.y+'%; background:'+s.sun+'; box-shadow:0 0 42px 10px '+s.glow+';"></div>'
+   +'<svg class="cloud" style="top:20%;left:15%;width:70px" viewBox="0 0 80 30"><path d="M12 28h56a12 12 0 0 0 0-17 15 15 0 0 0-27-5A11 11 0 0 0 12 28z"/></svg>'
+   +'<svg class="cloud" style="top:42%;left:64%;width:52px;opacity:.7" viewBox="0 0 80 30"><path d="M12 28h56a12 12 0 0 0 0-17 15 15 0 0 0-27-5A11 11 0 0 0 12 28z"/></svg>'
+   +SKYLINE+'</header>'
+   +'<div class="track"><div style="width:'+pct+'%"></div></div>'
+   +'<main class="panel"><div class="panel-inner">'+inner+'</div></main></div>';
+  document.getElementById('swapLang').addEventListener('click',function(){ lang = lang==='en'?'zh':'en'; render(); });
+}
+
+function landing(){
+  var t=T[lang];
+  shell('<div class="hero-copy"><h1>'+t.landTitle+'</h1><p>'+t.landBody+'</p>'
+   +'<button class="btn btn-primary" id="go">'+t.landStart+'</button>'
+   +'<div class="hero-meta">'+t.landMeta+'</div></div>',0);
+  document.getElementById('go').addEventListener('click',function(){ step=1; render(); });
+}
+
+function question(i){
+  var q=Q[i-1], L=q[lang], t=T[lang], body='';
+  if(q.type==='multi'){
+    body+='<div class="chips">';
+    L.opts.forEach(function(o){
+      body+='<button class="chip'+(A[q.key].indexOf(o[0])>-1?' selected':'')+'" data-v="'+o[0]+'">'+ic(o[2])+'<span>'+o[1]+'</span></button>';
+    });
+    body+='</div>';
+  } else if(q.type==='single'){
+    body+='<div class="options">';
+    L.opts.forEach(function(o){
+      body+='<button class="option'+(A[q.key]===o[0]?' selected':'')+'" data-v="'+o[0]+'">'+ic(o[2])+'<span class="label">'+o[1]+'</span></button>';
+    });
+    body+='</div>';
+  } else {
+    var v=A[q.key];
+    body+='<div class="slider-wrap"><input type="range" id="rg" min="'+q.min+'" max="'+q.max+'" step="1" value="'+v+'" aria-label="'+L.title+'">'
+      +'<div class="slider-labels"><span class="'+(v<=2?'active':'')+'">'+L.labels[0]+'</span><span class="'+(v>=4?'active':'')+'">'+L.labels[1]+'</span></div></div>';
+  }
+  var ok = q.type==='multi' ? A[q.key].length>=(q.min||1) : (q.type==='single' ? !!A[q.key] : true);
+  shell('<div class="step-count">'+t.qOf(i,TOTAL)+'</div><h2 class="q-title">'+L.title+'</h2>'
+   +(L.note?'<p class="q-note">'+L.note+'</p>':'')+body
+   +'<div class="nav-row"><button class="btn btn-ghost" id="bk">'+(i===1?t.cancel:t.back)+'</button>'
+   +'<button class="btn btn-primary" id="nx"'+(ok?'':' disabled')+'>'+(i===TOTAL?t.finish:t.next)+'</button></div>', i/(TOTAL+1));
+
+  document.getElementById('bk').addEventListener('click',function(){ step=Math.max(0,step-1); render(); });
+  document.getElementById('nx').addEventListener('click',function(){
+    if(i===TOTAL){ ranked=score(); forced=null; step=S_RES; } else step=i+1;
+    render();
+  });
+  if(q.type==='multi'){
+    Array.prototype.forEach.call(root.querySelectorAll('.chip'),function(b){
+      b.addEventListener('click',function(){
+        var v=b.getAttribute('data-v'), k=A[q.key].indexOf(v);
+        if(k>-1) A[q.key].splice(k,1); else A[q.key].push(v);
+        render();
+      });
+    });
+  }
+  if(q.type==='single'){
+    Array.prototype.forEach.call(root.querySelectorAll('.option'),function(b){
+      b.addEventListener('click',function(){ A[q.key]=b.getAttribute('data-v'); render(); });
+    });
+  }
+  if(q.type==='slider'){
+    var r=document.getElementById('rg');
+    r.addEventListener('input',function(){
+      A[q.key]=parseInt(r.value,10);
+      var ls=root.querySelectorAll('.slider-labels span');
+      ls[0].classList.toggle('active',A[q.key]<=2);
+      ls[1].classList.toggle('active',A[q.key]>=4);
+    });
+  }
+}
+
+function result(){
+  var t=T[lang];
+  var d = forced ? D.filter(function(x){return x.id===forced;})[0] : ranked[0].d;
+  var c=d[lang];
+  var others = ranked.filter(function(r){return r.d.id!==d.id;}).slice(0,3);
+
+  var dist=(DIST[d.id]||[]).map(function(x){
+    return '<div class="dist">'+ic(x[0])+'<span>'+(lang==='en'?x[1]:x[2])+'</span></div>';
+  }).join('');
+
+  var pct=d.pressure*20, col = d.pressure<=2?'#6E9A57':(d.pressure<=3?'#D9A22B':'#D8434A');
+  var plab = d.pressure<=2?t.pressureLow:(d.pressure<=3?t.pressureMid:t.pressureHigh);
+
+  var html=''
+  +'<div class="badge-row"><span class="badge type">'+t.types[d.type]+'</span><span class="badge region">'+c.region+'</span>'
+   +(d.pressure<=2?'<span class="badge quiet">'+(lang==='en'?'Still quiet':'仍然安静')+'</span>':'')+'</div>'
+  +'<div class="step-count">'+t.resultEyebrow+'</div>'
+  +'<h2 class="place-name">'+c.name+'</h2>'
+  +'<div class="place-alt">'+c.alt+'</div>'
+  +'<div class="pcard">'+postcard(d,lang)+'</div>'
+  +'<div class="mapbox">'+miniMap(d,lang)+'</div>'
+  +'<div class="step-count" style="margin-bottom:8px">'+t.distTtl+'</div>'
+  +'<div class="dist-row">'+dist+'</div>'
+  +'<div class="usp"><span class="ttl">'+t.uspTtl+'</span><p>'+c.usp+'</p></div>'
+  +pairBlock(d,lang)
+  +seasonBlock(d,lang)
+  +'<div class="sect"><h3>'+ic('scroll')+t.histTtl+'</h3><p>'+c.history+'</p></div>'
+  +(c.film?'<div class="film"><div class="ttl">'+t.filmTtl+'</div><p>'+c.film+'</p></div>':'')
+  +((lang==='zh'&&c.bridge)?'<div class="bridge"><div class="ttl">'+ic('link')+t.bridgeTtl+'</div><p>'+c.bridge+'</p></div>':'')
+  +'<div class="food"><div class="ttl">'+ic('fork')+t.foodTtl+'</div><p>'+c.food+'</p></div>'
+  +'<div class="swap"><div class="ttl">'+t.swapTtl+'</div><p>'+c.swap+'</p>'
+   +'<div class="meter"><span>'+t.pressureLabel+'</span><span class="bar"><i style="width:'+pct+'%;background:'+col+'"></i></span><span>'+plab+'</span></div></div>'
+  +'<hr class="divider">'
+  +'<h3 style="font-size:1.12rem;margin-bottom:4px">'+t.moreTtl+'</h3>'
+  +'<p class="q-note" style="margin-bottom:14px">'+t.moreHint+'</p>'
+  +'<div class="more">'
+   +others.map(function(r){
+      var o=r.d[lang];
+      return '<button class="more-card" data-id="'+r.d.id+'"><div class="nm">'+o.name+'</div>'
+        +'<div class="ds">'+o.usp.split(/[—。]/)[0].slice(0,110)+'…</div></button>';
+    }).join('')
+  +'</div>'
+  +'<hr class="divider">'
+  +'<div class="closing"><h3>'+t.closeTtl+'</h3><p>'+t.closeBody+'</p>'
+   +'<ol class="srcnote">'+t.sources.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ol></div>'
+  +'<div class="action-row"><button class="btn btn-primary" id="shareBtn">'+t.share+'</button>'
+   +'<button class="btn-outline" id="again">'+t.again+'</button>'
+   +'<button class="btn btn-ghost" id="restart">'+t.restart+'</button></div>';
+
+  shell(html,1);
+  Array.prototype.forEach.call(root.querySelectorAll('.more-card'),function(b){
+    b.addEventListener('click',function(){ forced=b.getAttribute('data-id'); render(); window.scrollTo(0,0); });
+  });
+  Array.prototype.forEach.call(root.querySelectorAll('.pairbtn'),function(b){
+    b.addEventListener('click',function(){ forced=b.getAttribute('data-id'); render(); window.scrollTo(0,0); });
+  });
+  document.getElementById('shareBtn').addEventListener('click',function(){
+    var wrap=document.createElement('div'); wrap.innerHTML=shareCard(d,lang);
+    document.body.appendChild(wrap.firstChild);
+    var ov=document.getElementById('ov');
+    document.getElementById('scClose').addEventListener('click',function(){ ov.remove(); });
+    ov.addEventListener('click',function(e){ if(e.target===ov) ov.remove(); });
+    document.getElementById('scCopy').addEventListener('click',function(){
+      var txt = (lang==='en'
+        ? T.en.shareEye+': '+c.name+'.\n'+c.usp+'\n\nFound with Beyond the Postcard, from Philhellene.'
+        : T.zh.shareEye+'：'+c.name+'。\n'+c.usp+'\n\n来自「希友」文化项目：明信片之外。');
+      var btn=this;
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          navigator.clipboard.writeText(txt).then(function(){ btn.textContent=T[lang].copied; },function(){ fallback(); });
+        } else fallback();
+      }catch(e){ fallback(); }
+      function fallback(){
+        var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); btn.textContent=T[lang].copied; }catch(e){}
+        ta.remove();
+      }
+    });
+  });
+  document.getElementById('again').addEventListener('click',function(){ step=1; forced=null; render(); window.scrollTo(0,0); });
+  document.getElementById('restart').addEventListener('click',function(){
+    A={themes:[],standing:null,block:null,shape:null,reach:3,crowd:3,season:null};
+    ranked=null; forced=null; step=0; render(); window.scrollTo(0,0);
+  });
+}
+
+function render(){
+  if(!lang) return gate();
+  if(step===0) return landing();
+  if(step>=1&&step<=TOTAL) return question(step);
+  if(step===S_RES) return result();
+}
+render();
+})();
+</script>
+</body>
+</html>
